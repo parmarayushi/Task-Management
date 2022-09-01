@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { SidebarComponent } from './core/master/sidebar/sidebar.component';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     BrowserModule,
     AppRoutingModule,
     DashboardModule,
+    UsersModule,
     CoreModule
   ],
   providers: [],

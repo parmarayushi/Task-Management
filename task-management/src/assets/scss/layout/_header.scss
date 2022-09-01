@@ -1,3 +1,7 @@
 .header{
-    background-color: $header-background;
+    background-color: $secondary;
+
+    .menu-btn{
+        cursor: pointer;
+    }
 }

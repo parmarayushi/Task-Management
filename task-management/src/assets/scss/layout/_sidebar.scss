@@ -1,13 +1,9 @@
 .sidebar {
     width: $sidebar-width;
-    background-color: $sidebar-background;
+    background-color: $primary;
+    transition: 0.4s all ease;
 
-    .user-header {
-        font-size: 1.6rem;
-        border-bottom: $border-size solid $white;
-    }
-
-    .user-email{
+    .user-email {
         font-size: 0.7rem;
     }
 }
@@ -18,12 +14,44 @@
 
     &-link {
         cursor: pointer;
-      &.active {
-       background-color:$hover-background-colour
-      }
-      &:hover {
-        background-color: $hover-background-colour;
-        font-weight: bold;
-      }
+
+        &.active {
+            background-color: $secondary;
+        }
+
+        &:hover {
+            background-color: $secondary;
+            font-weight: bold;
+        }
+    }
+}
+
+#menu:checked {
+    ~.sidebar{
+        width: 50px;
+    }
+}
+
+#users {
+    ~.sub-items {
+        height: 0px;
+        transition: 0.4s all ease-in-out;
+    }
+}
+
+#toggle {
+    cursor: pointer;
+    transition: 0.4s all ease-in-out;
+}
+
+#users:checked {
+    ~.sub-items {
+        height: 90px;
+        transition: 0.4s all ease-in-out;
+        background-color: $dropdown-background;
+    }
+
+    ~ .nav-link #toggle {
+        transform: rotate(180deg);
     }
 }

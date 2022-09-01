@@ -4,6 +4,7 @@ import { MasterComponent } from './master/master.component';
 import { SidebarComponent } from './master/sidebar/sidebar.component';
 import { HeaderComponent } from './master/header/header.component';
 import { FooterComponent } from './master/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ import { FooterComponent } from './master/footer/footer.component';
     FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports:[
     SidebarComponent,

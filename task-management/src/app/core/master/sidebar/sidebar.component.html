@@ -1,11 +1,7 @@
+<input type="checkbox" id="menu" class="d-none">
 <aside class="sidebar h-100">
-  <header class="d-flex text-center fw-bold">
-    <div class="flex-grow-1 user-header text-white p-3">
-      <span>ADMIN</span>
-    </div>
-  </header>
-  <div class="d-flex m-3 text-white">
-    <span class="icon-profile d-flex align-items-center pe-3"></span>
+  <div class="d-flex p-3 text-white">
+    <span class="icon-profile d-flex align-items-center pe-4"></span>
     <div class="d-flex flex-column">
       <span>Admin Admin</span>
       <span class="user-email">admin123@gmail.com</span>
@@ -14,35 +10,45 @@
   <nav class="nav overflow-vertical d-block">
     <ul class="ps-0">
       <li class="pb-3 nav-item">
-        <a routerLink="" routerLinkActive="active" class="nav-link d-flex text-decoration-none text-white ps-4">
-          <span class="icon-home pe-3 d-flex align-items-center"></span>
+        <a routerLink="dashboard"  class="nav-link d-flex text-decoration-none text-white ps-3">
+          <span class="icon-home pe-4 d-flex align-items-center"></span>
           <span>Dashboard</span>
         </a>
       </li>
 
       <li class="pb-3 nav-item">
-        <a routerLink="" routerLinkActive="active" class="nav-link d-flex text-decoration-none text-white ps-4">
-          <span class="icon-project pe-3 d-flex align-items-center"></span>
-          <span>Project</span>
+        <a routerLink="" class="nav-link d-flex text-decoration-none text-white ps-3">
+          <span class="icon-project pe-4 d-flex align-items-center"></span>
+          <span>Projects</span>
         </a>
       </li>
 
       <li class="pb-3 nav-item">
-        <a routerLink="" routerLinkActive="active" class="nav-link d-flex text-decoration-none text-white ps-4">
-          <span class="icon-tasks pe-3 d-flex align-items-center"></span>
+        <a routerLink=""  class="nav-link d-flex text-decoration-none text-white ps-3">
+          <span class="icon-tasks pe-4 d-flex align-items-center"></span>
           <span>Tasks</span>
         </a>
       </li>
 
       <li class="pb-3 nav-item">
-        <a routerLink="" routerLinkActive="active" class="nav-link d-flex text-decoration-none text-white ps-4">
-          <span class="icon-users pe-3  d-flex align-items-center"></span>
-          <span>Users</span>
+        <input type="checkbox" id="users" class="d-none">
+        <a class="nav-link d-flex justify-content-between test text-decoration-none text-white ps-3">
+          <span><span class="icon-users pe-4"></span>Users</span>
+          <label for="users" id="toggle">
+            <span class="icon-down-arrow text-white"></span>
+          </label>
         </a>
+        <ul class="sub-items ps-0 ms-3 me-3 rounded overflow-hidden">
+          <li class="d-flex flex-column">
+            <a class="nav-link text-white" routerLink="users/form">Add Users</a>
+            <a class="nav-link text-white" routerLink="users/list">List</a>
+          </li>
+        </ul>
       </li>
+
       <li class="nav-item">
-        <a routerLink="" routerLinkActive="active" class="nav-link d-flex text-decoration-none text-white ps-4">
-          <span class="icon-logout pe-3  d-flex align-items-center"></span>
+        <a routerLink=""  class="nav-link d-flex text-decoration-none text-white ps-3">
+          <span class="icon-logout pe-4  d-flex align-items-center"></span>
           <span>Logout</span>
         </a>
       </li>
