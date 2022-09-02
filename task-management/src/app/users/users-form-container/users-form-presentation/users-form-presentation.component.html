@@ -1,1 +1,55 @@
-<p>users-form-presentation works!</p>
+<div class="wrapper">
+    <!-- Header -->
+    <h3 class="border-bottom border-dark pb-2">New User</h3>
+
+    <!-- Start: User Form -->
+    <form class="border rounded bg-white p-3 mt-4" [formGroup]="usersForm">
+        <div class="d-flex">
+            <!-- Start: Personal details -->
+            <section class="col-6 pe-3 border-end">
+                <div class="pb-3">
+                    <label for="firstName" class="fw-bold">First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName">
+                </div>
+
+                <div class="pb-3">
+                    <label for="lastName" class="fw-bold">Last Name</label>
+                    <input type="text" class="form-control" formControlName="lastName">
+                </div>
+
+                <div class="pb-3">
+                    <label for="userRole" class="fw-bold">User Role</label>
+                    <select id="userRole" class="form-control" formControlName="userRole">
+                        <option *ngFor="let role of userRole" [value]="role.id">{{role.role}}</option>
+                    </select>
+                </div>
+            </section>
+            <!-- End: Personal details -->
+
+            <!-- Start: Login details -->
+            <section class="col-6 ps-3">
+                <div class="pb-3">
+                    <label for="email" class="fw-bold">Email</label>
+                    <input type="email" class="form-control" formControlName="email">
+                </div>
+
+                <div class="pb-3">
+                    <label for="password" class="fw-bold">Password</label>
+                    <input type="password" class="form-control" formControlName="password">
+                </div>
+
+                <div class="pb-3">
+                    <label for="confirm-password" class="fw-bold">Confirm Password</label>
+                    <input type="password" class="form-control" formControlName="confirmPassword">
+                </div>
+            </section>
+            <!-- End: Login details -->
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center mt-3">
+            <button type="button" class="btn btn-primary me-2 ps-4 pe-4 text-white" (click)="onSubmit()">Save</button>
+            <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+        </div>
+    </form>
+    <!-- End: User Form -->
+</div>

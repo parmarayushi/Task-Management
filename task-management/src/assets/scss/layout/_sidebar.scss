@@ -1,6 +1,6 @@
 .sidebar {
     width: $sidebar-width;
-    background-color: $primary;
+    background-color: $secondary;
     transition: 0.4s all ease;
 
     .user-email {
@@ -9,18 +9,17 @@
 }
 
 .nav {
-    white-space: nowrap;
     border-top: $border-size solid $white;
 
     &-link {
         cursor: pointer;
 
         &.active {
-            background-color: $secondary;
+            background-color: $primary;
         }
 
         &:hover {
-            background-color: $secondary;
+            background-color: $primary;
             font-weight: bold;
         }
     }
@@ -46,7 +45,7 @@
 
 #users:checked {
     ~.sub-items {
-        height: 90px;
+        height: 80px;
         transition: 0.4s all ease-in-out;
         background-color: $dropdown-background;
     }

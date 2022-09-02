@@ -1,1 +1,33 @@
-<p>users-list-presentation works!</p>
+<div class="wrapper">
+    <!-- Header -->
+    <h3 class="border-bottom border-dark pb-2">User List</h3>
+
+    <section class="border rounded p-3">
+        <div class="d-flex justify-content-end border-bottom">
+            <button class="btn btn-primary text-white mb-3" routerLink="/users/form">+ Add New User</button>
+        </div>
+        <table class="table table-bordered mb-0 mt-3">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Role</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let items of userList,let i=index">
+                    <th scope="row" class="text-center">{{i+1}}</th>
+                    <td>{{items.firstName}}</td>
+                    <td>{{items.email}}</td>
+                    <td>{{items.userRole | userRole:userRoles}}</td>
+                    <td class="text-center">
+                        <span class="icon-edit pe-3"></span>
+                        <span class="icon-delete pe-3"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>

@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "admin",
+      "lastName": "admin",
+      "userRole": 1,
+      "email": "admin123@gmail.com",
+      "password": "admin@123",
+      "confirmPassword": "admin@123"
+    },
+    {
+      "firstName": "sdfd",
+      "lastName": "dxfvdxf",
+      "userRole": "1",
+      "email": "dxfvdxfv",
+      "password": "xcvx",
+      "confirmPassword": "xdfvx",
+      "id": 2
+    }
+  ],
+  "userRole": [
+    {
+      "id": 1,
+      "role": "Admin"
+    },
+    {
+      "id": 2,
+      "role": "Project Manager"
+    },
+    {
+      "id": 2,
+      "role": "Employee"
+    }
+  ]
+}
