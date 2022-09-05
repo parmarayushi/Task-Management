@@ -31,7 +31,7 @@ export class UsersFormContainerComponent implements OnInit {
   public addUsers(form: Users) {
     this.userService.addUsers(form).subscribe(() => {
       alert("Data Added Successfully");
-      this.router.navigateByUrl('users/list')
+      this.router.navigateByUrl('users-list')
     })
   }
 }

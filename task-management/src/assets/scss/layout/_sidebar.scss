@@ -38,19 +38,19 @@
     }
 }
 
-#toggle {
-    cursor: pointer;
-    transition: 0.4s all ease-in-out;
-}
+// #toggle {
+//     cursor: pointer;
+//     transition: 0.4s all ease-in-out;
+// }
 
-#users:checked {
-    ~.sub-items {
-        height: 80px;
-        transition: 0.4s all ease-in-out;
-        background-color: $dropdown-background;
-    }
+// #users:checked {
+//     ~.sub-items {
+//         height: 80px;
+//         transition: 0.4s all ease-in-out;
+//         background-color: $dropdown-background;
+//     }
 
-    ~ .nav-link #toggle {
-        transform: rotate(180deg);
-    }
-}
+//     ~ .nav-link #toggle {
+//         transform: rotate(180deg);
+//     }
+// }

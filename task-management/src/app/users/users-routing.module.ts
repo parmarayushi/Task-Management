@@ -8,18 +8,18 @@ const routes: Routes = [{
   path: '', component: UsersComponent,
   children: [
     {
-      path: 'form',
+      path: 'users-form',
       component: UsersFormContainerComponent
     },
     {
-      path: 'list',
+      path: 'users-list',
       component: UsersListContainerComponent
     },
 
     {
       path: '',
       pathMatch: 'full',
-      redirectTo: 'form'
+      redirectTo: 'users-list'
     }
   ]
 }];

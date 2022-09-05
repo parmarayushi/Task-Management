@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserRole, Users } from '../../users.model';
 import { UsersFormPresnterService } from '../users-form-presenter/users-form-presnter.service';
 
@@ -36,10 +37,10 @@ export class UsersFormPresentationComponent implements OnInit {
 
   public usersForm: FormGroup;
 
-  private _userFormData!: Users[];
-  private _userRole!: UserRole[];
+  private _userFormData: Users[];
+  private _userRole: UserRole[];
 
-  constructor(private userFormPresenter: UsersFormPresnterService) {
+  constructor(private userFormPresenter: UsersFormPresnterService,private route:Router) {
     this.usersForm = this.userFormPresenter.buildForm();
     this.add = new EventEmitter();
   }
@@ -55,6 +56,6 @@ export class UsersFormPresentationComponent implements OnInit {
   }
 
   public onCancel() {
-    this.usersForm.reset();
+    this.route.navigateByUrl('users-list')
   }
 }

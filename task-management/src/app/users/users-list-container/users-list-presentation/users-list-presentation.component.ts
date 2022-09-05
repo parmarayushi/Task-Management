@@ -30,8 +30,8 @@ export class UsersListPresentationComponent implements OnInit {
     return this._userRoles;
   }
 
-  private _userList!: Users[];
-  private _userRoles!: UserRole[];
+  private _userList: Users[];
+  private _userRoles: UserRole[];
 
   constructor() { }
 
