@@ -4,7 +4,7 @@
 
     <section class="border rounded p-3 mt-4">
         <div class="d-flex justify-content-end border-bottom">
-            <button class="btn btn-primary text-white mb-3" routerLink="project-form">+ Add Project</button>
+            <button class="btn btn-primary text-white mb-3" routerLink="/project-form">+ Add Project</button>
         </div>
         <table class="table table-bordered mb-0 mt-3">
             <thead>
@@ -18,18 +18,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row" class="text-center">1</th>
-                    <div class="d-flex flex-column">
-                        <td class="fw-bold">sad</td>
-                        <td class="small fst-italic">hdvjgh</td>
-                    </div>
-                    <td>fhf</td>
-                    <td>gfhfh</td>
-                    <td>gfhfh</td>
+                <tr *ngFor="let items of projectList, let i=index" class="align-middle ">
+                    <th scope="row" class="text-center">{{i+1}}</th>
+                    <td class="d-flex flex-column">
+                        <div class="fw-bold">{{items.name}}</div>
+                        <div class="small fst-italic">{{items.description}}</div>
+                    </td>
+                    <td class="fw-bold">{{items.startDate | date:'MMM d, y'}}</td>
+                    <td class="fw-bold">{{items.endDate | date:'MMM d, y'}}</td>
+                    <td class=" text-center">
+                        <div class="badge text-white" [ngClass]="{'bg-primary':items.status==='Started',
+                        'bg-info':items.status==='In Progress',
+                        'bg-success':items.status==='Done'}">{{items.status}}</div>
+                    </td>
                     <td class="text-center">
-                        <span class="icon-edit pe-3"></span>
-                        <span class="icon-delete pe-3"></span>
+                        <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
+                        <span class="icon-edit cursor-pointer"></span>
                     </td>
                 </tr>
             </tbody>

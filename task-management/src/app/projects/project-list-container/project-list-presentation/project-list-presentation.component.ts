@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { NumberSymbol } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Project } from '../../project.model';
 
 @Component({
   selector: 'app-project-list-presentation',
@@ -6,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectListPresentationComponent implements OnInit {
 
-  constructor() { }
+  @Input() public set projectList(value: Project[] | null) {
+    if (value) {
+      this._projectList = value
+    }
+  }
+
+  public get projectList(): Project[] {
+    return this._projectList
+  }
+
+  private _projectList: Project[];
+  
+  constructor(public route: Router) { }
 
   ngOnInit(): void {
+  }
+
+  public onView(id: number) {
+    this.route.navigateByUrl(`project-view/${id}`)
   }
 
 }

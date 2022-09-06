@@ -16,7 +16,7 @@ import { UsersModule } from './users/users.module';
     AppRoutingModule,
     DashboardModule,
     UsersModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

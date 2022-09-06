@@ -12,8 +12,6 @@
     border-top: $border-size solid $white;
 
     &-link {
-        cursor: pointer;
-
         &.active {
             background-color: $primary;
         }

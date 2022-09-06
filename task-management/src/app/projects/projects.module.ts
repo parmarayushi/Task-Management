@@ -8,6 +8,10 @@ import { ProjectListContainerComponent } from './project-list-container/project-
 import { ProjectFormPresentationComponent } from './project-form-container/project-form-presentation/project-form-presentation.component';
 import { ProjectListPresentationComponent } from './project-list-container/project-list-presentation/project-list-presentation.component';
 import { ProjectsService } from './projects.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsersService } from '../users/users.service';
+import { ProjectViewContainerComponent } from './project-view-container/project-view-container.component';
+import { ProjectViewPresentationComponent } from './project-view-container/project-view-presentation/project-view-presentation.component';
 
 
 @NgModule({
@@ -16,14 +20,24 @@ import { ProjectsService } from './projects.service';
     ProjectFormContainerComponent,
     ProjectListContainerComponent,
     ProjectFormPresentationComponent,
-    ProjectListPresentationComponent
+    ProjectListPresentationComponent,
+    ProjectViewContainerComponent,
+    ProjectViewPresentationComponent
   ],
   imports: [
     CommonModule,
     ProjectsRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers:[
-    ProjectsService
+  exports: [
+    ProjectFormContainerComponent,
+    ProjectListContainerComponent,
+    ProjectViewContainerComponent
+  ],
+  providers: [
+    ProjectsService,
+    UsersService
   ]
 })
 export class ProjectsModule { }

@@ -29,6 +29,10 @@ import { UserRolePipe } from './pipe/user-role.pipe';
     FormsModule,
     HttpClientModule,
   ],
+  exports:[
+    UsersListContainerComponent,
+    UsersFormContainerComponent
+  ],
   providers:[
     UsersService
   ]

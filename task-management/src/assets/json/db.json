@@ -26,15 +26,6 @@
       "password": "gdf",
       "confirmPassword": "fdgfsd",
       "id": 3
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "userRole": "",
-      "email": "",
-      "password": "",
-      "confirmPassword": "",
-      "id": 4
     }
   ],
   "userRole": [
@@ -49,6 +40,48 @@
     {
       "id": 2,
       "role": "Employee"
+    }
+  ],
+  "project": [
+    {
+      "name": "xfgbdn",
+      "status": "In Progress",
+      "startDate": "2022-09-07",
+      "endDate": "2022-09-01",
+      "projectManager": "XYZ",
+      "teamMembers": "abc",
+      "description": "fdgdfhflorebjdgbvxbnxxxxxxxxxx",
+      "id": 2
+    },
+    {
+      "name": "fdgvdfb",
+      "status": "Done",
+      "startDate": "2022-09-03",
+      "endDate": "2022-09-08",
+      "projectManager": "WSD",
+      "teamMembers": "abc",
+      "description": "sdfsdfd",
+      "id": 3
+    },
+    {
+      "name": "dsf",
+      "status": "Started",
+      "startDate": "2022-07-13",
+      "endDate": "2022-09-02",
+      "projectManager": "SDC",
+      "teamMembers": "abc",
+      "description": " sbavcdbvchgvc",
+      "id": 4
+    },
+    {
+      "name": "hdvchbvjhd",
+      "status": "In Progress",
+      "startDate": "2022-09-10",
+      "endDate": "2022-09-15",
+      "projectManager": "WSD",
+      "teamMembers": "zxfsd",
+      "description": "dsdf",
+      "id": 5
     }
   ]
 }

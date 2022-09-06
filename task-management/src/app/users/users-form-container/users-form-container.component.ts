@@ -10,7 +10,7 @@ import { UsersService } from '../users.service';
 })
 export class UsersFormContainerComponent implements OnInit {
 
-  public userData$: Observable<Users[]> = new Observable()
+  public userData$: Observable<Users[]> = new Observable();
   public userRole$: Observable<UserRole[]> = new Observable();
 
   constructor(private userService: UsersService, private router: Router) { }

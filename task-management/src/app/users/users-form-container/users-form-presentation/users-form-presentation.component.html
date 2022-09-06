@@ -19,7 +19,7 @@
 
                 <div class="pb-3">
                     <label for="userRole" class="fw-bold">User Role</label>
-                    <select id="userRole" class="form-control" formControlName="userRole">
+                    <select id="userRole" class="form-select" formControlName="userRole">
                         <option *ngFor="let role of userRole" [value]="role.id">{{role.role}}</option>
                     </select>
                 </div>
