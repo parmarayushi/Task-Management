@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Project } from '../project.model';
+import { Project, Task } from '../project.model';
 import { ProjectsService } from '../projects.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class ProjectViewContainerComponent implements OnInit {
   private id: number;
 
   public projectView$: Observable<Project> = new Observable();
+  public taskData$: Observable<Task[]> = new Observable();
 
   constructor(private projectService: ProjectsService, private activatedRoute: ActivatedRoute) { }
 
@@ -21,5 +22,11 @@ export class ProjectViewContainerComponent implements OnInit {
     if (this.id) {
       this.projectView$ = this.projectService.getProjectById(this.id);
     }
+
+    this.getTaskData();
+  }
+
+  public getTaskData(){
+    this.taskData$=this.projectService.getTaskData();
   }
 }

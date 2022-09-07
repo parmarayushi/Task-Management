@@ -1,8 +1,8 @@
 <div class="wrapper">
     <!-- Header -->
-    <h3 class="border-bottom border-dark pb-2">Project List</h3>
+    <h3 class="border-bottom border-primary pb-2">Project List</h3>
 
-    <section class="border rounded p-3 mt-4">
+    <section class="rounded bg-white shadow-sm p-3 mt-4">
         <div class="d-flex justify-content-end border-bottom">
             <button class="btn btn-primary text-white mb-3" routerLink="/project-form">+ Add Project</button>
         </div>
@@ -33,7 +33,7 @@
                     </td>
                     <td class="text-center">
                         <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
-                        <span class="icon-edit cursor-pointer"></span>
+                        <span class="icon-edit cursor-pointer" (click)="onEdit(items.id)"></span>
                     </td>
                 </tr>
             </tbody>

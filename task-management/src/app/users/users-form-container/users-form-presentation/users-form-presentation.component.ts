@@ -14,6 +14,8 @@ export class UsersFormPresentationComponent implements OnInit {
 
   @Input() public set userData(value: Users[] | null) {
     if (value) {
+      this.formTitle = "Edit Employee"
+      this.usersForm.patchValue(value)
       this._userFormData = value
     }
   }
@@ -34,20 +36,24 @@ export class UsersFormPresentationComponent implements OnInit {
   }
 
   @Output() public add: EventEmitter<Users>;
+  @Output() public edit: EventEmitter<Users>;
 
   public usersForm: FormGroup;
+  public formTitle: string
 
   private _userFormData: Users[];
   private _userRole: UserRole[];
 
-  constructor(private userFormPresenter: UsersFormPresnterService,private route:Router) {
+  constructor(private userFormPresenter: UsersFormPresnterService, private route: Router) {
     this.usersForm = this.userFormPresenter.buildForm();
+    this.formTitle = "New Employee";
     this.add = new EventEmitter();
+    this.edit = new EventEmitter();
   }
 
   ngOnInit(): void {
-    this.userFormPresenter.userFormdata$.subscribe((result) => {
-      this.add.emit(result);
+    this.userFormPresenter.userFormdata$.subscribe((result: Users) => {
+      this.formTitle === "New Employee" ? this.add.emit(result) : this.edit.emit(result);
     })
   }
 

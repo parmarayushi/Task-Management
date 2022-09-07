@@ -1,9 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Project } from '../../project.model';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Project, Task } from '../../project.model';
+import { ProjectViewPresenterService } from '../project-view-presenter/project-view-presenter.service';
 
 @Component({
   selector: 'app-project-view-presentation',
-  templateUrl: './project-view-presentation.component.html'
+  templateUrl: './project-view-presentation.component.html',
+  viewProviders: [ProjectViewPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectViewPresentationComponent implements OnInit {
 
@@ -17,11 +20,26 @@ export class ProjectViewPresentationComponent implements OnInit {
     return this._projectView;
   }
 
-  private _projectView: Project;
+  @Input() public set taskData(value: Task[] | null) {
+    if (value) {
+      this._taskData = value
+      console.log(value);
+    }
+  }
 
-  constructor() { }
+  public get taskData(): Task[]  {
+    return this._taskData;
+  }
+
+  private _projectView: Project;
+  private _taskData: Task[];
+
+  constructor(private projectviewPreseter: ProjectViewPresenterService) { }
 
   ngOnInit(): void {
   }
 
+  public opentaskForm() {
+    this.projectviewPreseter.openTaskModel()
+  }
 }

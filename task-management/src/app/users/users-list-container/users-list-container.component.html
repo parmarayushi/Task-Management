@@ -1,2 +1,2 @@
-<app-users-list-presentation [userList]="userList$ | async" [userRoles]="userRole$ | async">
+<app-users-list-presentation [userList]="userList$ | async" [userRoles]="userRole$ | async" (delete)="deleteUsers($event)">
 </app-users-list-presentation>

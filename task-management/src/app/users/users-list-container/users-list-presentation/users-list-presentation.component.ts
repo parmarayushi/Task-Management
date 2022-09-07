@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserRole, Users } from '../../users.model';
 import { UsersListPresenterService } from '../users-list-presenter/users-list-presenter.service';
 
@@ -30,12 +31,26 @@ export class UsersListPresentationComponent implements OnInit {
     return this._userRoles;
   }
 
+  @Output() public delete: EventEmitter<number>;
+
   private _userList: Users[];
   private _userRoles: UserRole[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private route: Router, private userListPresenter: UsersListPresenterService) {
+    this.delete = new EventEmitter();
   }
 
+  ngOnInit(): void {
+    this.userListPresenter.deleteData$.subscribe((result: number) => {
+      this.delete.emit(result);
+    })
+  }
+
+  public onEdit(id: number) {
+    this.route.navigateByUrl(`users-form/edit/${id}`)
+  }
+
+  public onDelete(id: number) {
+    this.userListPresenter.onDelete(id);
+  }
 }

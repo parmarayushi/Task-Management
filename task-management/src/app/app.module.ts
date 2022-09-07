@@ -1,3 +1,4 @@
+import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,6 +18,8 @@ import { UsersModule } from './users/users.module';
     DashboardModule,
     UsersModule,
     CoreModule,
+    OverlayModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

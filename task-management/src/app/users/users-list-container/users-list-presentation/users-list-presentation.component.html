@@ -1,8 +1,8 @@
 <div class="wrapper">
     <!-- Header -->
-    <h3 class="border-bottom border-dark pb-2">Employees List</h3>
+    <h3 class="border-bottom border-primary pb-2">Employees List</h3>
 
-    <section class="border rounded p-3 mt-4">
+    <section class="rounded bg-white shadow-sm p-3 mt-4 list-border">
         <div class="d-flex justify-content-end border-bottom">
             <button class="btn btn-primary text-white mb-3" routerLink="/users-form">+ Add Employee</button>
         </div>
@@ -23,8 +23,8 @@
                     <td>{{items?.email}}</td>
                     <td>{{items.userRole | userRole:userRoles}}</td>
                     <td class="text-center">
-                        <span class="icon-edit cursor-pointer pe-3"></span>
-                        <span class="icon-delete cursor-pointer pe-3"></span>
+                        <span class="icon-edit cursor-pointer pe-3" (click)="onEdit(items.id)"></span>
+                        <span class="icon-delete cursor-pointer pe-3" (click)="onDelete(items.id)"></span>
                     </td>
                 </tr>
             </tbody>

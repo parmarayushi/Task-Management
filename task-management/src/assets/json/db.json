@@ -1,31 +1,31 @@
 {
   "users": [
     {
-      "id": 1,
       "firstName": "admin",
       "lastName": "admin",
-      "userRole": 1,
+      "userRole": "1",
       "email": "admin123@gmail.com",
       "password": "admin@123",
-      "confirmPassword": "admin@123"
+      "confirmPassword": "admin@123",
+      "id": 1
     },
     {
-      "firstName": "sdfd",
+      "firstName": "abcd",
       "lastName": "dxfvdxf",
-      "userRole": "1",
+      "userRole": "2",
       "email": "dxfvdxfv",
       "password": "xcvx",
       "confirmPassword": "xdfvx",
       "id": 2
     },
     {
-      "firstName": "zxfsd",
-      "lastName": "sdf",
-      "userRole": "2",
-      "email": "dfdg",
-      "password": "gdf",
-      "confirmPassword": "fdgfsd",
-      "id": 3
+      "firstName": "xyz",
+      "lastName": "dfsddfsd",
+      "userRole": "1",
+      "email": "sdfsdfs@gmsil.com",
+      "password": "asdsdf",
+      "confirmPassword": "sfsdf",
+      "id": 4
     }
   ],
   "userRole": [
@@ -44,7 +44,7 @@
   ],
   "project": [
     {
-      "name": "xfgbdn",
+      "name": "abcd",
       "status": "In Progress",
       "startDate": "2022-09-07",
       "endDate": "2022-09-01",
@@ -82,6 +82,26 @@
       "teamMembers": "zxfsd",
       "description": "dsdf",
       "id": 5
+    }
+  ],
+  "task": [
+    {
+      "id": 1,
+      "task": "design form",
+      "description": "sgddjfgjsdgfjsgfjsdgf",
+      "status": "pending"
+    },
+    {
+      "task": "fdsfgfdg",
+      "description": "dsgdfg",
+      "status": "Pending",
+      "id": 2
+    },
+    {
+      "task": "asdfsdfg",
+      "description": "dsfsdg",
+      "status": "Pending",
+      "id": 3
     }
   ]
 }

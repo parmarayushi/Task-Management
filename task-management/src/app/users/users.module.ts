@@ -11,6 +11,7 @@ import { UsersListPresentationComponent } from './users-list-container/users-lis
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
 import { UserRolePipe } from './pipe/user-role.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { UserRolePipe } from './pipe/user-role.pipe';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    SharedModule
   ],
   exports:[
     UsersListContainerComponent,

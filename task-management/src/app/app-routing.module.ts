@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProjectFormContainerComponent } from './projects/project-form-container/project-form-container.component';
 import { ProjectListContainerComponent } from './projects/project-list-container/project-list-container.component';
 import { ProjectViewContainerComponent } from './projects/project-view-container/project-view-container.component';
+import { TaskFormContainerComponent } from './projects/task-form-container/task-form-container.component';
 import { UsersFormContainerComponent } from './users/users-form-container/users-form-container.component';
 import { UsersListContainerComponent } from './users/users-list-container/users-list-container.component';
 
@@ -26,6 +27,12 @@ const routes: Routes = [
   {
     path: 'project-view/:id', component: ProjectViewContainerComponent
   },
+  {
+    path: 'project-form/edit/:id', component: ProjectFormContainerComponent
+  },
+  {
+    path: 'users-form/edit/:id', component: UsersFormContainerComponent
+  }
 ];
 
 @NgModule({

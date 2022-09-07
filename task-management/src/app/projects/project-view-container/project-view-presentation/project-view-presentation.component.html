@@ -1,9 +1,9 @@
 <div class="wrapper">
     <!-- Header -->
-    <h3 class="border-bottom border-dark pb-2">View Project</h3>
+    <h3 class="border-bottom border-primary pb-2">View Project</h3>
 
     <!-- Start: Project View -->
-    <section class="border rounded bg-white p-3 mt-4">
+    <section class="shadow-sm rounded bg-white p-3 mt-4">
         <div class="d-flex">
             <section class="col-6 pe-3 border-end">
                 <div class="pb-3 d-flex flex-column">
@@ -43,5 +43,39 @@
             </section>
         </div>
     </section>
+
+    <div class="wrapper">
+        <section class="rounded bg-white shadow-sm p-3 mt-4">
+            <div class="d-flex justify-content-between border-bottom">
+                <h4>Task List</h4>
+                <button class="btn btn-primary text-white mb-3" (click)="opentaskForm()">+ Add task</button>
+            </div>
+            <table class="table mb-0 mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col">Task</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let items of taskData, let i=index">
+                        <th scope="row" class="text-center">{{i+1}}</th>
+                        <td>{{items.task}}</td>
+                        <td>{{items.description}}</td>
+                        <td class="badge text-white p-1" [ngClass]="{'bg-primary':projectView.status==='Started',
+                        'bg-info':projectView.status==='In Progress',
+                        'bg-success':projectView.status==='Done'}">{{items.status}}</td>
+                        <td class="text-center">
+                            <!-- <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
+                            <span class="icon-edit cursor-pointer"></span> -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
     <!-- End: Project View -->
 </div>

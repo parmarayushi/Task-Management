@@ -1,17 +1,20 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { ProjectsRoutingModule } from './projects-routing.module';
-import { ProjectsComponent } from './projects.component';
-import { ProjectFormContainerComponent } from './project-form-container/project-form-container.component';
-import { ProjectListContainerComponent } from './project-list-container/project-list-container.component';
-import { ProjectFormPresentationComponent } from './project-form-container/project-form-presentation/project-form-presentation.component';
-import { ProjectListPresentationComponent } from './project-list-container/project-list-presentation/project-list-presentation.component';
-import { ProjectsService } from './projects.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UsersService } from '../users/users.service';
+import { SharedModule } from '../shared/shared.module';
+import { ProjectFormContainerComponent } from './project-form-container/project-form-container.component';
+import { ProjectFormPresentationComponent } from './project-form-container/project-form-presentation/project-form-presentation.component';
+import { ProjectListContainerComponent } from './project-list-container/project-list-container.component';
+import { ProjectListPresentationComponent } from './project-list-container/project-list-presentation/project-list-presentation.component';
 import { ProjectViewContainerComponent } from './project-view-container/project-view-container.component';
 import { ProjectViewPresentationComponent } from './project-view-container/project-view-presentation/project-view-presentation.component';
+import { ProjectsRoutingModule } from './projects-routing.module';
+import { ProjectsComponent } from './projects.component';
+import { ProjectsService } from './projects.service';
+import { TaskFormContainerComponent } from './task-form-container/task-form-container.component';
+import { TaskFormPresentationComponent } from './task-form-container/task-form-presentation/task-form-presentation.component';
+
 
 
 @NgModule({
@@ -22,22 +25,24 @@ import { ProjectViewPresentationComponent } from './project-view-container/proje
     ProjectFormPresentationComponent,
     ProjectListPresentationComponent,
     ProjectViewContainerComponent,
-    ProjectViewPresentationComponent
+    ProjectViewPresentationComponent,
+    TaskFormContainerComponent,
+    TaskFormPresentationComponent
   ],
   imports: [
     CommonModule,
     ProjectsRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
   ],
   exports: [
     ProjectFormContainerComponent,
     ProjectListContainerComponent,
-    ProjectViewContainerComponent
+    ProjectViewContainerComponent,
   ],
   providers: [
-    ProjectsService,
-    UsersService
+    ProjectsService
   ]
 })
 export class ProjectsModule { }

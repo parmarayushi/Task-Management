@@ -25,6 +25,25 @@ export class Project {
         this.endDate = endDate;
         this.projectManager = projectManager;
         this.teamMembers = teamMembers;
-        this.description = description
+        this.description = description;
+    }
+}
+
+export class Task {
+    public id:number;
+    public task: string;
+    public description: string;
+    public status: string;
+
+    constructor(
+        id:number,
+        task: string,
+        description: string,
+        status: string
+    ) {
+        this.id=id;
+        this.task = task;
+        this.description = description;
+        this.status = status
     }
 }
