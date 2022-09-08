@@ -13,7 +13,7 @@ export class ProjectFormPresentationComponent implements OnInit {
 
   @Input() public set projectData(value: Project | null) {
     if (value) {
-      this.formTitle="Edit Project"
+      this.formTitle = "Edit Project"
       this.projectForm.patchValue(value)
       this._projectData = value;
     }
@@ -37,20 +37,20 @@ export class ProjectFormPresentationComponent implements OnInit {
   @Output() public edit: EventEmitter<Project>;
 
   public projectForm: FormGroup;
-  public formTitle:string;
+  public formTitle: string;
   private _projectData: Project;
   private _teamMembers: Users[];
 
   constructor(private projectFormPresenter: ProjectFormPresenterService, private route: Router) {
     this.projectForm = this.projectFormPresenter.buildform();
-    this.formTitle="New Project";
+    this.formTitle = "New Project";
     this.add = new EventEmitter();
     this.edit = new EventEmitter();
   }
 
   ngOnInit(): void {
     this.projectFormPresenter.projectFormData$.subscribe((data) => {
-      this.formTitle==="New Project"?this.add.emit(data):this.edit.emit(data);
+      this.formTitle === "New Project" ? this.add.emit(data) : this.edit.emit(data);
     })
   }
 

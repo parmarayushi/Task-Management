@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Users } from 'src/app/users/users.model';
+import { CommonService } from 'src/app/shared/services/common.service';
 import { Project } from '../project.model';
 import { ProjectsService } from '../projects.service';
 
@@ -11,15 +11,21 @@ import { ProjectsService } from '../projects.service';
 export class ProjectListContainerComponent implements OnInit {
 
   public projectList$: Observable<Project[]> = new Observable();
-  public membersList$: Observable<Users[]> = new Observable();
 
-  constructor(private projectService: ProjectsService) { }
+  constructor(private commonService: CommonService, private projectService: ProjectsService) { }
 
   ngOnInit(): void {
     this.getProjectList()
   }
 
   public getProjectList() {
-    this.projectList$ = this.projectService.getProjectdata()
+    this.projectList$ = this.commonService.getProjectdata()
+  }
+
+  public deleteProject(id: number) {
+    this.projectService.deleteProject(id).subscribe(() => {
+      alert('Project with id ' + id + ' deleted');
+      this.getProjectList();
+    })
   }
 }

@@ -1,0 +1,3 @@
+<app-task-form-presentation [taskData]="taskData$ | async" [projectData]="projectData$ | async"
+    [memberData]="membersData$ | async" (add)="addTasks($event)" (edit)="editTasks($event)">
+</app-task-form-presentation>

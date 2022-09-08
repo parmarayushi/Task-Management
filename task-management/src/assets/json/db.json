@@ -3,7 +3,7 @@
     {
       "firstName": "admin",
       "lastName": "admin",
-      "userRole": "1",
+      "userRole": "2",
       "email": "admin123@gmail.com",
       "password": "admin@123",
       "confirmPassword": "admin@123",
@@ -12,7 +12,7 @@
     {
       "firstName": "abcd",
       "lastName": "dxfvdxf",
-      "userRole": "2",
+      "userRole": "3",
       "email": "dxfvdxfv",
       "password": "xcvx",
       "confirmPassword": "xdfvx",
@@ -25,7 +25,7 @@
       "email": "sdfsdfs@gmsil.com",
       "password": "asdsdf",
       "confirmPassword": "sfsdf",
-      "id": 4
+      "id": 3
     }
   ],
   "userRole": [
@@ -38,70 +38,69 @@
       "role": "Project Manager"
     },
     {
-      "id": 2,
+      "id": 3,
       "role": "Employee"
     }
   ],
   "project": [
     {
       "name": "abcd",
-      "status": "In Progress",
+      "status": "Done",
       "startDate": "2022-09-07",
       "endDate": "2022-09-01",
       "projectManager": "XYZ",
       "teamMembers": "abc",
       "description": "fdgdfhflorebjdgbvxbnxxxxxxxxxx",
-      "id": 2
+      "id": 1
     },
     {
       "name": "fdgvdfb",
-      "status": "Done",
+      "status": "Started",
       "startDate": "2022-09-03",
       "endDate": "2022-09-08",
       "projectManager": "WSD",
       "teamMembers": "abc",
       "description": "sdfsdfd",
-      "id": 3
+      "id": 2
     },
     {
       "name": "dsf",
-      "status": "Started",
+      "status": "In Progress",
       "startDate": "2022-07-13",
       "endDate": "2022-09-02",
       "projectManager": "SDC",
       "teamMembers": "abc",
       "description": " sbavcdbvchgvc",
-      "id": 4
-    },
-    {
-      "name": "hdvchbvjhd",
-      "status": "In Progress",
-      "startDate": "2022-09-10",
-      "endDate": "2022-09-15",
-      "projectManager": "WSD",
-      "teamMembers": "zxfsd",
-      "description": "dsdf",
-      "id": 5
+      "id": 3
     }
   ],
   "task": [
     {
-      "id": 1,
-      "task": "design form",
-      "description": "sgddjfgjsdgfjsgfjsdgf",
-      "status": "pending"
-    },
-    {
-      "task": "fdsfgfdg",
-      "description": "dsgdfg",
-      "status": "Pending",
-      "id": 2
-    },
-    {
-      "task": "asdfsdfg",
-      "description": "dsfsdg",
+      "projectName": "abcd",
+      "task": "create task form",
+      "description": "Create the form using HTML,CSS and BOOTSTRAP",
+      "assignTo": "xyz",
+      "dueDate": "2022-09-17",
       "status": "Pending",
       "id": 3
+    },
+    {
+      "projectName": "fdgvdfb",
+      "task": "dsfsdf",
+      "description": "dfzdg",
+      "assignTo": "abcd",
+      "dueDate": "2022-09-22",
+      "status": "In Progress",
+      "id": 4
+    },
+    {
+      "projectName": "abcd",
+      "task": "sdasf",
+      "description": "sxcvdzvfsz",
+      "assignTo": "admin",
+      "dueDate": "2022-09-14",
+      "status": "Done",
+      "id": 5
     }
   ]
 }

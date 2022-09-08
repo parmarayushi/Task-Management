@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Project, Task } from './project.model';
+import { Project } from './project.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,6 @@ export class ProjectsService {
     this.apiLink = environment.baseURL;
   }
 
-  public getProjectdata(): Observable<Project[]> {
-    return this.http.get<Project[]>(`${this.apiLink}/project`);
-  }
-
   public addProjectdata(data: Project): Observable<Project> {
     return this.http.post<Project>(`${this.apiLink}/project`, data);
   }
@@ -26,15 +22,11 @@ export class ProjectsService {
     return this.http.get<Project>(`${this.apiLink}/project/${id}`)
   }
 
-  public editProject(id:number,form:Project):Observable<Project>{
-    return this.http.put<Project>(`${this.apiLink}/project/${id}`,form)
+  public editProject(id: number, form: Project): Observable<Project> {
+    return this.http.put<Project>(`${this.apiLink}/project/${id}`, form)
   }
 
-  public getTaskData():Observable<Task[]>{
-    return this.http.get<Task[]>(`${this.apiLink}/task`);
-  }
-
-  public addTaskData(data:Task):Observable<Task>{
-    return this.http.post<Task>(`${this.apiLink}/task`,data);
+  public deleteProject(id: number): Observable<number> {
+    return this.http.delete<number>(`${this.apiLink}/project/${id}`);
   }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { CommonService } from 'src/app/shared/services/common.service';
 import { UserRole, Users } from '../users.model';
 import { UsersService } from '../users.service';
 
@@ -11,13 +10,13 @@ import { UsersService } from '../users.service';
 })
 export class UsersFormContainerComponent implements OnInit {
 
-  public id:number;
+  public id: number;
   public userData$: Observable<Users[]> = new Observable();
   public userRole$: Observable<UserRole[]> = new Observable();
 
-  constructor(private userService: UsersService, private router: Router,private activatedRoute:ActivatedRoute) { 
-    this.id=parseInt(this.activatedRoute.snapshot.params['id']);
-    if(this.id){
+  constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.id = parseInt(this.activatedRoute.snapshot.params['id']);
+    if (this.id) {
       this.userData$ = this.userService.getUsersById(this.id);
     }
   }
@@ -37,8 +36,8 @@ export class UsersFormContainerComponent implements OnInit {
     })
   }
 
-  public editUser(form:Users){
-    this.userService.editUser(this.id,form).subscribe(()=>{
+  public editUser(form: Users) {
+    this.userService.editUser(this.id, form).subscribe(() => {
       alert('Edit Successfully');
       this.router.navigateByUrl('users-list');
     })

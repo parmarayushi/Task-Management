@@ -12,14 +12,14 @@ import { ProjectsService } from '../projects.service';
 })
 export class ProjectFormContainerComponent implements OnInit {
 
-  public id:number;
+  public id: number;
   public membersList$: Observable<Users[]> = new Observable();
   public projectData$: Observable<Project> = new Observable();
-  
-  constructor(private projectService: ProjectsService, private commonService:CommonService, private route: Router,private activatedRoute:ActivatedRoute) { 
-    this.id=parseInt(this.activatedRoute.snapshot.params['id']);
-    if(this.id){
-      this.projectData$=this.projectService.getProjectById(this.id);
+
+  constructor(private projectService: ProjectsService, private commonService: CommonService, private route: Router, private activatedRoute: ActivatedRoute) {
+    this.id = parseInt(this.activatedRoute.snapshot.params['id']);
+    if (this.id) {
+      this.projectData$ = this.projectService.getProjectById(this.id);
     }
   }
 
@@ -30,7 +30,7 @@ export class ProjectFormContainerComponent implements OnInit {
   public getMembers() {
     this.membersList$ = this.commonService.getUsers();
   }
-  
+
   public addProjects(form: Project) {
     this.projectService.addProjectdata(form).subscribe(() => {
       alert('Data Added Successfully');
@@ -38,8 +38,8 @@ export class ProjectFormContainerComponent implements OnInit {
     })
   }
 
-  public editProject(form:Project){
-    this.projectService.editProject(this.id,form).subscribe(()=>{
+  public editProject(form: Project) {
+    this.projectService.editProject(this.id, form).subscribe(() => {
       alert('Edit Successfully');
       this.route.navigateByUrl('project-list')
     })

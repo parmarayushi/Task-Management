@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProjectFormContainerComponent } from './projects/project-form-container/project-form-container.component';
 import { ProjectListContainerComponent } from './projects/project-list-container/project-list-container.component';
 import { ProjectViewContainerComponent } from './projects/project-view-container/project-view-container.component';
-import { TaskFormContainerComponent } from './projects/task-form-container/task-form-container.component';
+import { TaskFormContainerComponent } from './task/task-form-container/task-form-container.component';
+import { TaskListContainerComponent } from './task/task-list-container/task-list-container.component';
 import { UsersFormContainerComponent } from './users/users-form-container/users-form-container.component';
 import { UsersListContainerComponent } from './users/users-list-container/users-list-container.component';
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) },
   { path: 'project', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule) },
+  { path: 'task', loadChildren: () => import('./task/task.module').then(m => m.TaskModule) },
   {
     path: 'users-list', component: UsersListContainerComponent
   },
@@ -32,6 +34,15 @@ const routes: Routes = [
   },
   {
     path: 'users-form/edit/:id', component: UsersFormContainerComponent
+  },
+  {
+    path: 'task-form', component: TaskFormContainerComponent
+  },
+  {
+    path: 'task-list', component: TaskListContainerComponent
+  },
+  {
+    path: 'task-form/edit/:id', component: TaskFormContainerComponent
   }
 ];
 

@@ -19,7 +19,6 @@ import { UsersModule } from './users/users.module';
     UsersModule,
     CoreModule,
     OverlayModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

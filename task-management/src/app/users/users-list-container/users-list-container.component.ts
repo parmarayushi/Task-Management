@@ -12,7 +12,7 @@ export class UsersListContainerComponent implements OnInit {
 
   public userList$: Observable<Users[]> = new Observable()
   public userRole$: Observable<UserRole[]> = new Observable();
-  constructor(private userService: UsersService,private commonService:CommonService) { }
+  constructor(private userService: UsersService, private commonService: CommonService) { }
 
   ngOnInit(): void {
     this.getusers();
@@ -27,9 +27,9 @@ export class UsersListContainerComponent implements OnInit {
     this.userRole$ = this.userService.getUserRole();
   }
 
-  public deleteUsers(id:number){
-    this.userService.deleteUsers(id).subscribe(()=>{
-      alert('Employee with id ' +id +' deleted');
+  public deleteUsers(id: number) {
+    this.userService.deleteUsers(id).subscribe(() => {
+      alert('Employee with id ' + id + ' deleted');
       this.getusers();
     })
   }

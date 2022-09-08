@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
+import { Subject } from 'rxjs/internal/Subject';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersListPresenterService {
+export class TaskListPresenterService {
 
   private deleteData: Subject<number>;
   public deleteData$: Observable<number>;
+
   constructor() {
     this.deleteData = new Subject();
     this.deleteData$ = new Observable();

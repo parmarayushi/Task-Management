@@ -1,5 +1,4 @@
-import { NumberSymbol } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from '../../project.model';
 import { ProjectListPresenterService } from '../project-list-presenter/project-list-presenter.service';
@@ -7,8 +6,8 @@ import { ProjectListPresenterService } from '../project-list-presenter/project-l
 @Component({
   selector: 'app-project-list-presentation',
   templateUrl: './project-list-presentation.component.html',
-  viewProviders:[ProjectListPresenterService],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  viewProviders: [ProjectListPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectListPresentationComponent implements OnInit {
 
@@ -22,19 +21,34 @@ export class ProjectListPresentationComponent implements OnInit {
     return this._projectList
   }
 
+  @Output() public delete: EventEmitter<number>;
+
   private _projectList: Project[];
-  
-  constructor(public route: Router) { }
+
+  constructor(public route: Router, private projectPresenterservice: ProjectListPresenterService) {
+    this.delete = new EventEmitter();
+  }
 
   ngOnInit(): void {
+    this.projectPresenterservice.deleteData$.subscribe((result: number) => {
+      this.delete.emit(result);
+    })
   }
 
   public onView(id: number) {
     this.route.navigateByUrl(`project-view/${id}`)
   }
 
-  public onEdit(id:number){
+  public onEdit(id: number) {
     this.route.navigateByUrl(`project-form/edit/${id}`)
+  }
+
+  public onDelete(id: number) {
+    this.projectPresenterservice.onDelete(id);
+  }
+
+  public opentaskForm() {
+    this.projectPresenterservice.openTaskModel()
   }
 
 }

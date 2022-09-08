@@ -1,0 +1,44 @@
+<div class="wrapper">
+    <!-- Header -->
+    <h3 class="border-bottom border-primary pb-2">Task List</h3>
+
+    <section class="rounded bg-white shadow-sm p-3 mt-4">
+        <div class="d-flex justify-content-end border-bottom">
+            <button class="btn btn-primary text-white mb-3" routerLink="/task-form">+ Add Task</button>
+        </div>
+        <table class="table table-bordered mb-0 mt-3">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">#</th>
+                    <th scope="col">Project Name</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Assign To</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of taskData, let i=index" class="align-middle">
+                    <th scope="row" class="text-center">{{i+1}}</th>
+                    <td class="fw-bold">{{data.projectName}}</td>
+                    <td class="d-flex flex-column">
+                        <div class="fw-bold">{{data.task}}</div>
+                        <div class="small fst-italic">{{data.description}}</div>
+                    </td>
+                    <td class="fw-bold">{{data.assignTo}}</td>
+                    <td class="fw-bold">{{data.dueDate | date:'MMM d, y'}}</td>
+                    <td class=" text-center">
+                        <div class="badge text-white" [ngClass]="{'bg-primary':data.status==='Pending',
+                        'bg-info':data.status==='In Progress',
+                        'bg-success':data.status==='Done'}">{{data.status}}</div>
+                    </td>
+                    <td class="text-center">
+                        <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(data.id)"></span>
+                        <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>

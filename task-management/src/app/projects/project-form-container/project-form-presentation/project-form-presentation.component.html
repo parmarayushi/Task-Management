@@ -46,7 +46,8 @@
                 <div class="pb-3">
                     <label for="teamMembers" class="fw-bold">Project Team Members</label>
                     <select id="teamMembers" class="form-select" formControlName="teamMembers">
-                        <option *ngFor="let members of teamMembers">{{members.firstName}}</option>
+                        <option *ngFor="let members of teamMembers" value="{{members.firstName}}">{{members.firstName}}
+                        </option>
                     </select>
                 </div>
             </section>

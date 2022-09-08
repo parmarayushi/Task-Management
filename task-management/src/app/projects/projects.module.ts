@@ -12,8 +12,6 @@ import { ProjectViewPresentationComponent } from './project-view-container/proje
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects.component';
 import { ProjectsService } from './projects.service';
-import { TaskFormContainerComponent } from './task-form-container/task-form-container.component';
-import { TaskFormPresentationComponent } from './task-form-container/task-form-presentation/task-form-presentation.component';
 
 
 
@@ -26,8 +24,6 @@ import { TaskFormPresentationComponent } from './task-form-container/task-form-p
     ProjectListPresentationComponent,
     ProjectViewContainerComponent,
     ProjectViewPresentationComponent,
-    TaskFormContainerComponent,
-    TaskFormPresentationComponent
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Project, Task } from '../../project.model';
+import { Project } from '../../project.model';
 import { ProjectViewPresenterService } from '../project-view-presenter/project-view-presenter.service';
 
 @Component({
@@ -20,26 +20,11 @@ export class ProjectViewPresentationComponent implements OnInit {
     return this._projectView;
   }
 
-  @Input() public set taskData(value: Task[] | null) {
-    if (value) {
-      this._taskData = value
-      console.log(value);
-    }
-  }
-
-  public get taskData(): Task[]  {
-    return this._taskData;
-  }
-
   private _projectView: Project;
-  private _taskData: Task[];
 
-  constructor(private projectviewPreseter: ProjectViewPresenterService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  public opentaskForm() {
-    this.projectviewPreseter.openTaskModel()
-  }
 }

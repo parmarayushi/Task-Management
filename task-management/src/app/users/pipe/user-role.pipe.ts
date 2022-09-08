@@ -6,11 +6,11 @@ import { UserRole } from '../users.model';
 })
 export class UserRolePipe implements PipeTransform {
 
-  transform(value: number, role: UserRole[] ): string {
-    let name:string=""
-    role?.find((data)=>{
-      if(data.id == value){
-        name=data.role
+  transform(value: number, role: UserRole[]): string {
+    let name: string = ""
+    role?.find((data) => {
+      if (data.id == value) {
+        name = data.role
       }
     })
     return name;
