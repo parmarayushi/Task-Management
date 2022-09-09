@@ -1,14 +1,19 @@
 <div class="wrapper">
     <!-- Header -->
+    <h3 class="border-bottom border-primary pb-2">View Project</h3>
     
     <!-- Start: Project View -->
     <section class="shadow-sm project-view rounded bg-white p-3 mt-4">
         <div class="d-flex">
-            <h3 class="border-bottom border-primary pb-2">View Project</h3>
             <section class="col-6 pe-3 border-end">
                 <div class="pb-3 d-flex flex-column">
                     <label for="name" class="fw-bold">Project Name</label>
                     <span>{{projectView.name}}</span>
+                </div>
+
+                <div class="pb-3 d-flex flex-column">
+                    <label for="projectManager" class="fw-bold">Project Manager</label>
+                    <span>{{projectView.projectManager}}</span>
                 </div>
 
                 <div class="col-12 d-flex flex-column">
@@ -37,8 +42,8 @@
                 </div>
 
                 <div class="pb-3 d-flex flex-column">
-                    <label for="teamMembers" class="fw-bold">Project Manager</label>
-                    <span>{{projectView.projectManager}}</span>
+                    <label for="teamMembers" class="fw-bold" >Project Team Members</label>
+                    <span>{{projectView.teamMembers.join(", ")}}</span>
                 </div>
             </section>
         </div>

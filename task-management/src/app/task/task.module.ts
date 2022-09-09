@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
+import { TaskFormContainerComponent } from './task-form-container/task-form-container.component';
+import { TaskFormPresentationComponent } from './task-form-container/task-form-presentation/task-form-presentation.component';
+import { TaskListContainerComponent } from './task-list-container/task-list-container.component';
+import { TaskListPresentationComponent } from './task-list-container/task-list-presentation/task-list-presentation.component';
 import { TaskRoutingModule } from './task-routing.module';
 import { TaskComponent } from './task.component';
-import { TaskFormContainerComponent } from './task-form-container/task-form-container.component';
-import { TaskListContainerComponent } from './task-list-container/task-list-container.component';
-import { TaskFormPresentationComponent } from './task-form-container/task-form-presentation/task-form-presentation.component';
-import { TaskListPresentationComponent } from './task-list-container/task-list-presentation/task-list-presentation.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TaskService } from './task.service';
 
 
@@ -22,8 +22,7 @@ import { TaskService } from './task.service';
   imports: [
     CommonModule,
     TaskRoutingModule,
-    ReactiveFormsModule,
-    FormsModule
+    SharedModule
   ],
   exports:[
     TaskFormContainerComponent,

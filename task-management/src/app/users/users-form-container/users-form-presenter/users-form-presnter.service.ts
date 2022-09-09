@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
 import { Users } from '../../users.model';
@@ -21,12 +21,12 @@ export class UsersFormPresnterService {
 
   public buildForm() {
     return this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      userRole: [''],
-      email: [''],
-      password: [''],
-      confirmPassword: [''],
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      city: ['',Validators.required],
+      email: ['',[Validators.required,Validators.email]],
+      password: ['',Validators.required],
+      confirmPassword: ['',Validators.required],
     })
   }
 

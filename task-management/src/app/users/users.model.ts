@@ -2,7 +2,7 @@ export class Users {
     public id: number;
     public firstName: string;
     public lastName: string;
-    public userRole: number;
+    public city: number;
     public email: string;
     public password: string;
     public confirmPassword: string;
@@ -11,7 +11,7 @@ export class Users {
         id: number,
         firstName: string,
         lastName: string,
-        userRole: number,
+        city: number,
         email: string,
         password: string,
         confirmPassword: string
@@ -19,22 +19,9 @@ export class Users {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userRole = userRole;
+        this.city = city;
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword
-    }
-}
-
-export class UserRole {
-    public id: number;
-    public role: string;
-
-    constructor(
-        id: number,
-        role: string
-    ) {
-        this.id = id;
-        this.role = role;
     }
 }

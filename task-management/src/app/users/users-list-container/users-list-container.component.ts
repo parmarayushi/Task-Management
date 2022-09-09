@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { CommonService } from 'src/app/shared/services/common.service';
-import { UserRole, Users } from '../users.model';
+import { Users } from '../users.model';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -11,20 +11,14 @@ import { UsersService } from '../users.service';
 export class UsersListContainerComponent implements OnInit {
 
   public userList$: Observable<Users[]> = new Observable()
-  public userRole$: Observable<UserRole[]> = new Observable();
   constructor(private userService: UsersService, private commonService: CommonService) { }
 
   ngOnInit(): void {
     this.getusers();
-    this.getuserRole();
   }
 
   public getusers() {
     this.userList$ = this.commonService.getUsers();
-  }
-
-  public getuserRole() {
-    this.userRole$ = this.userService.getUserRole();
   }
 
   public deleteUsers(id: number) {

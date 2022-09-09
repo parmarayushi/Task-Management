@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { Project } from '../project.model';
@@ -10,9 +11,10 @@ import { ProjectsService } from '../projects.service';
 })
 export class ProjectListContainerComponent implements OnInit {
 
+  public id:number;
   public projectList$: Observable<Project[]> = new Observable();
 
-  constructor(private commonService: CommonService, private projectService: ProjectsService) { }
+  constructor(private commonService: CommonService, private projectService: ProjectsService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getProjectList()

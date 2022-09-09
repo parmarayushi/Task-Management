@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserRole, Users } from '../../users.model';
+import { Users } from '../../users.model';
 import { UsersListPresenterService } from '../users-list-presenter/users-list-presenter.service';
 
 @Component({
@@ -21,20 +21,9 @@ export class UsersListPresentationComponent implements OnInit {
     return this._userList;
   }
 
-  @Input() public set userRoles(value: UserRole[] | null) {
-    if (value) {
-      this._userRoles = value;
-    }
-  }
-
-  public get userRoles(): UserRole[] {
-    return this._userRoles;
-  }
-
   @Output() public delete: EventEmitter<number>;
 
   private _userList: Users[];
-  private _userRoles: UserRole[];
 
   constructor(private route: Router, private userListPresenter: UsersListPresenterService) {
     this.delete = new EventEmitter();

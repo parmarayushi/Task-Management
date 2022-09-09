@@ -5,7 +5,7 @@ export class Project {
     public startDate: string;
     public endDate: string;
     public projectManager: string;
-    public teamMembers: string;
+    public teamMembers: string[];
     public description: string;
 
     constructor(
@@ -15,7 +15,7 @@ export class Project {
         startDate: string,
         endDate: string,
         projectManager: string,
-        teamMembers: string,
+        teamMembers: string[],
         description: string,
     ) {
         this.id = id;

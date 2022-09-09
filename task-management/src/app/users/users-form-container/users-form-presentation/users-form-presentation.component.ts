@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserRole, Users } from '../../users.model';
+import { Users } from '../../users.model';
 import { UsersFormPresnterService } from '../users-form-presenter/users-form-presnter.service';
 
 @Component({
@@ -24,17 +24,6 @@ export class UsersFormPresentationComponent implements OnInit {
     return this._userFormData;
   }
 
-  @Input() public set userRole(value: UserRole[] | null) {
-    if (value) {
-
-      this._userRole = value
-    }
-  }
-
-  public get userRole(): UserRole[] | null {
-    return this._userRole;
-  }
-
   @Output() public add: EventEmitter<Users>;
   @Output() public edit: EventEmitter<Users>;
 
@@ -42,7 +31,6 @@ export class UsersFormPresentationComponent implements OnInit {
   public formTitle: string
 
   private _userFormData: Users[];
-  private _userRole: UserRole[];
 
   constructor(private userFormPresenter: UsersFormPresnterService, private route: Router) {
     this.usersForm = this.userFormPresenter.buildForm();

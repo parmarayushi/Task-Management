@@ -12,7 +12,7 @@
                     <th scope="col" class="text-center">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">E-mail</th>
-                    <th scope="col">Role</th>
+                    <th scope="col">City</th>
                     <th scope="col" class="text-center">Action</th>
                 </tr>
             </thead>
@@ -21,7 +21,7 @@
                     <th scope="row" class="text-center">{{i+1}}</th>
                     <td>{{items?.firstName}}</td>
                     <td>{{items?.email}}</td>
-                    <td>{{items.userRole | userRole:userRoles}}</td>
+                    <td>{{items?.city}}</td>
                     <td class="text-center">
                         <span class="icon-edit cursor-pointer pe-3" (click)="onEdit(items.id)"></span>
                         <span class="icon-delete cursor-pointer pe-3" (click)="onDelete(items.id)"></span>

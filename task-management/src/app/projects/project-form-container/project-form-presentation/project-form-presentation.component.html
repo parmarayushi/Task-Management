@@ -7,7 +7,7 @@
         <div class="d-flex">
             <section class="col-6 pe-3 border-end">
                 <div class="pb-3">
-                    <label for="name" class="fw-bold">Name</label>
+                    <label for="name" class="fw-bold">Project Name</label>
                     <input type="text" class="form-control" formControlName="name">
                 </div>
 
@@ -19,11 +19,12 @@
                 <div class="pb-3">
                     <label for="projectManager" class="fw-bold">Project Manager</label>
                     <select id="projectManager" class="form-select" formControlName="projectManager">
-                        <option>ABC</option>
-                        <option>XYZ</option>
-                        <option>WSD</option>
-                        <option>SDC</option>
-                        <option>KLM</option>
+                        <option>Hiren Tandel</option>
+                        <option>Akshita Kapadia</option>
+                        <option>Kevang Patel</option>
+                        <option>Viral Patel</option>
+                        <option>Binal Lad</option>
+                        <option>Ronak Patel</option>
                     </select>
                 </div>
             </section>
@@ -43,12 +44,16 @@
                     <input type="date" class="form-control" formControlName="endDate">
                 </div>
 
-                <div class="pb-3">
+                <!-- <div class="pb-3">
                     <label for="teamMembers" class="fw-bold">Project Team Members</label>
                     <select id="teamMembers" class="form-select" formControlName="teamMembers">
                         <option *ngFor="let members of teamMembers" value="{{members.firstName}}">{{members.firstName}}
                         </option>
                     </select>
+                </div> -->
+
+                <div class="pb-3">
+                  <ng-multiselect-dropdown [(ngModel)]="teamMembers"></ng-multiselect-dropdown>
                 </div>
             </section>
 

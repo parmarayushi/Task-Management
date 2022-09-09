@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ProjectFormContainerComponent } from './project-form-container/project-form-container.component';
 import { ProjectFormPresentationComponent } from './project-form-container/project-form-presentation/project-form-presentation.component';
@@ -28,8 +27,6 @@ import { ProjectsService } from './projects.service';
   imports: [
     CommonModule,
     ProjectsRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
     SharedModule,
   ],
   exports: [

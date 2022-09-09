@@ -15,7 +15,7 @@ export class ProjectFormPresentationComponent implements OnInit {
     if (value) {
       this.formTitle = "Edit Project"
       this.projectForm.patchValue(value)
-      this._projectData = value;
+      this._projectData = value;      
     }
   }
 
@@ -38,6 +38,8 @@ export class ProjectFormPresentationComponent implements OnInit {
 
   public projectForm: FormGroup;
   public formTitle: string;
+  public settings:{};
+
   private _projectData: Project;
   private _teamMembers: Users[];
 
@@ -52,6 +54,17 @@ export class ProjectFormPresentationComponent implements OnInit {
     this.projectFormPresenter.projectFormData$.subscribe((data) => {
       this.formTitle === "New Project" ? this.add.emit(data) : this.edit.emit(data);
     })
+
+    this.settings={
+      singleSelection: false,
+      allowSearchFilter: true,
+      clearSearchFilter: true,
+      selectAllText: 'Select All',
+      unSelectAllText: 'Unselect All',
+      closeDropDownOnSelection: false,
+      showSelectedItemsAtTop: false,
+      defaultOpen: false,
+    }
   }
 
   public onSubmit() {

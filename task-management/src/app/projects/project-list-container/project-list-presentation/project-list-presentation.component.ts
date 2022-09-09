@@ -21,6 +21,17 @@ export class ProjectListPresentationComponent implements OnInit {
     return this._projectList
   }
 
+  @Input() public set projectView(value: Project | null) {
+    if (value) {
+      this._projectView = value
+    }
+  }
+
+  public get projectView(): Project {
+    return this._projectView;
+  }
+
+  private _projectView: Project;
   @Output() public delete: EventEmitter<number>;
 
   private _projectList: Project[];
@@ -46,9 +57,4 @@ export class ProjectListPresentationComponent implements OnInit {
   public onDelete(id: number) {
     this.projectPresenterservice.onDelete(id);
   }
-
-  public opentaskForm() {
-    this.projectPresenterservice.openTaskModel()
-  }
-
 }

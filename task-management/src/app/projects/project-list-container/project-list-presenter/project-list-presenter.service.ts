@@ -1,8 +1,9 @@
-import { Overlay } from '@angular/cdk/overlay';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ProjectViewContainerComponent } from '../../project-view-container/project-view-container.component';
+import { ProjectViewPresentationComponent } from '../../project-view-container/project-view-presentation/project-view-presentation.component';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +29,7 @@ export class ProjectListPresenterService {
       hasBackdrop:true,
       positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
     })
-    const component = new ComponentPortal(ProjectViewContainerComponent)
+    const component = new ComponentPortal(ProjectViewPresentationComponent)
     const componentRef = OverlayConfig.attach(component)
 
     OverlayConfig.backdropClick().subscribe(() => {

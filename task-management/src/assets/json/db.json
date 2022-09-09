@@ -1,31 +1,85 @@
 {
   "users": [
     {
-      "firstName": "admin",
-      "lastName": "admin",
-      "userRole": "2",
-      "email": "admin123@gmail.com",
-      "password": "admin@123",
-      "confirmPassword": "admin@123",
+      "firstName": "Aayushi",
+      "lastName": "Parmar",
+      "city": "Valsad",
+      "email": "aayushi.parmar@gmail.com",
+      "password": "aayushi@123",
+      "confirmPassword": "aayushi@123",
       "id": 1
     },
     {
-      "firstName": "abcd",
-      "lastName": "dxfvdxf",
-      "userRole": "3",
-      "email": "dxfvdxfv",
-      "password": "xcvx",
-      "confirmPassword": "xdfvx",
+      "firstName": "Jigar",
+      "lastName": "Bhanushali",
+      "city": "Valsad",
+      "email": "jigar.bhanushali@gmail.com",
+      "password": "jigar@123",
+      "confirmPassword": "jigar@123",
       "id": 2
     },
     {
-      "firstName": "xyz",
-      "lastName": "dfsddfsd",
-      "userRole": "1",
-      "email": "sdfsdfs@gmsil.com",
-      "password": "asdsdf",
-      "confirmPassword": "sfsdf",
+      "firstName": "Pooja",
+      "lastName": "Patel",
+      "city": "Valsad",
+      "email": "pooja.patel@gmail.com",
+      "password": "pooja@123",
+      "confirmPassword": "pooja@123",
       "id": 3
+    },
+    {
+      "firstName": "Mrunal",
+      "lastName": "Patel",
+      "city": "Valsad",
+      "email": "mrunal.patel@gmail.com",
+      "password": "mrunal@123",
+      "confirmPassword": "mrunal@123",
+      "id": 4
+    },
+    {
+      "firstName": "Viral",
+      "lastName": "Patel",
+      "city": "Dungri",
+      "email": "viral.patel@gmail.com",
+      "password": "viral@123",
+      "confirmPassword": "viral@123",
+      "id": 5
+    },
+    {
+      "firstName": "Mehul",
+      "lastName": "Patel",
+      "city": "Atgam",
+      "email": "mehul.patel@gmail.com",
+      "password": "mehul@123",
+      "confirmPassword": "mehul@123",
+      "id": 6
+    },
+    {
+      "firstName": "Aman",
+      "lastName": "Patel",
+      "city": "Vapi",
+      "email": "aman.patel@gmail,com",
+      "password": "aman@123",
+      "confirmPassword": "aman@123",
+      "id": 7
+    },
+    {
+      "firstName": "Tanmay",
+      "lastName": "Patel",
+      "city": "Surat",
+      "email": "tanmay,patel@gmail.com",
+      "password": "tanmay@123",
+      "confirmPassword": "tanmay@123",
+      "id": 8
+    },
+    {
+      "firstName": "Abhishek",
+      "lastName": "Patel",
+      "city": "Valsad",
+      "email": "abhishek.patel@gmail.com",
+      "password": "abhishek@123",
+      "confirmPassword": "abhishek@123",
+      "id": 9
     }
   ],
   "userRole": [
@@ -44,63 +98,76 @@
   ],
   "project": [
     {
-      "name": "abcd",
+      "name": "1 Talent",
       "status": "Done",
-      "startDate": "2022-09-07",
-      "endDate": "2022-09-01",
-      "projectManager": "XYZ",
-      "teamMembers": "abc",
-      "description": "fdgdfhflorebjdgbvxbnxxxxxxxxxx",
+      "startDate": "2022-02-04",
+      "endDate": "2022-05-12",
+      "projectManager": "Hiren Tandel",
+      "teamMembers": [
+        "Pooja",
+        "Aman",
+        "Abhishek"
+      ],
+      "description": "This  project is created by interns which are college students. ",
       "id": 1
     },
     {
-      "name": "fdgvdfb",
-      "status": "Started",
-      "startDate": "2022-09-03",
-      "endDate": "2022-09-08",
-      "projectManager": "WSD",
-      "teamMembers": "abc",
-      "description": "sdfsdfd",
-      "id": 2
-    },
-    {
-      "name": "dsf",
+      "name": "1 Medify",
       "status": "In Progress",
-      "startDate": "2022-07-13",
-      "endDate": "2022-09-02",
-      "projectManager": "SDC",
-      "teamMembers": "abc",
-      "description": " sbavcdbvchgvc",
-      "id": 3
+      "startDate": "2022-04-13",
+      "endDate": "2022-06-24",
+      "projectManager": "Ronak Patel",
+      "teamMembers": [
+        "Aayushi",
+        "Jigar",
+        "Pooja",
+        "Mrunal",
+        "Viral",
+        "Mehul",
+        "Aman",
+        "Tanmay",
+        "Abhishek"
+      ],
+      "description": "This project is created by all the interns of batch January, 2022.",
+      "id": 2
     }
   ],
   "task": [
     {
-      "projectName": "abcd",
-      "task": "create task form",
-      "description": "Create the form using HTML,CSS and BOOTSTRAP",
-      "assignTo": "xyz",
-      "dueDate": "2022-09-17",
+      "projectName": "1 Medify",
+      "task": "Create Registration page of patient module",
+      "description": "create using html, css amd bootstrap.",
+      "assignTo": "Aayushi",
+      "dueDate": "2022-04-20",
       "status": "Pending",
+      "id": 1
+    },
+    {
+      "projectName": "1 Medify",
+      "task": "Create  registartion page of doctor module",
+      "description": "create using bootstrap",
+      "assignTo": "Mrunal",
+      "dueDate": "2022-05-06",
+      "status": "In Progress",
+      "id": 2
+    },
+    {
+      "projectName": "1 Talent",
+      "task": "Implement Crud Operation on user registartion",
+      "description": "Implement using angular.",
+      "assignTo": "Jigar",
+      "dueDate": "2022-03-03",
+      "status": "Done",
       "id": 3
     },
     {
-      "projectName": "fdgvdfb",
-      "task": "dsfsdf",
-      "description": "dfzdg",
-      "assignTo": "abcd",
-      "dueDate": "2022-09-22",
-      "status": "In Progress",
+      "projectName": "1 Talent",
+      "task": "Do search functionality on users list",
+      "description": "Implement search using javascript",
+      "assignTo": "Viral",
+      "dueDate": "2022-04-08",
+      "status": "Pending",
       "id": 4
-    },
-    {
-      "projectName": "abcd",
-      "task": "sdasf",
-      "description": "sxcvdzvfsz",
-      "assignTo": "admin",
-      "dueDate": "2022-09-14",
-      "status": "Done",
-      "id": 5
     }
   ]
 }

@@ -18,10 +18,8 @@
                 </div>
 
                 <div class="pb-3">
-                    <label for="userRole" class="fw-bold">User Role</label>
-                    <select id="userRole" class="form-select" formControlName="userRole">
-                        <option *ngFor="let role of userRole" [value]="role.id">{{role.role}}</option>
-                    </select>
+                    <label for="city" class="fw-bold">City</label>
+                    <input type="text" class="form-control" formControlName="city">
                 </div>
             </section>
             <!-- End: Personal details -->

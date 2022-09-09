@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { UserRole, Users } from '../users.model';
+import { Users } from '../users.model';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -12,7 +12,6 @@ export class UsersFormContainerComponent implements OnInit {
 
   public id: number;
   public userData$: Observable<Users[]> = new Observable();
-  public userRole$: Observable<UserRole[]> = new Observable();
 
   constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.id = parseInt(this.activatedRoute.snapshot.params['id']);
@@ -22,13 +21,7 @@ export class UsersFormContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getuserRole();
   }
-
-  public getuserRole() {
-    this.userRole$ = this.userService.getUserRole();
-  }
-
   public addUsers(form: Users) {
     this.userService.addUsers(form).subscribe(() => {
       alert("Data Added Successfully");

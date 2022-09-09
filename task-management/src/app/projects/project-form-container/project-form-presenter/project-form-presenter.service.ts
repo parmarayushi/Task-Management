@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { Project } from '../../project.model';
 
@@ -20,13 +20,13 @@ export class ProjectFormPresenterService {
 
   public buildform() {
     return this.fb.group({
-      name: [''],
-      status: [''],
-      startDate: [''],
-      endDate: [''],
-      projectManager: [''],
-      teamMembers: [''],
-      description: ['']
+      name: ['',Validators.required],
+      status: ['',Validators.required],
+      startDate: ['',Validators.required],
+      endDate: ['',Validators.required],
+      projectManager: ['',Validators.required],
+      teamMembers: ['',Validators.required],
+      description: ['',Validators.required]
     })
   }
 
