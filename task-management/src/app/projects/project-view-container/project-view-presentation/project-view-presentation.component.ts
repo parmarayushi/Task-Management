@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Users } from 'src/app/users/users.model';
 import { Project } from '../../project.model';
 import { ProjectViewPresenterService } from '../project-view-presenter/project-view-presenter.service';
 
@@ -12,7 +13,7 @@ export class ProjectViewPresentationComponent implements OnInit {
 
   @Input() public set projectView(value: Project | null) {
     if (value) {
-      this._projectView = value
+      this._projectView = value       
     }
   }
 
@@ -21,6 +22,7 @@ export class ProjectViewPresentationComponent implements OnInit {
   }
 
   private _projectView: Project;
+  public projectData:Users[];
 
   constructor() { }
 

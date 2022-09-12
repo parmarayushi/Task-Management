@@ -23,6 +23,7 @@ export class TaskFormPresenterService {
       task: [''],
       description: [''],
       assignTo: [''],
+      priority:[''],
       dueDate: [''],
       status: [''],
     })

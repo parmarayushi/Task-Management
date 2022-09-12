@@ -24,18 +24,18 @@ export class ProjectListPresenterService {
     this.deleteData.next(id);
   }
 
-  public openTaskModel(){
-    const OverlayConfig = this.overlay.create({
-      hasBackdrop:true,
-      positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
-    })
-    const component = new ComponentPortal(ProjectViewPresentationComponent)
-    const componentRef = OverlayConfig.attach(component)
+  // public openTaskModel(){
+  //   const OverlayConfig = this.overlay.create({
+  //     hasBackdrop:true,
+  //     positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
+  //   })
+  //   const component = new ComponentPortal(ProjectViewPresentationComponent)
+  //   const componentRef = OverlayConfig.attach(component)
 
-    OverlayConfig.backdropClick().subscribe(() => {
-      OverlayConfig.detach();
-    });
-  }
+  //   OverlayConfig.backdropClick().subscribe(() => {
+  //     OverlayConfig.detach();
+  //   });
+  // }
 
   
 }

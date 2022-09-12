@@ -29,7 +29,7 @@ export class ProjectFormPresentationComponent implements OnInit {
     }
   }
 
-  public get teamMembers(): Users[] | null {
+  public get teamMembers(): Users[] {
     return this._teamMembers;
   }
 
@@ -57,10 +57,12 @@ export class ProjectFormPresentationComponent implements OnInit {
 
     this.settings={
       singleSelection: false,
-      allowSearchFilter: true,
-      clearSearchFilter: true,
+      idField: 'id',
+      textField: 'firstName',
       selectAllText: 'Select All',
       unSelectAllText: 'Unselect All',
+      allowSearchFilter: true,
+      searchPlaceholderText: 'Search Here',
       closeDropDownOnSelection: false,
       showSelectedItemsAtTop: false,
       defaultOpen: false,
@@ -68,7 +70,7 @@ export class ProjectFormPresentationComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.projectFormPresenter.onSubmit(this.projectForm);
+    this.projectFormPresenter.onSubmit(this.projectForm);    
   }
 
   public onCancel() {

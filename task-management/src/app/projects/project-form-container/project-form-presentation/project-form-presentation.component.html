@@ -53,7 +53,9 @@
                 </div> -->
 
                 <div class="pb-3">
-                  <ng-multiselect-dropdown [(ngModel)]="teamMembers"></ng-multiselect-dropdown>
+                    <label for="teamMembers" class="fw-bold">Project Team Members</label>
+                    <ng-multiselect-dropdown [settings]="settings" [data]="teamMembers" formControlName="teamMembers">
+                    </ng-multiselect-dropdown>
                 </div>
             </section>
 

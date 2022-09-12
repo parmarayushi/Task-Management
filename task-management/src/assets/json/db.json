@@ -20,9 +20,9 @@
     },
     {
       "firstName": "Pooja",
-      "lastName": "Patel",
+      "lastName": "Maanvani",
       "city": "Valsad",
-      "email": "pooja.patel@gmail.com",
+      "email": "pooja.manvani@gmail.com",
       "password": "pooja@123",
       "confirmPassword": "pooja@123",
       "id": 3
@@ -104,9 +104,22 @@
       "endDate": "2022-05-12",
       "projectManager": "Hiren Tandel",
       "teamMembers": [
-        "Pooja",
-        "Aman",
-        "Abhishek"
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 2,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 5,
+          "firstName": "Viral"
+        }
       ],
       "description": "This  project is created by interns which are college students. ",
       "id": 1
@@ -118,18 +131,52 @@
       "endDate": "2022-06-24",
       "projectManager": "Ronak Patel",
       "teamMembers": [
-        "Aayushi",
-        "Jigar",
-        "Pooja",
-        "Mrunal",
-        "Viral",
-        "Mehul",
-        "Aman",
-        "Tanmay",
-        "Abhishek"
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 2,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 4,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 5,
+          "firstName": "Viral"
+        },
+        {
+          "id": 7,
+          "firstName": "Aman"
+        },
+        {
+          "id": 9,
+          "firstName": "Abhishek"
+        }
       ],
       "description": "This project is created by all the interns of batch January, 2022.",
       "id": 2
+    },
+    {
+      "name": "Task Management System",
+      "status": "In Progress",
+      "startDate": "2022-08-27",
+      "endDate": "2022-10-14",
+      "projectManager": "Kevang Patel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 9,
+          "firstName": "Abhishek"
+        }
+      ],
+      "description": "Create a website using HTML, Bootstrap and Angular.",
+      "id": 3
     }
   ],
   "task": [
@@ -137,7 +184,8 @@
       "projectName": "1 Medify",
       "task": "Create Registration page of patient module",
       "description": "create using html, css amd bootstrap.",
-      "assignTo": "Aayushi",
+      "assignTo": "Aayushi Parmar",
+      "priority": "Medium",
       "dueDate": "2022-04-20",
       "status": "Pending",
       "id": 1
@@ -146,7 +194,8 @@
       "projectName": "1 Medify",
       "task": "Create  registartion page of doctor module",
       "description": "create using bootstrap",
-      "assignTo": "Mrunal",
+      "assignTo": "Mrunal Patel",
+      "priority": "Medium",
       "dueDate": "2022-05-06",
       "status": "In Progress",
       "id": 2
@@ -155,7 +204,8 @@
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
       "description": "Implement using angular.",
-      "assignTo": "Jigar",
+      "assignTo": "Jigar Bhanushali",
+      "priority": "High",
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 3
@@ -164,7 +214,8 @@
       "projectName": "1 Talent",
       "task": "Do search functionality on users list",
       "description": "Implement search using javascript",
-      "assignTo": "Viral",
+      "assignTo": "Viral Patel",
+      "priority": "Medium",
       "dueDate": "2022-04-08",
       "status": "Pending",
       "id": 4

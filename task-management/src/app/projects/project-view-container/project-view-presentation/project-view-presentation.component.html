@@ -1,7 +1,7 @@
 <div class="wrapper">
     <!-- Header -->
     <h3 class="border-bottom border-primary pb-2">View Project</h3>
-    
+
     <!-- Start: Project View -->
     <section class="shadow-sm project-view rounded bg-white p-3 mt-4">
         <div class="d-flex">
@@ -27,6 +27,7 @@
                     <label for="startDate" class="fw-bold">Start Date</label>
                     <span>{{projectView.startDate | date:'MMMM d, y'}}</span>
                 </div>
+                
                 <div class="pb-3 d-flex flex-column">
                     <label for="endDate" class="fw-bold">End Date</label>
                     <span>{{projectView.endDate | date:'MMMM d, y'}}</span>
@@ -42,8 +43,10 @@
                 </div>
 
                 <div class="pb-3 d-flex flex-column">
-                    <label for="teamMembers" class="fw-bold" >Project Team Members</label>
-                    <span>{{projectView.teamMembers.join(", ")}}</span>
+                    <label for="teamMembers" class="fw-bold">Project Team Members</label>
+                    <span *ngFor=" let member of projectView.teamMembers , let i = index">
+                        {{i+1}}. {{member.firstName}} 
+                    </span>
                 </div>
             </section>
         </div>

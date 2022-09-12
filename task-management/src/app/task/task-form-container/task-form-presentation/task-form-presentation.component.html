@@ -21,7 +21,7 @@
                 <div class="pb-3">
                     <label for="assignTo" class="fw-bold">Assign To</label>
                     <select id="assignTo" class="form-select" formControlName="assignTo">
-                        <option *ngFor="let members of memberData" value="{{members.firstName}}">{{members.firstName}}
+                        <option *ngFor="let members of memberData" value="{{members.firstName +' '+ members.lastName}}">{{members.firstName +" "+ members.lastName}}
                         </option>
                     </select>
                 </div>
@@ -31,6 +31,15 @@
                 <div class="pb-3">
                     <label for="dueDate" class="fw-bold">Due Date</label>
                     <input type="date" class="form-control" formControlName="dueDate">
+                </div>
+
+                <div class="pb-3">
+                    <label for="priority" class="fw-bold">Priority</label>
+                    <select id="priority" class="form-select" formControlName="priority">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
                 </div>
 
                 <div class="pb-3">

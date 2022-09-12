@@ -19,7 +19,7 @@
             <tbody>
                 <tr *ngFor="let items of userList,let i=index">
                     <th scope="row" class="text-center">{{i+1}}</th>
-                    <td>{{items?.firstName}}</td>
+                    <td>{{items?.firstName +" "+ items?.lastName}}</td>
                     <td>{{items?.email}}</td>
                     <td>{{items?.city}}</td>
                     <td class="text-center">

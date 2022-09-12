@@ -14,7 +14,7 @@ export class ProjectListContainerComponent implements OnInit {
   public id:number;
   public projectList$: Observable<Project[]> = new Observable();
 
-  constructor(private commonService: CommonService, private projectService: ProjectsService,private activatedRoute:ActivatedRoute) { }
+  constructor(private commonService: CommonService, private projectService: ProjectsService) { }
 
   ngOnInit(): void {
     this.getProjectList()

@@ -14,6 +14,7 @@
                     <th scope="col">Task</th>
                     <th scope="col">Assign To</th>
                     <th scope="col">Due Date</th>
+                    <th scope="col">Priority</th>
                     <th scope="col">Status</th>
                     <th scope="col" class="text-center">Action</th>
                 </tr>
@@ -28,6 +29,7 @@
                     </td>
                     <td class="fw-bold">{{data.assignTo}}</td>
                     <td class="fw-bold">{{data.dueDate | date:'MMM d, y'}}</td>
+                    <td class="fw-bold">{{data.priority}}</td>
                     <td class=" text-center">
                         <div class="badge text-white" [ngClass]="{'bg-primary':data.status==='Pending',
                         'bg-info':data.status==='In Progress',

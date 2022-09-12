@@ -19,11 +19,11 @@ export class ProjectsService {
   }
 
   public getProjectById(id: number): Observable<Project> {
-    return this.http.get<Project>(`${this.apiLink}/project/${id}`)
+    return this.http.get<Project>(`${this.apiLink}/project/${id}`);
   }
 
   public editProject(id: number, form: Project): Observable<Project> {
-    return this.http.put<Project>(`${this.apiLink}/project/${id}`, form)
+    return this.http.put<Project>(`${this.apiLink}/project/${id}`, form);
   }
 
   public deleteProject(id: number): Observable<number> {
