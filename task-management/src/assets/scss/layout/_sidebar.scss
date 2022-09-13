@@ -3,6 +3,12 @@
     background-color: $secondary;
     transition: 0.4s all ease;
 
+    // @include media-breakpoint-down(xl) {
+    //     position: absolute;
+    //     z-index: 99;
+    //     width: 100%;
+    // }
+
     .user-email {
         font-size: 0.7rem;
     }
@@ -24,7 +30,7 @@
 }
 
 #menu:checked {
-    ~.sidebar{
+    ~.sidebar {
         width: 50px;
     }
 }
@@ -35,20 +41,3 @@
         transition: 0.4s all ease-in-out;
     }
 }
-
-// #toggle {
-//     cursor: pointer;
-//     transition: 0.4s all ease-in-out;
-// }
-
-// #users:checked {
-//     ~.sub-items {
-//         height: 80px;
-//         transition: 0.4s all ease-in-out;
-//         background-color: $dropdown-background;
-//     }
-
-//     ~ .nav-link #toggle {
-//         transform: rotate(180deg);
-//     }
-// }

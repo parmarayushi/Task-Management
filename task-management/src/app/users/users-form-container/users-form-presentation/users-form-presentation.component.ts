@@ -28,15 +28,17 @@ export class UsersFormPresentationComponent implements OnInit {
   @Output() public edit: EventEmitter<Users>;
 
   public usersForm: FormGroup;
-  public formTitle: string
+  public formTitle: string;
+  public formSubmitted: boolean;
 
   private _userFormData: Users[];
 
   constructor(private userFormPresenter: UsersFormPresnterService, private route: Router) {
-    this.usersForm = this.userFormPresenter.buildForm();
-    this.formTitle = "New Employee";
+    this.formSubmitted=false;
     this.add = new EventEmitter();
     this.edit = new EventEmitter();
+    this.usersForm = this.userFormPresenter.buildForm();
+    this.formTitle = "New Employee";
   }
 
   ngOnInit(): void {
@@ -45,8 +47,15 @@ export class UsersFormPresentationComponent implements OnInit {
     })
   }
 
+  public get getControls() {
+    return this.usersForm.controls;
+  }
+
   public onSubmit() {
-    this.userFormPresenter.onSubmit(this.usersForm);
+    this.formSubmitted = !this.usersForm.valid;
+    if (!this.formSubmitted) {
+      this.userFormPresenter.onSubmit(this.usersForm);
+    }
   }
 
   public onCancel() {

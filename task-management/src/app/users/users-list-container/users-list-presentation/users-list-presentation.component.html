@@ -16,7 +16,7 @@
                     <th scope="col" class="text-center">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="userList?.length">
                 <tr *ngFor="let items of userList,let i=index">
                     <th scope="row" class="text-center">{{i+1}}</th>
                     <td>{{items?.firstName +" "+ items?.lastName}}</td>
@@ -29,5 +29,6 @@
                 </tr>
             </tbody>
         </table>
+        <div *ngIf="!userList?.length" class="fw-bold mt-3 d-flex justify-content-center">No Employee Inserted</div>
     </section>
 </div>

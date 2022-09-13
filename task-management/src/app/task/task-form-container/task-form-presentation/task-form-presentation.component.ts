@@ -49,7 +49,8 @@ export class TaskFormPresentationComponent implements OnInit {
   @Output() public edit: EventEmitter<Task>;
 
   public taskForm: FormGroup;
-  public formTitle: string
+  public formTitle: string;
+  public formSubmitted:boolean;
 
   private _taskData: Task;
   private _projectData: Project[];
@@ -59,7 +60,8 @@ export class TaskFormPresentationComponent implements OnInit {
     this.taskForm = this.taskFormPresenter.buildForm();
     this.add = new EventEmitter();
     this.edit = new EventEmitter();
-    this.formTitle = "New Task"
+    this.formTitle = "New Task";
+    this.formSubmitted=false;
   }
 
   ngOnInit(): void {
@@ -68,8 +70,15 @@ export class TaskFormPresentationComponent implements OnInit {
     })
   }
 
+  public get getControls() {
+    return this.taskForm.controls;
+  }
+
   public onSubmit() {
-    this.taskFormPresenter.onSubmit(this.taskForm);
+    this.formSubmitted=!this.taskForm.valid;
+    if(!this.formSubmitted){
+      this.taskFormPresenter.onSubmit(this.taskForm);
+    }
   }
 
   public onCancel() {

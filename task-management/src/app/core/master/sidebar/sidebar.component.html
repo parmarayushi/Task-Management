@@ -1,5 +1,6 @@
 <input type="checkbox" id="menu" class="d-none">
-<aside class="sidebar h-100">
+<aside class="sidebar h-100 d-flex flex-column">
+  <!-- <label for="menu" id="toggle" class="position-absolute"><span class="icon-menu cursor-pointer text-white pe-4"></span></label> -->
   <div class="d-flex p-3 text-white">
     <span class="icon-profile d-flex align-items-center pe-4"></span>
     <div class="d-flex flex-column">
@@ -7,7 +8,7 @@
       <span class="user-email">admin123@gmail.com</span>
     </div>
   </div>
-  <nav class="nav text-nowrap d-block overflow-vertical">
+  <nav class="nav text-nowrap d-flex flex-column overflow-auto h-100">
     <ul class="ps-0">
       <li class="pb-3 nav-item">
         <a routerLink="dashboard" routerLinkActive="active" class="nav-link d-flex cursor-pointer text-decoration-none text-white ps-3">
@@ -30,42 +31,12 @@
         </a>
       </li>
 
-      <!-- <li class="pb-3 nav-item">
-        <a routerLink="users/form"  class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
-          <span class="icon-add-user pe-4 d-flex align-items-center"></span>
-          <span>Add Employee</span>
-        </a>
-      </li> -->
-
       <li class="pb-3 nav-item">
         <a routerLink="users-list" routerLinkActive="active" class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
           <span class="icon-users pe-4 d-flex align-items-center"></span>
           <span>Employees</span>
         </a>
       </li>
-
-      <!-- <li class="pb-3 nav-item">
-        <input type="checkbox" id="users" class="d-none">
-        <a class="nav-link cursor-pointer d-flex justify-content-between test text-decoration-none text-white ps-3">
-          <span><span class="icon-users pe-4"></span>Users</span>
-          <label for="users" id="toggle">
-            <span class="icon-down-arrow text-white"></span>
-          </label>
-        </a>
-        <ul class="sub-items ps-0 ms-3 me-3 rounded overflow-hidden">
-          <li class="d-flex flex-column">
-            <a class="nav-link cursor-pointer text-white" routerLink="users/form">Add Users</a>
-            <a class="nav-link cursor-pointer text-white" routerLink="users/list">List</a>
-          </li>
-        </ul>
-      </li> -->
-
-      <!-- <li class="nav-item">
-        <a routerLink=""  class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
-          <span class="icon-logout pe-4  d-flex align-items-center"></span>
-          <span>Logout</span>
-        </a>
-      </li> -->
     </ul>
   </nav>
 </aside>

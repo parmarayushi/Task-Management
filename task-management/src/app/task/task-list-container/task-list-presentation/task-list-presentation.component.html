@@ -19,7 +19,7 @@
                     <th scope="col" class="text-center">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="taskData?.length">
                 <tr *ngFor="let data of taskData, let i=index" class="align-middle">
                     <th scope="row" class="text-center">{{i+1}}</th>
                     <td class="fw-bold">{{data.projectName}}</td>
@@ -42,5 +42,6 @@
                 </tr>
             </tbody>
         </table>
+        <div *ngIf="!taskData?.length" class="fw-bold mt-3 d-flex justify-content-center">No Task Inserted</div>
     </section>
 </div>

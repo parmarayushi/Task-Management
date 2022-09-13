@@ -82,26 +82,12 @@
       "id": 9
     }
   ],
-  "userRole": [
-    {
-      "id": 1,
-      "role": "Admin"
-    },
-    {
-      "id": 2,
-      "role": "Project Manager"
-    },
-    {
-      "id": 3,
-      "role": "Employee"
-    }
-  ],
   "project": [
     {
       "name": "1 Talent",
       "status": "Done",
       "startDate": "2022-02-04",
-      "endDate": "2022-05-12",
+      "dueDate": "2022-05-11",
       "projectManager": "Hiren Tandel",
       "teamMembers": [
         {
@@ -128,7 +114,7 @@
       "name": "1 Medify",
       "status": "In Progress",
       "startDate": "2022-04-13",
-      "endDate": "2022-06-24",
+      "dueDate": "2022-06-25",
       "projectManager": "Ronak Patel",
       "teamMembers": [
         {
@@ -163,7 +149,7 @@
       "name": "Task Management System",
       "status": "In Progress",
       "startDate": "2022-08-27",
-      "endDate": "2022-10-14",
+      "dueDate": "2022-11-24",
       "projectManager": "Kevang Patel",
       "teamMembers": [
         {
@@ -209,16 +195,6 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 3
-    },
-    {
-      "projectName": "1 Talent",
-      "task": "Do search functionality on users list",
-      "description": "Implement search using javascript",
-      "assignTo": "Viral Patel",
-      "priority": "Medium",
-      "dueDate": "2022-04-08",
-      "status": "Pending",
-      "id": 4
     }
   ]
 }

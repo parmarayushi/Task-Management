@@ -38,6 +38,7 @@ export class ProjectFormPresentationComponent implements OnInit {
 
   public projectForm: FormGroup;
   public formTitle: string;
+  public formSubmitted:boolean;
   public settings:{};
 
   private _projectData: Project;
@@ -45,9 +46,10 @@ export class ProjectFormPresentationComponent implements OnInit {
 
   constructor(private projectFormPresenter: ProjectFormPresenterService, private route: Router) {
     this.projectForm = this.projectFormPresenter.buildform();
-    this.formTitle = "New Project";
     this.add = new EventEmitter();
     this.edit = new EventEmitter();
+    this.formTitle = "New Project";
+    this.formSubmitted=false;
   }
 
   ngOnInit(): void {
@@ -69,8 +71,15 @@ export class ProjectFormPresentationComponent implements OnInit {
     }
   }
 
+  public get getControls(){
+    return this.projectForm.controls;
+  }
+
   public onSubmit() {
-    this.projectFormPresenter.onSubmit(this.projectForm);    
+    this.formSubmitted=!this.projectForm.valid;
+    if(!this.formSubmitted){
+      this.projectFormPresenter.onSubmit(this.projectForm);    
+    }
   }
 
   public onCancel() {

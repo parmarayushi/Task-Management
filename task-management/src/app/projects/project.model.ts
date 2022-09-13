@@ -5,7 +5,7 @@ export class Project {
     public name: string;
     public status: string;
     public startDate: string;
-    public endDate: string;
+    public dueDate: string;
     public projectManager: string;
     public teamMembers: Users[];
     public description: string;
@@ -15,7 +15,7 @@ export class Project {
         name: string,
         status: string,
         startDate: string,
-        endDate: string,
+        dueDate: string,
         projectManager: string,
         teamMembers: Users[],
         description: string,
@@ -24,7 +24,7 @@ export class Project {
         this.name = name
         this.status = status;
         this.startDate = startDate;
-        this.endDate = endDate;
+        this.dueDate = dueDate;
         this.projectManager = projectManager;
         this.teamMembers = teamMembers;
         this.description = description;

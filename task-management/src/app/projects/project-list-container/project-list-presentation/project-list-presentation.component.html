@@ -6,38 +6,41 @@
         <div class="d-flex justify-content-end border-bottom">
             <button class="btn btn-primary text-white mb-3" routerLink="/project-form">+ Add Project</button>
         </div>
-        <table class="table table-bordered mb-0 mt-3">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">#</th>
-                    <th scope="col">Project</th>
-                    <th scope="col">Date Started</th>
-                    <th scope="col">Due Date</th>
-                    <th scope="col">Status</th>
-                    <th scope="col" class="text-center">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let items of projectList, let i=index" class="align-middle ">
-                    <th scope="row" class="text-center">{{i+1}}</th>
-                    <td class="d-flex flex-column">
-                        <div class="fw-bold">{{items.name}}</div>
-                        <div class="small fst-italic">{{items.description}}</div>
-                    </td>
-                    <td class="fw-bold">{{items.startDate | date:'MMM d, y'}}</td>
-                    <td class="fw-bold">{{items.endDate | date:'MMM d, y'}}</td>
-                    <td class=" text-center">
-                        <div class="badge text-white" [ngClass]="{'bg-primary':items.status==='Started',
-                        'bg-info':items.status==='In Progress',
-                        'bg-success':items.status==='Done'}">{{items.status}}</div>
-                    </td>
-                    <td class="text-center">
-                        <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
-                        <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
-                        <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="position-relative">
+            <table class="table table-bordered mb-0 mt-3">
+                <thead class="sticky-top">
+                    <tr>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col">Project</th>
+                        <th scope="col">Date Started</th>
+                        <th scope="col">Due Date</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="projectList?.length">
+                    <tr *ngFor="let items of projectList, let i=index" class="align-middle">
+                        <th scope="row" class="text-center">{{i+1}}</th>
+                        <td class="d-flex flex-column">
+                            <div class="fw-bold">{{items.name}}</div>
+                            <div class="small fst-italic">{{items.description}}</div>
+                        </td>
+                        <td class="fw-bold">{{items.startDate | date:'MMM d, y'}}</td>
+                        <td class="fw-bold">{{items.dueDate | date:'MMM d, y'}}</td>
+                        <td class=" text-center">
+                            <div class="badge text-white" [ngClass]="{'bg-primary':items.status==='Started',
+                            'bg-info':items.status==='In Progress',
+                            'bg-success':items.status==='Done'}">{{items.status}}</div>
+                        </td>
+                        <td class="text-center">
+                            <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
+                            <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
+                            <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="!projectList?.length" class="fw-bold mt-3 d-flex justify-content-center">No Project Inserted</div>
     </section>
 </div>

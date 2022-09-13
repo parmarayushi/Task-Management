@@ -4,50 +4,119 @@
 
     <!-- Start: User Form -->
     <form class="rounded shadow-sm bg-white p-3 mt-4 form-border" [formGroup]="usersForm">
-        <div class="d-flex">
-            <!-- Start: Personal details -->
-            <section class="col-6 pe-3 border-end">
+        <div class="d-sm-flex">
+            <section class="col-12 col-sm-6 pe-sm-3 border-end personal-details">
+                <!-- Start: First Name -->
                 <div class="pb-3">
                     <label for="firstName" class="fw-bold">First Name</label>
                     <input type="text" class="form-control" formControlName="firstName">
-                </div>
 
+                    <!-- Start: Firstname Validation -->
+                    <div *ngIf="getControls['firstName'].touched && getControls['firstName'].errors || formSubmitted">
+                        <small class="text-danger"
+                            *ngIf="getControls['firstName'].errors && getControls['firstName'].errors['required']">
+                            *firstName is required
+                        </small>
+                    </div>
+                    <!-- End: Firstname Validation -->
+                </div>
+                <!-- End: First Name -->
+
+                <!-- Start: Last Name -->
                 <div class="pb-3">
                     <label for="lastName" class="fw-bold">Last Name</label>
                     <input type="text" class="form-control" formControlName="lastName">
-                </div>
 
+                    <!-- Start: Lastname Validation -->
+                    <div *ngIf="getControls['lastName'].touched && getControls['lastName'].errors || formSubmitted">
+                        <small class="text-danger"
+                            *ngIf="getControls['lastName'].errors && getControls['lastName'].errors['required']">
+                            *lastName is required
+                        </small>
+                    </div>
+                    <!-- End: Lastname Validation -->
+                </div>
+                <!-- End: Last Name -->
+
+                <!-- Start: City -->
                 <div class="pb-3">
                     <label for="city" class="fw-bold">City</label>
                     <input type="text" class="form-control" formControlName="city">
-                </div>
-            </section>
-            <!-- End: Personal details -->
 
-            <!-- Start: Login details -->
-            <section class="col-6 ps-3">
+                    <!-- Start: City Validation -->
+                    <div *ngIf="getControls['city'].touched && getControls['city'].errors || formSubmitted">
+                        <small class="text-danger"
+                            *ngIf="getControls['city'].errors && getControls['city'].errors['required']">
+                            *city is required
+                        </small>
+                    </div>
+                    <!-- End: City Validation -->
+                </div>
+                <!-- End: City -->
+            </section>
+
+            <section class="col-12 col-sm-6 ps-sm-3">
+                <!-- Start: Email  -->
                 <div class="pb-3">
                     <label for="email" class="fw-bold">Email</label>
                     <input type="email" class="form-control" formControlName="email">
-                </div>
 
+                    <!-- Start: Email Validation -->
+                    <div *ngIf="getControls['email'].touched && getControls['email'].errors || formSubmitted">
+                        <small class="text-danger"
+                            *ngIf="getControls['email'].errors && getControls['email'].errors['required']">
+                            *email is required
+                        </small>
+                        <small class="text-danger"
+                            *ngIf="getControls['email'].errors && getControls['email'].errors['email']">
+                            *enter proper format
+                        </small>
+                    </div>
+                    <!-- End: Email Validation -->
+                </div>
+                <!-- End: Email  -->
+
+                <!-- Start: Password -->
                 <div class="pb-3">
                     <label for="password" class="fw-bold">Password</label>
                     <input type="password" class="form-control" formControlName="password">
-                </div>
 
+                    <!-- Start: Password Validation -->
+                    <div *ngIf="getControls['password'].touched && getControls['password'].errors || formSubmitted">
+                        <small class="text-danger"
+                            *ngIf="getControls['password'].errors && getControls['password'].errors['required']">
+                            *password is required
+                        </small>
+                    </div>
+                    <!-- End: Password Validation -->
+                </div>
+                <!-- End: Password -->
+
+                <!-- Start: Confirm Password -->
                 <div class="pb-3">
                     <label for="confirm-password" class="fw-bold">Confirm Password</label>
                     <input type="password" class="form-control" formControlName="confirmPassword">
+
+                    <!-- Start: Confirm Password -->
+                    <div
+                        *ngIf="getControls['confirmPassword'].touched && getControls['confirmPassword'].errors || formSubmitted">
+                        <small class="text-danger"
+                            *ngIf="getControls['confirmPassword'].errors && getControls['confirmPassword'].errors['required']">
+                            *confirmPassword is required
+                        </small>
+                    </div>
+                    <!-- End: Confirm Password -->
                 </div>
+                <!-- End: Confirm Password -->
             </section>
-            <!-- End: Login details -->
         </div>
 
-        <div class="d-flex align-items-center justify-content-center mt-3">
+        <!-- Start: Save and Cancel Button -->
+        <div class="d-flex align-items-center justify-content-between justify-content-sm-center mt-3">
             <button type="button" class="btn btn-primary me-2 ps-4 pe-4 text-white" (click)="onSubmit()">Save</button>
             <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
         </div>
+        <!-- End: Save and Cancel Button -->
     </form>
     <!-- End: User Form -->
 </div>

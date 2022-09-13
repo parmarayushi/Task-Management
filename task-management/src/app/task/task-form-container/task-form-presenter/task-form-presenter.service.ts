@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { Task } from '../../task.model';
 
@@ -19,13 +19,13 @@ export class TaskFormPresenterService {
 
   public buildForm() {
     return this.fb.group({
-      projectName: [''],
-      task: [''],
-      description: [''],
-      assignTo: [''],
-      priority:[''],
-      dueDate: [''],
-      status: [''],
+      projectName: ['',Validators.required],
+      task: ['',Validators.required],
+      description: ['',Validators.required],
+      assignTo: ['',Validators.required],
+      priority:['',Validators.required],
+      dueDate: ['',Validators.required],
+      status: ['',Validators.required],
     })
   }
 

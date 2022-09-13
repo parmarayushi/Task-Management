@@ -1,4 +1,5 @@
-// .project-view{
-//     width: 600px;
-//     height: 100%;
-// }
+.personal-details{
+    @include media-breakpoint-down(sm){
+        border-right: none !important;
+    }
+}

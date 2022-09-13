@@ -1,1 +1,50 @@
-<p>dashboard-presentation works!</p>
+<div class="wrapper">
+    <!-- Header -->
+    <h3 class="border-bottom border-primary pb-2">HOME</h3>
+
+    <div class="col-12 mt-4">
+        <div class="card">
+            <div class="card-body">
+                <span class="card-text text-muted">Welcome Adminstrator !!!</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2 g-3">
+        <!-- Start: Employee Card -->
+        <div class="col-12 col-sm-6 col-lg-4" *ngIf="employeeData">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Employees</h5>
+                    <h2 class="card-text text-muted">{{employeeData.length}}</h2>
+                    <a href="users-list" class="card-link d-flex justify-content-end">View all Employees</a>
+                </div>
+            </div>
+        </div>
+        <!-- End: Employee Card -->
+
+        <!-- Start: Project Card -->
+        <div class="col-12 col-sm-6 col-lg-4" *ngIf="projectData">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Projects</h5>
+                    <h2 class="card-text text-muted">{{projectData.length}}</h2>
+                    <a href="project-list" class="card-link d-flex justify-content-end">View all Projects</a>
+                </div>
+            </div>
+        </div>
+        <!-- End: Project Card -->
+
+        <!-- Start:Task Card -->
+        <div class="col-12 col-sm-6 col-lg-4" *ngIf="taskData">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Tasks</h5>
+                    <h2 class="card-text text-muted">{{taskData.length}}</h2>
+                    <a href="task-list" class="card-link d-flex justify-content-end">View all Tasks</a>
+                </div>
+            </div>
+        </div>
+        <!-- End: Task Card -->
+    </div>
+</div>

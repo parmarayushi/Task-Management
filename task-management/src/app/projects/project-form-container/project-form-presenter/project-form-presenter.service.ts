@@ -23,7 +23,7 @@ export class ProjectFormPresenterService {
       name: ['',Validators.required],
       status: ['',Validators.required],
       startDate: ['',Validators.required],
-      endDate: ['',Validators.required],
+      dueDate: ['',Validators.required],
       projectManager: ['',Validators.required],
       teamMembers: ['',Validators.required],
       description: ['',Validators.required]
