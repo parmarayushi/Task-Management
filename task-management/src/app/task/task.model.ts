@@ -4,7 +4,7 @@ export class Task {
     public task: string;
     public description: string;
     public assignTo: string;
-    public priority:string;
+    public priority: string;
     public dueDate: string
     public status: string;
 
@@ -14,7 +14,7 @@ export class Task {
         task: string,
         description: string,
         assignTo: string,
-        priority:string,
+        priority: string,
         dueDate: string,
         status: string,
     ) {
@@ -23,7 +23,7 @@ export class Task {
         this.task = task;
         this.description = description;
         this.assignTo = assignTo;
-        this.priority=priority;
+        this.priority = priority;
         this.dueDate = dueDate;
         this.status = status
     }

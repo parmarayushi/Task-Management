@@ -10,41 +10,90 @@
         </div>
     </div>
 
-    <div class="row mt-2 g-3">
-        <!-- Start: Employee Card -->
-        <div class="col-12 col-sm-6 col-lg-4" *ngIf="employeeData">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Total Employees</h5>
-                    <h2 class="card-text text-muted">{{employeeData.length}}</h2>
-                    <a href="users-list" class="card-link d-flex justify-content-end">View all Employees</a>
+    <section>
+        <div class="row mt-2 g-3">
+            <!-- Start: Employee Card -->
+            <div class="col-12 col-sm-6 col-lg-4" *ngIf="employeeData">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Employees</h5>
+                        <h2 class="card-text text-muted">{{employeeData.length}}</h2>
+                        <small>
+                            <a href="users-list" class="card-link d-flex justify-content-end text-decoration-none">View
+                                all Employees</a>
+                        </small>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- End: Employee Card -->
+            <!-- End: Employee Card -->
 
-        <!-- Start: Project Card -->
-        <div class="col-12 col-sm-6 col-lg-4" *ngIf="projectData">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Total Projects</h5>
-                    <h2 class="card-text text-muted">{{projectData.length}}</h2>
-                    <a href="project-list" class="card-link d-flex justify-content-end">View all Projects</a>
+            <!-- Start: Project Card -->
+            <div class="col-12 col-sm-6 col-lg-4" *ngIf="projectData">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Projects</h5>
+                        <h2 class="card-text text-muted">{{projectData.length}}</h2>
+                        <small>
+                            <a href="project-list"
+                                class="card-link d-flex justify-content-end text-decoration-none">View all Projects</a>
+                        </small>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- End: Project Card -->
+            <!-- End: Project Card -->
 
-        <!-- Start:Task Card -->
-        <div class="col-12 col-sm-6 col-lg-4" *ngIf="taskData">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Total Tasks</h5>
-                    <h2 class="card-text text-muted">{{taskData.length}}</h2>
-                    <a href="task-list" class="card-link d-flex justify-content-end">View all Tasks</a>
+            <!-- Start:Task Card -->
+            <div class="col-12 col-sm-6 col-lg-4" *ngIf="taskData">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Tasks</h5>
+                        <h2 class="card-text text-muted">{{taskData.length}}</h2>
+                        <small>
+                            <a href="task-list" class="card-link d-flex justify-content-end text-decoration-none">View
+                                all Tasks</a>
+                        </small>
+                    </div>
                 </div>
             </div>
+            <!-- End: Task Card -->
         </div>
-        <!-- End: Task Card -->
-    </div>
+    </section>
+
+    <h4 class="border-bottom border-primary pb-2 mt-3">Tasks Status</h4>
+    <section class="rounded bg-white shadow-sm p-4 mt-4">
+        <div class="row g-3">
+            <!-- Start: Employee Card -->
+            <div class="col-12 col-sm-6 col-lg-4" *ngIf="taskData">
+                <div class="card bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Tasks In Pending</h5>
+                        <h2 class="card-text text-white">{{ pending.length }}</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- End: Employee Card -->
+
+            <!-- Start: Project Card -->
+            <div class="col-12 col-sm-6 col-lg-4" *ngIf="taskData">
+                <div class="card bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Tasks In Progress</h5>
+                        <h2 class="card-text text-white">{{inProgress.length}}</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- End: Project Card -->
+
+            <!-- Start:Task Card -->
+            <div class="col-12 col-sm-6 col-lg-4" *ngIf="taskData">
+                <div class="card bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title text-white">Tasks Done</h5>
+                        <h2 class="card-text text-white">{{done.length}}</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- End: Task Card -->
+        </div>
+    </section>
 </div>

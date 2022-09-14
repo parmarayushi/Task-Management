@@ -1,42 +1,43 @@
-<input type="checkbox" id="menu" class="d-none">
+<input type="checkbox" id="menu" class="d-none" checked>
 <aside class="sidebar h-100 d-flex flex-column">
-  <!-- <label for="menu" id="toggle" class="position-absolute"><span class="icon-menu cursor-pointer text-white pe-4"></span></label> -->
-  <div class="d-flex p-3 text-white">
-    <span class="icon-profile d-flex align-items-center pe-4"></span>
-    <div class="d-flex flex-column">
-      <span>Admin Admin</span>
-      <span class="user-email">admin123@gmail.com</span>
-    </div>
-  </div>
-  <nav class="nav text-nowrap d-flex flex-column overflow-auto h-100">
-    <ul class="ps-0">
-      <li class="pb-3 nav-item">
-        <a routerLink="dashboard" routerLinkActive="active" class="nav-link d-flex cursor-pointer text-decoration-none text-white ps-3">
-          <span class="icon-home pe-4 d-flex align-items-center"></span>
-          <span>Dashboard</span>
-        </a>
-      </li>
-
-      <li class="pb-3 nav-item">
-        <a routerLink="project-list" routerLinkActive="active" class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
-          <span class="icon-project pe-4 d-flex align-items-center"></span>
-          <span>Projects</span>
-        </a>
-      </li>
-
-      <li class="pb-3 nav-item">
-        <a routerLink="task-list"  class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
-          <span class="icon-tasks pe-4 d-flex align-items-center"></span>
-          <span>Tasks</span>
-        </a>
-      </li>
-
-      <li class="pb-3 nav-item">
-        <a routerLink="users-list" routerLinkActive="active" class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
-          <span class="icon-users pe-4 d-flex align-items-center"></span>
-          <span>Employees</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-</aside>
+  <label for="menu" id="toggle"><span class="icon-cross close text-white cursor-pointer position-absolute"></span></label>
+  <nav class="nav text-nowrap d-flex flex-column overflow-y-auto h-100">
+      <div class="d-flex profile p-3 text-white">
+        <span class="icon-profile d-flex align-items-center pe-4"></span>
+        <div class="d-flex flex-column">
+          <span>Admin Admin</span>
+          <span class="user-email">admin123@gmail.com</span>
+        </div>
+      </div>
+      
+      <ul class="ps-0">
+        <li class="pb-3 nav-item">
+          <a routerLink="dashboard" routerLinkActive="active" class="nav-link d-flex cursor-pointer text-decoration-none text-white ps-3">
+            <span class="icon-home pe-4 d-flex align-items-center"></span>
+            <span>Dashboard</span>
+          </a>
+        </li>
+  
+        <li class="pb-3 nav-item">
+          <a routerLink="project-list" routerLinkActive="active" class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
+            <span class="icon-project pe-4 d-flex align-items-center"></span>
+            <span>Projects</span>
+          </a>
+        </li>
+  
+        <li class="pb-3 nav-item">
+          <a routerLink="task-list" routerLinkActive="active" class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
+            <span class="icon-tasks pe-4 d-flex align-items-center"></span>
+            <span>Tasks</span>
+          </a>
+        </li>
+  
+        <li class="pb-3 nav-item">
+          <a routerLink="users-list" routerLinkActive="active" class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3">
+            <span class="icon-users pe-4 d-flex align-items-center"></span>
+            <span>Employees</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>

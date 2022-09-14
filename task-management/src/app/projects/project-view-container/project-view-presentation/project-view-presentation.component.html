@@ -1,11 +1,11 @@
-<div class="wrapper">
+<div class="wrapper h-100 overflow-hidden d-flex flex-column">
     <!-- Header -->
     <h3 class="border-bottom border-primary pb-2">View Project</h3>
 
     <!-- Start: Project View -->
-    <section class="shadow-sm project-view rounded bg-white p-3 mt-4">
-        <div class="d-flex" *ngIf="projectView">
-            <section class="col-6 pe-3 border-end">
+    <section class="shadow-sm project-view rounded bg-white p-3 mt-4 h-100 overflow-auto">
+        <div class="d-sm-flex" *ngIf="projectView">
+            <section class="col-12 col-sm-6 pe-sm-3 border-end border-sm-end">
                 <div class="pb-3 d-flex flex-column">
                     <label for="name" class="fw-bold">Project Name</label>
                     <span>{{projectView.name}}</span>
@@ -18,11 +18,11 @@
 
                 <div class="col-12 d-flex flex-column">
                     <label for="description" class="fw-bold">Description</label>
-                    <span>{{projectView.description}}</span>
+                    <span class="text-nowrap text-truncate" [title]="projectView.description">{{projectView.description}}</span>
                 </div>
             </section>
 
-            <section class="col-6 ps-3">
+            <section class="col-12 col-sm-6 ps-sm-3 pt-3 pt-sm-0">
                 <div class="pb-3 d-flex flex-column">
                     <label for="startDate" class="fw-bold">Start Date</label>
                     <span>{{projectView.startDate | date:'MMMM d, y'}}</span>

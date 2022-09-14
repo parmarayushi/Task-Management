@@ -3,20 +3,38 @@
     background-color: $secondary;
     transition: 0.4s all ease;
 
-    // @include media-breakpoint-down(xl) {
-    //     position: absolute;
-    //     z-index: 99;
-    //     width: 100%;
-    // }
+    @include media-breakpoint-down(md) {
+        position: absolute;
+        z-index: 99;
+        width: 50%;
+    }
+
+    @media (max-width: 320px) { 
+        position: absolute;
+        z-index: 99;
+        width: 100%;
+     }
 
     .user-email {
         font-size: 0.7rem;
     }
 }
 
-.nav {
-    border-top: $border-size solid $white;
+.profile{
+    border-bottom: $border-size solid $white;
+}
 
+.close{
+    top: 25px;
+    right: 30px;
+    z-index: 99;
+    display: none;
+      @include media-breakpoint-down(md) {
+        display: block;
+    }
+}
+
+.nav {
     &-link {
         &.active {
             background-color: $primary;
@@ -32,8 +50,12 @@
 #menu:checked {
     ~.sidebar {
         width: 50px;
+        @include media-breakpoint-down(md) {
+           width: 0px;           
+        }
     }
 }
+
 
 #users {
     ~.sub-items {

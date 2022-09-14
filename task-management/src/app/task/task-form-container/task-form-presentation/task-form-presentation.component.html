@@ -1,11 +1,11 @@
-<div class="wrapper">
+<div class="wrapper h-100 overflow-hidden d-flex flex-column">
     <!-- Header -->
     <h3 class="border-bottom border-primary pb-2">{{formTitle}}</h3>
 
     <!-- Start: Task Form -->
-    <form class="rounded shadow-sm bg-white p-3 mt-4" [formGroup]="taskForm">
-        <div class="d-flex">
-            <section class="col-6 pe-3 border-end">
+    <form class="rounded shadow-sm bg-white p-3 mt-4 overflow-auto" [formGroup]="taskForm">
+        <div class="d-sm-flex">
+            <section class="col-12 col-sm-6 pe-sm-3 border-end border-sm-end">
                 <!-- Start: Project Name -->
                 <div class="pb-3">
                     <label for="projectName" class="fw-bold">Project Name</label>
@@ -63,7 +63,7 @@
                 <!-- End: Assign To -->
             </section>
 
-            <section class="col-6 ps-3">
+            <section class="col-12 col-sm-6 ps-sm-3">
                 <!-- Start: Due Date -->
                 <div class="pb-3">
                     <label for="dueDate" class="fw-bold">Due Date</label>
@@ -140,7 +140,7 @@
         </div>
 
         <!-- Start: Submit and Cancel Button -->
-        <div class="d-flex align-items-center justify-content-center mt-3">
+        <div class="d-flex align-items-center justify-content-between justify-content-sm-center mt-3">
             <button type="button" class="btn btn-primary me-2 ps-4 pe-4 text-white" (click)="onSubmit()">Save</button>
             <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
         </div>

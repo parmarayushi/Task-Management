@@ -1,11 +1,11 @@
-<div class="wrapper">
+<div class="wrapper h-100 overflow-hidden d-flex flex-column">
     <!-- Header -->
     <h3 class="border-bottom border-primary pb-2">{{formTitle}}</h3>
 
     <!-- Start: User Form -->
-    <form class="rounded shadow-sm bg-white p-3 mt-4 form-border" [formGroup]="usersForm">
+    <form class="rounded shadow-sm bg-white p-3 mt-4 overflow-auto" [formGroup]="usersForm">
         <div class="d-sm-flex">
-            <section class="col-12 col-sm-6 pe-sm-3 border-end personal-details">
+            <section class="col-12 col-sm-6 pe-sm-3 border-end border-sm-end">
                 <!-- Start: First Name -->
                 <div class="pb-3">
                     <label for="firstName" class="fw-bold">First Name</label>

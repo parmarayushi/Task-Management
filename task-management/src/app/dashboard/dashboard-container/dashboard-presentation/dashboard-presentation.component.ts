@@ -9,43 +9,55 @@ import { Users } from 'src/app/users/users.model';
 })
 export class DashboardPresentationComponent implements OnInit {
 
-  @Input() public set employeeData(value:Users[] | null){
-    if(value){
-      this._employeeData=value;
+  @Input() public set employeeData(value: Users[] | null) {
+    if (value) {
+      this._employeeData = value;
     }
   }
 
-  public get employeeData():Users[]{
+  public get employeeData(): Users[] {
     return this._employeeData;
   }
 
-  @Input() public set projectData(value:Project[] | null){
-    if(value){
-      this._projectData=value;
+  @Input() public set projectData(value: Project[] | null) {
+    if (value) {
+      this._projectData = value;
     }
   }
 
-  public get projectData():Project[]{
+  public get projectData(): Project[] {
     return this._projectData;
   }
 
-  @Input() public set taskData(value:Task[] | null){
-    if(value){
-      this._taskData=value;
+  @Input() public set taskData(value: Task[] | null) {
+    if (value) {
+      this._taskData = value;
+      this.status();
     }
   }
 
-  public get taskData():Task[]{
+  public get taskData(): Task[] {
     return this._taskData;
   }
 
-  private _employeeData:Users[];
-  private _projectData:Project[];
-  private _taskData:Task[];
+  public pending: Task[];
+  public inProgress: Task[];
+  public done: Task[];
 
-  constructor() { }
+  private _employeeData: Users[];
+  private _projectData: Project[];
+  private _taskData: Task[];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  public status() {
+    this.pending = this._taskData.filter((data) => data.status === "Pending");
+    this.inProgress = this._taskData.filter((data) => data.status === "In Progress");
+    this.done = this._taskData.filter((data) => data.status === "Done");
   }
 
 }
