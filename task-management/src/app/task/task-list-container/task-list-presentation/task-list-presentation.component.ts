@@ -1,11 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Task } from '../../task.model';
 import { TaskListPresenterService } from '../task-list-presenter/task-list-presenter.service';
 
 @Component({
   selector: 'app-task-list-presentation',
-  templateUrl: './task-list-presentation.component.html'
+  templateUrl: './task-list-presentation.component.html',
+  viewProviders:[TaskListPresenterService],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class TaskListPresentationComponent implements OnInit {
 
@@ -15,12 +17,13 @@ export class TaskListPresentationComponent implements OnInit {
     }
   }
 
-  public get taskData(): Task[] | null {
+  public get taskData(): Task[]  {
     return this._taskData;
   }
 
   @Output() public delete: EventEmitter<number>;
 
+  public searchText:string='';
   private _taskData: Task[];
 
   constructor(private taskPresenterService: TaskListPresenterService, private route: Router) {
@@ -38,6 +41,6 @@ export class TaskListPresentationComponent implements OnInit {
   }
 
   public onDelete(id: number) {
-    this.taskPresenterService.onDelete(id);
+    this.taskPresenterService.deletePopUp(id);
   }
 }

@@ -3,45 +3,53 @@
     <h3 class="border-bottom border-primary pb-2">Task List</h3>
 
     <section class="rounded bg-white shadow-sm p-3 mt-4">
-        <div class="d-flex justify-content-end border-bottom">
-            <button class="btn btn-primary text-white mb-3" routerLink="/task-form">+ Add Task</button>
+        <div class="d-flex justify-content-between mt-3 mb-3">
+            <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
+                [(ngModel)]="searchText">
+            <button class="btn btn-primary text-white" routerLink="/task-form">+ Add Task</button>
         </div>
-        <table class="table table-bordered mb-0 mt-3">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">#</th>
-                    <th scope="col">Project Name</th>
-                    <th scope="col">Task</th>
-                    <th scope="col">Assign To</th>
-                    <th scope="col">Due Date</th>
-                    <th scope="col">Priority</th>
-                    <th scope="col">Status</th>
-                    <th scope="col" class="text-center">Action</th>
-                </tr>
-            </thead>
-            <tbody *ngIf="taskData?.length">
-                <tr *ngFor="let data of taskData, let i=index" class="align-middle">
-                    <th scope="row" class="text-center">{{i+1}}</th>
-                    <td class="fw-bold">{{data.projectName}}</td>
-                    <td class="d-flex flex-column">
-                        <div class="fw-bold">{{data.task}}</div>
-                        <div class="small fst-italic">{{data.description}}</div>
-                    </td>
-                    <td class="fw-bold">{{data.assignTo}}</td>
-                    <td class="fw-bold">{{data.dueDate | date:'MMM d, y'}}</td>
-                    <td class="fw-bold">{{data.priority}}</td>
-                    <td class=" text-center">
-                        <div class="badge text-white" [ngClass]="{'bg-primary':data.status==='Pending',
-                        'bg-info':data.status==='In Progress',
-                        'bg-success':data.status==='Done'}">{{data.status}}</div>
-                    </td>
-                    <td class="text-center">
-                        <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(data.id)"></span>
-                        <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div *ngIf="!taskData?.length" class="fw-bold mt-3 d-flex justify-content-center">No Task Inserted</div>
+        <div class="table-wrapper overflow-hidden d-flex flex-column">
+            <div class="overflow-auto">
+                <table class="table table-bordered mb-0 w-100 position-relative">
+                    <thead class="thead">
+                        <tr class="table-header text-nowrap">
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Task</th>
+                            <th scope="col">Assign To</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Priority</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="(taskData | search:searchText) as result ">
+                        <tr *ngFor="let data of result , let i=index" class="align-middle text-nowrap">
+                            <th scope="row" class="text-center">{{i+1}}</th>
+                            <td class="fw-bold">{{data.projectName}}</td>
+                            <td class="d-flex flex-column">
+                                <div class="fw-bold">{{data.task}}</div>
+                                <div class="small fst-italic">{{data.description}}</div>
+                            </td>
+                            <td class="fw-bold">{{data.assignTo}}</td>
+                            <td class="fw-bold">{{data.dueDate | date:'MMM d, y'}}</td>
+                            <td class="fw-bold">{{data.priority}}</td>
+                            <td class=" text-center">
+                                <div class="badge text-white" [ngClass]="{'bg-primary':data.status==='Pending',
+                            'bg-info':data.status==='In Progress',
+                            'bg-success':data.status==='Done'}">{{data.status}}</div>
+                            </td>
+                            <td class="text-center">
+                                <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(data.id)"></span>
+                                <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
+                            </td>
+                        </tr>
+                        <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record
+                            Found</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="taskData?.length === 0" class="fw-bold mt-3 text-nowrap">No Task Inserted</div>
     </section>
 </div>

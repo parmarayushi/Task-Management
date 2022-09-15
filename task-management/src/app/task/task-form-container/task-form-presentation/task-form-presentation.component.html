@@ -10,7 +10,8 @@
                 <div class="pb-3">
                     <label for="projectName" class="fw-bold">Project Name</label>
                     <select id="projectName" class="form-select" formControlName="projectName">
-                        <option *ngFor="let projects of projectData" value="{{projects.name}}">{{projects.name}}
+                        <option *ngFor="let projects of projectData" value="{{projects.name}}">
+                            {{projects.name}}
                         </option>
                     </select>
 

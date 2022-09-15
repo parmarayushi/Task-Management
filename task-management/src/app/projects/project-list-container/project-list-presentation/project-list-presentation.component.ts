@@ -34,6 +34,7 @@ export class ProjectListPresentationComponent implements OnInit {
   private _projectView: Project;
   @Output() public delete: EventEmitter<number>;
 
+  public searchText:string='';
   private _projectList: Project[];
 
   constructor(public route: Router, private projectPresenterservice: ProjectListPresenterService) {
@@ -55,6 +56,6 @@ export class ProjectListPresentationComponent implements OnInit {
   }
 
   public onDelete(id: number) {
-    this.projectPresenterservice.onDelete(id);
+    this.projectPresenterservice.deletePopUp(id);
   }
 }

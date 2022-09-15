@@ -26,7 +26,6 @@ export class ProjectListContainerComponent implements OnInit {
 
   public deleteProject(id: number) {
     this.projectService.deleteProject(id).subscribe(() => {
-      alert('Project with id ' + id + ' deleted');
       this.getProjectList();
     })
   }

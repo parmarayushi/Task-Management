@@ -22,6 +22,7 @@ export class UsersFormContainerComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   public addUsers(form: Users) {
     this.userService.addUsers(form).subscribe(() => {
       alert("Data Added Successfully");

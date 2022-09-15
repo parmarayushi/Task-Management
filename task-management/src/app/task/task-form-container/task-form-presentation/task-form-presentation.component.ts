@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/projects/project.model';
@@ -8,7 +8,9 @@ import { TaskFormPresenterService } from '../task-form-presenter/task-form-prese
 
 @Component({
   selector: 'app-task-form-presentation',
-  templateUrl: './task-form-presentation.component.html'
+  templateUrl: './task-form-presentation.component.html',
+  viewProviders:[TaskFormPresenterService],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class TaskFormPresentationComponent implements OnInit {
 

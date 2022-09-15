@@ -22,7 +22,6 @@ export class TaskListContainerComponent implements OnInit {
 
   public deleteTask(id: number) {
     this.taskService.deleteTask(id).subscribe(() => {
-      alert('Task with id ' + id + ' deleted');
       this.getTasks();
     })
   }

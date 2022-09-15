@@ -1,35 +1,43 @@
-.sidebar {
-    width: $sidebar-width;
-    background-color: $secondary;
-    transition: 0.4s all ease;
+// .sidebar {
+//     flex : 0 0 $sidebar-width;
+// width: $sidebar-width;
+//     background-color: $secondary;
+//     transition: 0.4s all ease;
 
-    @include media-breakpoint-down(md) {
-        position: absolute;
-        z-index: 99;
-        width: 50%;
-    }
+//     @include media-breakpoint-down(md) {
+//         position: absolute;
+//         z-index: 99;
+// flex: 0 0 50%;
+//         width: 50%;
+// top:0;
+// left:-100%;
+//     }
 
-    @media (max-width: 320px) { 
-        position: absolute;
-        z-index: 99;
-        width: 100%;
-     }
+//     @media (max-width: 320px) { 
+//         position: absolute;
+//         z-index: 99;
+//         flex: 0 0 100%;
+//         width: 100%;
+// top:0;
+// left:-100%;
+//     }
 
-    .user-email {
-        font-size: 0.7rem;
-    }
-}
+//     .user-email {
+//         font-size: 0.7rem;
+//     }
+// }
 
-.profile{
+.profile {
     border-bottom: $border-size solid $white;
 }
 
-.close{
+.close {
     top: 25px;
     right: 30px;
     z-index: 99;
     display: none;
-      @include media-breakpoint-down(md) {
+
+    @include media-breakpoint-down(md) {
         display: block;
     }
 }
@@ -47,19 +55,120 @@
     }
 }
 
-#menu:checked {
-    ~.sidebar {
-        width: 50px;
-        @include media-breakpoint-down(md) {
-           width: 0px;           
+// #menu:checked {
+//     ~.sidebar {
+//         width: 50px;
+//         ~.content-wrapper{
+//         filter: blur(8px);
+//         }
+//         @include media-breakpoint-down(md) {
+//             width: 0px;           
+//         }
+//     }
+// }
+
+#menu {
+    display: none;
+
+    &:checked {
+        ~.sidebar {
+            flex: 0 0 0;
+            width: 0px;
+
+            @include media-breakpoint-down(md) {
+                width: 50%;
+                left: 0;
+
+                ~.content-wrapper {
+                    filter: blur(8px);
+                    pointer-events: none;
+                }
+            }
+
         }
     }
 }
 
 
-#users {
-    ~.sub-items {
-        height: 0px;
-        transition: 0.4s all ease-in-out;
-    }
-}
+// #users {
+//     ~.sub-items {
+//         height: 0px;
+//         transition: 0.4s all ease-in-out;
+//     }
+// }
+
+// #menu {
+//     display: none;
+
+//     &:checked {
+//         ~.sidebar {
+//             flex: 0 0 0;
+//             width: 0px;
+
+//             @include media-breakpoint-down(xl) {
+//                 width: 40%;
+//                 left: 0;
+
+//                 ~.content-wrapper {
+//                     filter: blur(8px);
+//                     pointer-events: none;
+//                 }
+//             }
+
+//             @include media-breakpoint-down(md) {
+//                 width: 100%;
+//                 left: 0;
+
+//             }
+//         }
+
+
+//   ~ #toggle{
+//     left: 10px;
+
+//     @include media-breakpoint-down(xl) { 
+//       left: 30%;
+//     }
+
+//     @include media-breakpoint-down(md) { 
+//       left: 80%;
+//      }
+//   }
+//     }
+// }
+
+//   #toggle{
+//     color: $primary;
+//     left:260px;
+//     top:42px;
+//     font-size: 1.5rem;
+//     z-index:99;
+//     transition: 0.6s all;
+//     cursor:pointer;
+
+//     @include media-breakpoint-down(xl) { 
+//       left:10px;
+//       z-index:200;
+//      }
+
+//      @include media-breakpoint-down(md) { 
+//       left: 80%;
+//       z-index:200;
+//      }
+//   }
+
+// .sidebar {
+//     flex: 0 0 $sidebar-width;
+//     width: $sidebar-width;
+//     background-color: $secondary;
+//     transition: 0.6s all;
+
+//     @include media-breakpoint-down(xl) {
+//         position: absolute;
+//         z-index: 99;
+//         flex: 0 0 50%;
+//         top: 0;
+//         left: -100%;
+//         width: 50%;
+//     }
+// }

@@ -3,32 +3,41 @@
     <h3 class="border-bottom border-primary pb-2">Employees List</h3>
 
     <section class="rounded bg-white shadow-sm p-3 mt-4 list-border">
-        <div class="d-flex justify-content-end border-bottom">
-            <button class="btn btn-primary text-white mb-3" routerLink="/users-form">+ Add Employee</button>
+        <div class="d-flex justify-content-between mt-3 mb-3">
+            <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
+                [(ngModel)]="searchText">
+            <button class="btn btn-primary text-white" routerLink="/users-form">+ Add Employee</button>
         </div>
-        <table class="table table-bordered mb-0 mt-3">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-center">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">City</th>
-                    <th scope="col" class="text-center">Action</th>
-                </tr>
-            </thead>
-            <tbody *ngIf="userList?.length">
-                <tr *ngFor="let items of userList,let i=index">
-                    <th scope="row" class="text-center">{{i+1}}</th>
-                    <td>{{items?.firstName +" "+ items?.lastName}}</td>
-                    <td>{{items?.email}}</td>
-                    <td>{{items?.city}}</td>
-                    <td class="text-center">
-                        <span class="icon-edit cursor-pointer pe-3" (click)="onEdit(items.id)"></span>
-                        <span class="icon-delete cursor-pointer pe-3" (click)="onDelete(items.id)"></span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div *ngIf="!userList?.length" class="fw-bold mt-3 d-flex justify-content-center">No Employee Inserted</div>
+        <div class="table-wrapper overflow-hidden d-flex flex-column">
+            <div class="overflow-auto">
+                <table class="table table-bordered mb-0 w-100 position-relative">
+                    <thead class="thead">
+                        <tr class="table-header">
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">City</th>
+                            <th scope="col" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="(userList | search:searchText) as result">
+                        <tr *ngFor="let items of userList ,let i=index">
+                            <th scope="row" class="text-center">{{i+1}}</th>
+                            <td>{{items?.firstName +" "+ items?.lastName}}</td>
+                            <td>{{items?.email}}</td>
+                            <td>{{items?.city}}</td>
+                            <td class="text-center">
+                                <span class="icon-edit cursor-pointer pe-3" (click)="onEdit(items.id)"></span>
+                                <span class="icon-delete cursor-pointer pe-3" (click)="onDelete(items.id)"></span>
+                            </td>
+                        </tr>
+                        <div *ngIf="result.length === 0 && searchText"
+                            class="fw-bold mt-3 text-nowrap">No Record Found</div>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="!userList?.length" class="fw-bold mt-3 text-nowrap">No Employee Inserted</div>
     </section>
 </div>

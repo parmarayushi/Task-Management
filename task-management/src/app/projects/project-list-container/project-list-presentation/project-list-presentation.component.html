@@ -3,44 +3,51 @@
     <h3 class="border-bottom border-primary pb-2">Project List</h3>
 
     <section class="rounded bg-white shadow-sm p-3 mt-4">
-        <div class="d-flex justify-content-end border-bottom">
-            <button class="btn btn-primary text-white mb-3" routerLink="/project-form">+ Add Project</button>
+        <div class="d-flex justify-content-between mt-3 mb-3">
+            <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
+                [(ngModel)]="searchText">
+            <button class="btn btn-primary text-white" routerLink="/project-form">+ Add Project</button>
         </div>
-        <div class="position-relative">
-            <table class="table table-bordered mb-0 mt-3">
-                <thead class="sticky-top">
-                    <tr>
-                        <th scope="col" class="text-center">#</th>
-                        <th scope="col">Project</th>
-                        <th scope="col">Date Started</th>
-                        <th scope="col">Due Date</th>
-                        <th scope="col">Status</th>
-                        <th scope="col" class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody *ngIf="projectList?.length">
-                    <tr *ngFor="let items of projectList, let i=index" class="align-middle">
-                        <th scope="row" class="text-center">{{i+1}}</th>
-                        <td class="d-flex flex-column">
-                            <div class="fw-bold">{{items.name}}</div>
-                            <div class="small fst-italic">{{items.description}}</div>
-                        </td>
-                        <td class="fw-bold">{{items.startDate | date:'MMM d, y'}}</td>
-                        <td class="fw-bold">{{items.dueDate | date:'MMM d, y'}}</td>
-                        <td class=" text-center">
-                            <div class="badge text-white" [ngClass]="{'bg-primary':items.status==='Started',
+        <div class="table-wrapper overflow-hidden d-flex flex-column">
+            <div class="overflow-auto">
+                <table class="table table-bordered mb-0 w-100 position-relative">
+                    <thead class="thead">
+                        <tr class="table-header text-nowrap">
+                            <th scope="col" class="text-center">#</th>
+                            <th scope="col">Project</th>
+                            <th scope="col">Date Started</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="(projectList | search:searchText) as result">
+                        <tr *ngFor="let items of projectList, let i=index" class="align-middle text-nowrap">
+                            <th scope="row" class="text-center">{{i+1}}</th>
+                            <td class="d-flex flex-column">
+                                <div class="title text-truncate fw-bold" [title]="items.name">{{items.name}}</div>
+                                <div class="description text-truncate small fst-italic" [title]="items.description">
+                                    {{items.description}}</div>
+                            </td>
+                            <td class="fw-bold">{{items.startDate | date:'MMM d, y'}}</td>
+                            <td class="fw-bold">{{items.dueDate | date:'MMM d, y'}}</td>
+                            <td class=" text-center">
+                                <div class="badge text-white" [ngClass]="{'bg-primary':items.status==='Started',
                             'bg-info':items.status==='In Progress',
                             'bg-success':items.status==='Done'}">{{items.status}}</div>
-                        </td>
-                        <td class="text-center">
-                            <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
-                            <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
-                            <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </td>
+                            <td class="text-center">
+                                <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
+                                <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
+                                <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
+                            </td>
+                        </tr>
+                        <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record
+                            Found</div>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div *ngIf="!projectList?.length" class="fw-bold mt-3 d-flex justify-content-center">No Project Inserted</div>
+        <div *ngIf="!projectList?.length" class="fw-bold mt-3 text-nowrap">No Project Inserted</div>
     </section>
 </div>

@@ -1,9 +1,8 @@
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
+import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { ProjectViewContainerComponent } from '../../project-view-container/project-view-container.component';
-import { ProjectViewPresentationComponent } from '../../project-view-container/project-view-presentation/project-view-presentation.component';
+import { DeletePopupComponent } from 'src/app/shared/component/delete-popup/delete-popup.component';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +12,7 @@ export class ProjectListPresenterService {
   private deleteData: Subject<number>;
   public deleteData$: Observable<number>;
 
-  constructor(private overlay:Overlay) {
+  constructor(private overlay: Overlay) {
     this.deleteData = new Subject();
     this.deleteData$ = new Observable();
 
@@ -24,18 +23,27 @@ export class ProjectListPresenterService {
     this.deleteData.next(id);
   }
 
-  // public openTaskModel(){
-  //   const OverlayConfig = this.overlay.create({
-  //     hasBackdrop:true,
-  //     positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
-  //   })
-  //   const component = new ComponentPortal(ProjectViewPresentationComponent)
-  //   const componentRef = OverlayConfig.attach(component)
+  public deletePopUp(id: number) {
+    const config = this.overlay.create({
+      hasBackdrop: true,
+      positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
+    })
 
-  //   OverlayConfig.backdropClick().subscribe(() => {
-  //     OverlayConfig.detach();
-  //   });
-  // }
+    const component = new ComponentPortal(DeletePopupComponent)
+    const componentRef = config.attach(component)
 
-  
+    componentRef.instance.value.subscribe((result) => {
+      if (result) {
+        this.onDelete(id);
+        config.detach();
+      }
+      else {
+        config.detach();
+      }
+    })
+
+    config.backdropClick().subscribe(() => {
+      config.detach();
+    })
+  }
 }

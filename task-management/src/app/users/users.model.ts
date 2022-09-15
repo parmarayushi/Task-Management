@@ -2,7 +2,7 @@ export class Users {
     public id: number;
     public firstName: string;
     public lastName: string;
-    public city: number;
+    public city: string;
     public email: string;
     public password: string;
     public confirmPassword: string;
@@ -11,7 +11,7 @@ export class Users {
         id: number,
         firstName: string,
         lastName: string,
-        city: number,
+        city: string,
         email: string,
         password: string,
         confirmPassword: string

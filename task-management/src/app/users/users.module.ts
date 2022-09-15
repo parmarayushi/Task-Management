@@ -10,6 +10,7 @@ import { UsersListPresentationComponent } from './users-list-container/users-lis
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
 import { UsersService } from './users.service';
+import { SearchPipe } from './pipe/search.pipe';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { UsersService } from './users.service';
     UsersListContainerComponent,
     UsersFormPresentationComponent,
     UsersListPresentationComponent,
+    SearchPipe,
   ],
   imports: [
     CommonModule,

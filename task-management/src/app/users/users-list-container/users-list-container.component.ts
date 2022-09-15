@@ -23,7 +23,6 @@ export class UsersListContainerComponent implements OnInit {
 
   public deleteUsers(id: number) {
     this.userService.deleteUsers(id).subscribe(() => {
-      alert('Employee with id ' + id + ' deleted');
       this.getusers();
     })
   }

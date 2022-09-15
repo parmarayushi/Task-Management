@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CommonService } from './services/common.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown'
+import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import { DeletePopupComponent } from './component/delete-popup/delete-popup.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  
+    DeletePopupComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,7 +23,8 @@ import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown'
   exports:[
     FormsModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+    DeletePopupComponent
   ]
 })
 export class SharedModule { }

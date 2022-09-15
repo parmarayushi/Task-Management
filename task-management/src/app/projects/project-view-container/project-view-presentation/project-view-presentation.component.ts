@@ -22,7 +22,6 @@ export class ProjectViewPresentationComponent implements OnInit {
   }
 
   private _projectView: Project;
-  public projectData:Users[];
 
   constructor() { }
 

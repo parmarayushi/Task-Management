@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Users } from 'src/app/users/users.model';
@@ -7,7 +7,9 @@ import { ProjectFormPresenterService } from '../project-form-presenter/project-f
 
 @Component({
   selector: 'app-project-form-presentation',
-  templateUrl: './project-form-presentation.component.html'
+  templateUrl: './project-form-presentation.component.html',
+  viewProviders:[ProjectFormPresenterService],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class ProjectFormPresentationComponent implements OnInit {
 

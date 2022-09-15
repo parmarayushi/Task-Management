@@ -23,6 +23,7 @@ export class UsersListPresentationComponent implements OnInit {
 
   @Output() public delete: EventEmitter<number>;
 
+  public searchText: string = '';
   private _userList: Users[];
 
   constructor(private route: Router, private userListPresenter: UsersListPresenterService) {
@@ -40,6 +41,6 @@ export class UsersListPresentationComponent implements OnInit {
   }
 
   public onDelete(id: number) {
-    this.userListPresenter.onDelete(id);
+    this.userListPresenter.deletePopUp(id);
   }
 }
