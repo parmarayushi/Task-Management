@@ -23,7 +23,7 @@
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody *ngIf="(taskData | search:searchText) as result ">
+                    <tbody *ngIf="(taskData | search: searchText) as result ">
                         <tr *ngFor="let data of result , let i=index" class="align-middle text-nowrap">
                             <th scope="row" class="text-center">{{i+1}}</th>
                             <td class="fw-bold">{{data.projectName}}</td>
@@ -44,8 +44,7 @@
                                 <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
                             </td>
                         </tr>
-                        <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record
-                            Found</div>
+                        <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record Found</div>
                     </tbody>
                 </table>
             </div>

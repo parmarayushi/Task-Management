@@ -1,5 +1,12 @@
-.border-sm-end{
-    @include media-breakpoint-down(sm){
+.border-sm-end {
+    @include media-breakpoint-down(sm) {
         border-right: none !important;
+    }
+}
+
+.delete-popoup {
+    @include media-breakpoint-down(sm) {
+        padding: 16px 8px;
+        margin: 16px;
     }
 }

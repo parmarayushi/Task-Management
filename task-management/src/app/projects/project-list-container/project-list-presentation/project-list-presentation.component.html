@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody *ngIf="(projectList | search:searchText) as result">
-                        <tr *ngFor="let items of projectList, let i=index" class="align-middle text-nowrap">
+                        <tr *ngFor="let items of result, let i=index" class="align-middle text-nowrap">
                             <th scope="row" class="text-center">{{i+1}}</th>
                             <td class="d-flex flex-column">
                                 <div class="title text-truncate fw-bold" [title]="items.name">{{items.name}}</div>

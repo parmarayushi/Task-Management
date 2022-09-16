@@ -20,8 +20,8 @@
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody *ngIf="(userList | search:searchText) as result">
-                        <tr *ngFor="let items of userList ,let i=index">
+                    <tbody *ngIf="(userList | search: searchText) as result">
+                        <tr *ngFor="let items of result ,let i=index">
                             <th scope="row" class="text-center">{{i+1}}</th>
                             <td>{{items?.firstName +" "+ items?.lastName}}</td>
                             <td>{{items?.email}}</td>
@@ -31,9 +31,7 @@
                                 <span class="icon-delete cursor-pointer pe-3" (click)="onDelete(items.id)"></span>
                             </td>
                         </tr>
-                        <div *ngIf="result.length === 0 && searchText"
-                            class="fw-bold mt-3 text-nowrap">No Record Found</div>
-
+                        <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record Found</div>
                     </tbody>
                 </table>
             </div>
