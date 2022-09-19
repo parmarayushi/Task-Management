@@ -6,7 +6,11 @@
 
 .delete-popoup {
     @include media-breakpoint-down(sm) {
-        padding: 16px 8px;
-        margin: 16px;
+        padding: 1rem 0.5rem;
+        margin: 1rem;
     }
+}
+
+.eye-icon{
+    @include position(absolute,2.1rem,0.6rem)
 }

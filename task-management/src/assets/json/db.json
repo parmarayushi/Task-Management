@@ -467,6 +467,17 @@
       "password": "aayushi@123",
       "confirmPassword": "aayushi@123",
       "id": 1
+    },
+    {
+      "firstName": "Hetvi",
+      "lastName": "Parmar",
+      "city": "Valsad",
+      "email": "hetvi.parmar@gmail.com",
+      "password": {
+        "password": "Hetvi@123",
+        "confirm_password": "Hetvi@123"
+      },
+      "id": 9
     }
   ],
   "project": [

@@ -3,111 +3,150 @@
     <h3 class="border-bottom border-primary pb-2">{{formTitle}}</h3>
 
     <!-- Start: User Form -->
-    <form class="rounded shadow-sm bg-white p-3 mt-4 overflow-auto" [formGroup]="usersForm">
+    <form class="rounded shadow-sm bg-white p-3 mt-3 mt-sm-4 overflow-auto" [formGroup]="usersForm">
         <div class="d-sm-flex">
             <section class="col-12 col-sm-6 pe-sm-3 border-end border-sm-end">
-                <!-- Start: First Name -->
+                <!-- Start: First Name Field -->
                 <div class="pb-3">
                     <label for="firstName" class="fw-bold">First Name</label>
                     <input type="text" class="form-control" formControlName="firstName">
 
-                    <!-- Start: Firstname Validation -->
+                    <!-- Start: Firstname Field Validation -->
                     <div *ngIf="getControls['firstName'].touched && getControls['firstName'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['firstName'].errors && getControls['firstName'].errors['required']">
-                            *firstName is required
+                            *firstName is required.
+                        </small>
+                        <small
+                            *ngIf="getControls['firstName']?.errors?.['pattern'] "
+                            class="text-danger">
+                            *Invalid First Name.
                         </small>
                     </div>
-                    <!-- End: Firstname Validation -->
+                    <!-- End: Firstname Field Validation -->
                 </div>
-                <!-- End: First Name -->
+                <!-- End: First Name Field -->
 
-                <!-- Start: Last Name -->
+                <!-- Start: Last Name Field -->
                 <div class="pb-3">
                     <label for="lastName" class="fw-bold">Last Name</label>
                     <input type="text" class="form-control" formControlName="lastName">
 
-                    <!-- Start: Lastname Validation -->
+                    <!-- Start: Lastname Field Validation -->
                     <div *ngIf="getControls['lastName'].touched && getControls['lastName'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['lastName'].errors && getControls['lastName'].errors['required']">
-                            *lastName is required
+                            *lastName is required.
+                        </small>
+                        <small
+                            *ngIf="getControls['lastName']?.errors?.['pattern'] "
+                            class="text-danger">
+                            *Invalid First Name.
                         </small>
                     </div>
-                    <!-- End: Lastname Validation -->
+                    <!-- End: Lastname Field Validation -->
                 </div>
-                <!-- End: Last Name -->
+                <!-- End: Last Name Field -->
 
-                <!-- Start: City -->
+                <!-- Start: City Field -->
                 <div class="pb-3">
                     <label for="city" class="fw-bold">City</label>
                     <input type="text" class="form-control" formControlName="city">
 
-                    <!-- Start: City Validation -->
+                    <!-- Start: City Field Validation -->
                     <div *ngIf="getControls['city'].touched && getControls['city'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['city'].errors && getControls['city'].errors['required']">
-                            *city is required
+                            *city is required.
                         </small>
                     </div>
-                    <!-- End: City Validation -->
+                    <!-- End: City Field Validation -->
                 </div>
-                <!-- End: City -->
+                <!-- End: City Field -->
             </section>
 
             <section class="col-12 col-sm-6 ps-sm-3">
-                <!-- Start: Email  -->
+                <!-- Start: Email Field -->
                 <div class="pb-3">
                     <label for="email" class="fw-bold">Email</label>
                     <input type="email" class="form-control" formControlName="email">
 
-                    <!-- Start: Email Validation -->
+                    <!-- Start: Email Field Validation -->
                     <div *ngIf="getControls['email'].touched && getControls['email'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['email'].errors && getControls['email'].errors['required']">
-                            *email is required
+                            *email is required.
                         </small>
-                        <small class="text-danger"
-                            *ngIf="getControls['email'].errors && getControls['email'].errors['email']">
-                            *enter proper format
-                        </small>
-                    </div>
-                    <!-- End: Email Validation -->
-                </div>
-                <!-- End: Email  -->
-
-                <!-- Start: Password -->
-                <div class="pb-3">
-                    <label for="password" class="fw-bold">Password</label>
-                    <input type="password" class="form-control" formControlName="password">
-
-                    <!-- Start: Password Validation -->
-                    <div *ngIf="getControls['password'].touched && getControls['password'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['password'].errors && getControls['password'].errors['required']">
-                            *password is required
+                        <small class="text-danger" *ngIf="getControls['email'].errors?.['pattern']">
+                            *enter proper email format.
                         </small>
                     </div>
-                    <!-- End: Password Validation -->
+                    <!-- End: Email Field Validation -->
                 </div>
-                <!-- End: Password -->
+                <!-- End: Email Field -->
 
-                <!-- Start: Confirm Password -->
-                <div class="pb-3">
-                    <label for="confirm-password" class="fw-bold">Confirm Password</label>
-                    <input type="password" class="form-control" formControlName="confirmPassword">
-
-                    <!-- Start: Confirm Password -->
-                    <div
-                        *ngIf="getControls['confirmPassword'].touched && getControls['confirmPassword'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['confirmPassword'].errors && getControls['confirmPassword'].errors['required']">
-                            *confirmPassword is required
-                        </small>
+                <!-- Start: Password group -->
+                <div formGroupName="password">
+                    <!-- Start: Password Field -->
+                    <div class="pb-3 position-relative">
+                        <label for="password" class="fw-bold">Password</label>
+                        <input [type]="passwordFieldsVisibility['password'] === 'close' ? 'password' : 'text'"
+                            formControlName="password" class="form-control" id="password" placeholder="Password">
+                        <span class="icon-eye eye-icon" *ngIf="getControls['password'].get('password')?.value?.length"
+                            (mousedown)="setPasswordVisibility('password', 'open')"
+                            (mouseup)="setPasswordVisibility('password', 'close')"
+                            (touchstart)="setPasswordVisibility('password', 'open')"
+                            (touchend)="setPasswordVisibility('password', 'close')">
+                        </span>
+                        <!-- Start: Password Field Validation -->
+                        <div
+                            *ngIf="(getControls['password'].get('password')?.touched || getControls['password'].get('password')?.dirty || formSubmitted)">
+                            <small *ngIf="getControls['password'].get('password')?.errors?.['required']"
+                                class="text-danger">*password is required.
+                            </small>
+                            <small
+                                *ngIf="getControls['password'].get('password')?.errors?.['pattern'] || (getControls['password'].get('password')?.errors?.['minlength'] || getControls['password'].get('password')?.errors?.['maxlength'])"
+                                class="text-danger">
+                                *password must be 8-12 characters long, 1 numeric character, 1 uppercase letter,
+                                1 lowercase letter, & 1 special character.
+                            </small>
+                        </div>
+                        <!-- End: Password Field Validation -->
                     </div>
-                    <!-- End: Confirm Password -->
+                    <!-- End: Password Field -->
+
+                    <!-- Start: Confirm Password Field -->
+                    <div class="pb-3 position-relative">
+                        <label for="confirm-password" class="fw-bold">Confirm Password</label>
+                        <input [type]="passwordFieldsVisibility['confirmPassword'] === 'close' ? 'password' : 'text'"
+                            formControlName="confirmPassword" class="form-control" id="confirm-Password"
+                            placeholder="Confirm Password">
+                        <span class="icon-eye eye-icon" *ngIf="getControls['password'].get('confirmPassword')?.value?.length"
+                            (mousedown)="setPasswordVisibility('confirmPassword', 'open')"
+                            (mouseup)="setPasswordVisibility('confirmPassword', 'close')"
+                            (touchstart)="setPasswordVisibility('confirmPassword', 'open')"
+                            (touchend)="setPasswordVisibility('confirmPassword', 'close')">
+                        </span>
+                        <!-- Start: Confirm Password Field validations -->
+                        <div class="validation-text mt-1">
+                            <div
+                                *ngIf="(getControls['password'].get('confirmPassword')?.touched || getControls['password'].get('confirmPassword')?.dirty || formSubmitted)">
+                                <small *ngIf="getControls['password'].get('confirmPassword')?.errors?.['required']"
+                                    class="text-danger">
+                                    *confirm password is required.
+                                </small>
+                                <small
+                                    *ngIf="!getControls['password'].get('confirmPassword')?.errors?.['required'] && getControls['password']?.errors?.['passwordsDoNotMatch']"
+                                    class="text-danger">
+                                    *passwords did not match.
+                                </small>
+                            </div>
+                        </div>
+                        <!-- End: Confirm Password Field validations -->
+                    </div>
+                    <!-- End: Confirm Password Field -->
                 </div>
-                <!-- End: Confirm Password -->
+                <!-- End: Password Group -->
             </section>
         </div>
 

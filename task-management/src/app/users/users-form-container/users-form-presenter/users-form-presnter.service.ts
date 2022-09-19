@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
+import { EMAIL_PATTERN, NAME_PATTERN, PASSWORD_PATTERN } from 'src/app/shared/constants';
 import { Users } from '../../users.model';
+import { UsersService } from '../../users.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class UsersFormPresnterService {
   private userFormData: Subject<Users>;
   public userFormdata$: Observable<Users>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private userService:UsersService) {
     this.userFormData = new Subject();
     this.userFormdata$ = new Observable();
 
@@ -21,12 +23,14 @@ export class UsersFormPresnterService {
 
   public buildForm() {
     return this.fb.group({
-      firstName: ['',Validators.required],
-      lastName: ['',Validators.required],
+      firstName: ['',[Validators.required,Validators.pattern(NAME_PATTERN)]],
+      lastName: ['',[Validators.required,Validators.pattern(NAME_PATTERN)]],
       city: ['',Validators.required],
-      email: ['',[Validators.required,Validators.email]],
-      password: ['',Validators.required],
-      confirmPassword: ['',Validators.required],
+      email: ['',[Validators.required,Validators.email,Validators.pattern(EMAIL_PATTERN)]],
+      password: this.fb.group({
+        password: ['', [Validators.required, Validators.pattern(PASSWORD_PATTERN), Validators.minLength(8), Validators.maxLength(12)]],
+        confirmPassword: ['', [Validators.required]],
+      }, { validator: this.userService.confirmPassword }),
     })
   }
 

@@ -3,42 +3,42 @@
     <h3 class="border-bottom border-primary pb-2">{{formTitle}}</h3>
 
     <!-- Start: Project Form -->
-    <form class="rounded shadow-sm bg-white p-3 mt-4 overflow-auto" [formGroup]="projectForm">
+    <form class="rounded shadow-sm bg-white p-3 mt-3 mt-sm-4 overflow-auto" [formGroup]="projectForm">
         <div class="d-sm-flex">
             <section class="col-12 col-sm-6 pe-sm-3 border-end border-sm-end">
-                <!-- Start:Project Name -->
+                <!-- Start:Project Name Field -->
                 <div class="pb-3">
                     <label for="name" class="fw-bold">Project Name</label>
                     <input type="text" class="form-control" formControlName="name">
 
-                    <!-- Start: Name Validation -->
+                    <!-- Start: Project Name Field Validation -->
                     <div *ngIf="getControls['name'].touched && getControls['name'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['name'].errors && getControls['name'].errors['required']">
-                            *name is required
+                            *name is required.
                         </small>
                     </div>
-                    <!-- End:Name Validation -->
+                    <!-- End: Project Name Field Validation -->
                 </div>
-                <!-- End:Project Name -->
+                <!-- End: Project Name Field -->
 
-                <!-- Start: StartDate -->
+                <!-- Start: StartDate Field -->
                 <div class="pb-3">
                     <label for="startDate" class="fw-bold">Start Date</label>
                     <input type="date" class="form-control" formControlName="startDate">
 
-                    <!-- Start: StartDate Validation -->
+                    <!-- Start: StartDate Field Validation -->
                     <div *ngIf="getControls['startDate'].touched && getControls['startDate'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['startDate'].errors && getControls['startDate'].errors['required']">
-                            *startDate is required
+                            *startDate is required.
                         </small>
                     </div>
-                    <!-- End: StartDate Validation -->
+                    <!-- End: StartDate Field Validation -->
                 </div>
-                <!-- End: Start Date -->
+                <!-- End: Start Date Field -->
 
-                <!-- Start: Project Manager -->
+                <!-- Start: Project Manager Field -->
                 <div class="pb-3">
                     <label for="projectManager" class="fw-bold">Project Manager</label>
                     <select id="projectManager" class="form-select" formControlName="projectManager">
@@ -50,21 +50,21 @@
                         <option>Ronak Patel</option>
                     </select>
 
-                    <!-- Start: Project Manager Validation -->
+                    <!-- Start: Project Manager Field Validation -->
                     <div
                         *ngIf="getControls['projectManager'].touched && getControls['projectManager'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['projectManager'].errors && getControls['projectManager'].errors['required']">
-                            *projectManager is required
+                            *projectManager is required.
                         </small>
                     </div>
-                    <!-- End: Project Manager Validation -->
+                    <!-- End: Project Manager Field Validation -->
                 </div>
-                <!-- End: Project Manager -->
+                <!-- End: Project Manager Field -->
             </section>
 
             <section class="col-12 col-sm-6 ps-sm-3">
-                <!-- Start: Status -->
+                <!-- Start: Status Field -->
                 <div class="pb-3">
                     <label for="status" class="fw-bold">Status</label>
                     <select id="status" class="form-select" formControlName="status">
@@ -73,68 +73,68 @@
                         <option>Done</option>
                     </select>
 
-                    <!-- Start: Status Validation -->
+                    <!-- Start: Status Field Validation -->
                     <div *ngIf="getControls['status'].touched && getControls['status'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['status'].errors && getControls['status'].errors['required']">
-                            *status is required
+                            *status is required.
                         </small>
                     </div>
-                    <!-- End: Status Validation -->
+                    <!-- End: Status Field Validation -->
                 </div>
-                <!-- End: Status -->
+                <!-- End: Status Field -->
 
-                <!-- Start: End Date -->
+                <!-- Start: DueDate Field -->
                 <div class="pb-3">
                     <label for="dueDate" class="fw-bold">Due Date</label>
                     <input type="date" class="form-control" formControlName="dueDate">
 
-                    <!-- Start: Due Date Validation -->
+                    <!-- Start: DueDate Field Validation -->
                     <div *ngIf="getControls['dueDate'].touched && getControls['dueDate'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['dueDate'].errors && getControls['dueDate'].errors['required']">
-                            *dueDate is required
+                            *dueDate is required.
                         </small>
                     </div>
-                    <!-- End: Due Date Validation -->
+                    <!-- End: DueDate Field Validation -->
                 </div>
-                <!-- End: Due Date -->
+                <!-- End: DueDate Field -->
 
-                <!-- Start: Poject Team Members -->
+                <!-- Start: Poject Team Members Field -->
                 <div class="pb-3">
                     <label for="teamMembers" class="fw-bold">Project Team Members</label>
                     <ng-multiselect-dropdown [settings]="settings" [data]="teamMembers" formControlName="teamMembers">
                     </ng-multiselect-dropdown>
 
-                    <!-- Start: Project Team members Validation -->
+                    <!-- Start: Project Team members Field Validation -->
                     <div
                         *ngIf="getControls['teamMembers'].touched && getControls['teamMembers'].errors || formSubmitted">
                         <small class="text-danger"
                             *ngIf="getControls['teamMembers'].errors && getControls['teamMembers'].errors['required']">
-                            *teamMembers is required
+                            *teamMembers is required.
                         </small>
                     </div>
-                    <!-- End: Project Team members Validation -->
+                    <!-- End: Project Team members Field Validation -->
                 </div>
-                <!-- End: Poject Team Members -->
+                <!-- End: Poject Team Members Field -->
             </section>
         </div>
 
-        <!-- Start: Description -->
+        <!-- Start: Description Field -->
         <div class="col-12">
             <label for="description" class="fw-bold">Description</label>
             <textarea class="form-control" formControlName="description"></textarea>
 
-            <!-- Start: Descrption Validation -->
+            <!-- Start: Descrption Field Validation -->
             <div *ngIf="getControls['description'].touched && getControls['description'].errors || formSubmitted">
                 <small class="text-danger"
                     *ngIf="getControls['description'].errors && getControls['description'].errors['required']">
-                    *description is required
+                    *description is required.
                 </small>
             </div>
-            <!-- End: Descrption Validation -->
+            <!-- End: Descrption Field Validation -->
         </div>
-        <!-- End: Description -->
+        <!-- End: Description Field -->
 
         <!-- Start: Savve and Cancel Button -->
         <div class="d-flex align-items-center justify-content-between justify-content-sm-center mt-3">

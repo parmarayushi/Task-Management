@@ -30,6 +30,10 @@ export class UsersFormPresentationComponent implements OnInit {
   public usersForm: FormGroup;
   public formTitle: string;
   public formSubmitted: boolean;
+  public passwordFieldsVisibility = {
+    password: 'close',
+    confirmPassword: 'close',
+  };
 
   private _userFormData: Users[];
 
@@ -60,5 +64,10 @@ export class UsersFormPresentationComponent implements OnInit {
 
   public onCancel() {
     this.route.navigateByUrl('users-list')
+  }
+
+  public setPasswordVisibility(passwordField: string, value: string) {
+    let key = passwordField as keyof typeof this.passwordFieldsVisibility;
+    this.passwordFieldsVisibility[key] = value;
   }
 }

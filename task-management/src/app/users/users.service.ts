@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Users } from './users.model';
@@ -28,5 +29,11 @@ export class UsersService {
 
   public deleteUsers(id: number): Observable<number> {
     return this.http.delete<number>(`${this.apiLink}/users/${id}`);
+  }
+
+  public confirmPassword(password: AbstractControl): { passwordsDoNotMatch: boolean } | null {
+    return password.get('password')?.value !== password.get('confirm_password')?.value
+      ? { passwordsDoNotMatch: true }
+      : null;
   }
 }
