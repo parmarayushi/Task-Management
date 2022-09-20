@@ -49,6 +49,6 @@
                 </table>
             </div>
         </div>
-        <div *ngIf="taskData?.length === 0" class="fw-bold mt-3 text-nowrap">No Task Inserted</div>
+        <div *ngIf="!taskData?.length" class="fw-bold mt-3 text-nowrap">No Task Inserted</div>
     </section>
 </div>
