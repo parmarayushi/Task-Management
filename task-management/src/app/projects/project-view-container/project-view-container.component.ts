@@ -14,7 +14,10 @@ export class ProjectViewContainerComponent implements OnInit {
 
   public projectView$: Observable<Project> = new Observable();
 
-  constructor(private projectService: ProjectsService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private projectService: ProjectsService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.id = parseInt(this.activatedRoute.snapshot.params['id']);

@@ -11,10 +11,13 @@ import { ProjectsService } from '../projects.service';
 })
 export class ProjectListContainerComponent implements OnInit {
 
-  public id:number;
+  public id: number;
   public projectList$: Observable<Project[]> = new Observable();
 
-  constructor(private commonService: CommonService, private projectService: ProjectsService) { }
+  constructor(
+    private commonService: CommonService,
+    private projectService: ProjectsService
+  ) { }
 
   ngOnInit(): void {
     this.getProjectList()
@@ -26,6 +29,7 @@ export class ProjectListContainerComponent implements OnInit {
 
   public deleteProject(id: number) {
     this.projectService.deleteProject(id).subscribe(() => {
+      alert('Project Deleted.')
       this.getProjectList();
     })
   }

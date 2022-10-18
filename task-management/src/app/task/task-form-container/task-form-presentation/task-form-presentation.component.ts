@@ -9,8 +9,8 @@ import { TaskFormPresenterService } from '../task-form-presenter/task-form-prese
 @Component({
   selector: 'app-task-form-presentation',
   templateUrl: './task-form-presentation.component.html',
-  viewProviders:[TaskFormPresenterService],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  viewProviders: [TaskFormPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskFormPresentationComponent implements OnInit {
 
@@ -52,24 +52,27 @@ export class TaskFormPresentationComponent implements OnInit {
 
   public taskForm: FormGroup;
   public formTitle: string;
-  public formSubmitted:boolean;
+  public formSubmitted: boolean;
 
   private _taskData: Task;
   private _projectData: Project[];
   private _membersData: Users[];
 
-  constructor(private taskFormPresenter: TaskFormPresenterService, private route: Router) {
+  constructor(
+    private taskFormPresenter: TaskFormPresenterService,
+    private route: Router
+  ) {
     this.taskForm = this.taskFormPresenter.buildForm();
     this.add = new EventEmitter();
     this.edit = new EventEmitter();
     this.formTitle = "New Task";
-    this.formSubmitted=false;
+    this.formSubmitted = false;
   }
 
   ngOnInit(): void {
-    this.taskFormPresenter.taskFormData$.subscribe((data) => {
-      this.formTitle === "New Task" ? this.add.emit(data) : this.edit.emit(data);
-    })
+    this.taskFormPresenter.taskFormData$.subscribe((data) => 
+      this.formTitle === "New Task" ? this.add.emit(data) : this.edit.emit(data)
+    )
   }
 
   public get getControls() {
@@ -77,13 +80,13 @@ export class TaskFormPresentationComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.formSubmitted=!this.taskForm.valid;
-    if(!this.formSubmitted){
+    this.formSubmitted = !this.taskForm.valid;
+    if (!this.formSubmitted) {
       this.taskFormPresenter.onSubmit(this.taskForm);
     }
   }
 
   public onCancel() {
-    this.route.navigateByUrl('task-list')
+    this.route.navigateByUrl('tasks')
   }
 }

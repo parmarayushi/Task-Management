@@ -34,25 +34,29 @@ export class ProjectListPresentationComponent implements OnInit {
   private _projectView: Project;
   @Output() public delete: EventEmitter<number>;
 
-  public searchText:string='';
+  public searchText: string ;
   private _projectList: Project[];
 
-  constructor(public route: Router, private projectPresenterservice: ProjectListPresenterService) {
+  constructor(
+    public route: Router,
+    private projectPresenterservice: ProjectListPresenterService
+  ) {
     this.delete = new EventEmitter();
+    this.searchText=''
   }
 
   ngOnInit(): void {
-    this.projectPresenterservice.deleteData$.subscribe((result: number) => {
-      this.delete.emit(result);
-    })
+    this.projectPresenterservice.deleteData$.subscribe((result: number) => 
+      this.delete.emit(result)
+    )
   }
 
   public onView(id: number) {
-    this.route.navigateByUrl(`project-view/${id}`)
+    this.route.navigateByUrl(`projects/view/${id}`)
   }
 
   public onEdit(id: number) {
-    this.route.navigateByUrl(`project-form/edit/${id}`)
+    this.route.navigateByUrl(`projects/edit/${id}`)
   }
 
   public onDelete(id: number) {

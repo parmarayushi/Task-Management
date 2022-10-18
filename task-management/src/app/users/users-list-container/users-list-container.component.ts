@@ -11,7 +11,10 @@ import { UsersService } from '../users.service';
 export class UsersListContainerComponent implements OnInit {
 
   public userList$: Observable<Users[]> = new Observable()
-  constructor(private userService: UsersService, private commonService: CommonService) { }
+  constructor(
+    private userService: UsersService,
+    private commonService: CommonService
+  ) { }
 
   ngOnInit(): void {
     this.getusers();
@@ -23,6 +26,7 @@ export class UsersListContainerComponent implements OnInit {
 
   public deleteUsers(id: number) {
     this.userService.deleteUsers(id).subscribe(() => {
+      alert('User Deleted.')
       this.getusers();
     })
   }

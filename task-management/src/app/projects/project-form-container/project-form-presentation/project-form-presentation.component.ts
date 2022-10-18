@@ -8,8 +8,8 @@ import { ProjectFormPresenterService } from '../project-form-presenter/project-f
 @Component({
   selector: 'app-project-form-presentation',
   templateUrl: './project-form-presentation.component.html',
-  viewProviders:[ProjectFormPresenterService],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  viewProviders: [ProjectFormPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectFormPresentationComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class ProjectFormPresentationComponent implements OnInit {
     if (value) {
       this.formTitle = "Edit Project"
       this.projectForm.patchValue(value)
-      this._projectData = value;      
+      this._projectData = value;
     }
   }
 
@@ -40,26 +40,29 @@ export class ProjectFormPresentationComponent implements OnInit {
 
   public projectForm: FormGroup;
   public formTitle: string;
-  public formSubmitted:boolean;
-  public settings:{};
+  public formSubmitted: boolean;
+  public settings: {};
 
   private _projectData: Project;
   private _teamMembers: Users[];
 
-  constructor(private projectFormPresenter: ProjectFormPresenterService, private route: Router) {
+  constructor(
+    private projectFormPresenter: ProjectFormPresenterService,
+    private route: Router
+  ) {
     this.projectForm = this.projectFormPresenter.buildform();
     this.add = new EventEmitter();
     this.edit = new EventEmitter();
     this.formTitle = "New Project";
-    this.formSubmitted=false;
+    this.formSubmitted = false;
   }
 
   ngOnInit(): void {
-    this.projectFormPresenter.projectFormData$.subscribe((data) => {
-      this.formTitle === "New Project" ? this.add.emit(data) : this.edit.emit(data);
-    })
+    this.projectFormPresenter.projectFormData$.subscribe((data) => 
+      this.formTitle === "New Project" ? this.add.emit(data) : this.edit.emit(data)
+    )
 
-    this.settings={
+    this.settings = {
       singleSelection: false,
       idField: 'id',
       textField: 'firstName',
@@ -73,19 +76,19 @@ export class ProjectFormPresentationComponent implements OnInit {
     }
   }
 
-  public get getControls(){
+  public get getControls() {
     return this.projectForm.controls;
   }
 
   public onSubmit() {
-    this.formSubmitted=!this.projectForm.valid;
-    if(!this.formSubmitted){
-      this.projectFormPresenter.onSubmit(this.projectForm);    
+    this.formSubmitted = !this.projectForm.valid;
+    if (!this.formSubmitted) {
+      this.projectFormPresenter.onSubmit(this.projectForm);
     }
   }
 
   public onCancel() {
-    this.route.navigateByUrl('project-list')
+    this.route.navigateByUrl('projects')
   }
 
 }

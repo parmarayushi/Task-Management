@@ -46,9 +46,9 @@ export class UsersFormPresentationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userFormPresenter.userFormdata$.subscribe((result: Users) => {
-      this.formTitle === "New Employee" ? this.add.emit(result) : this.edit.emit(result);
-    })
+    this.userFormPresenter.userFormdata$.subscribe((result: Users) => 
+      this.formTitle === "New Employee" ? this.add.emit(result) : this.edit.emit(result)
+    )
   }
 
   public get getControls() {
@@ -63,7 +63,7 @@ export class UsersFormPresentationComponent implements OnInit {
   }
 
   public onCancel() {
-    this.route.navigateByUrl('users-list')
+    this.route.navigateByUrl('users')
   }
 
   public setPasswordVisibility(passwordField: string, value: string) {

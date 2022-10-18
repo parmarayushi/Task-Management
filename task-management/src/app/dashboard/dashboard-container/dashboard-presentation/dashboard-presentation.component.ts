@@ -1,11 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Project } from 'src/app/projects/project.model';
 import { Task } from 'src/app/task/task.model';
 import { Users } from 'src/app/users/users.model';
+import { DashboardPresenterService } from '../dashboard-presenter/dashboard-presenter.service';
 
 @Component({
   selector: 'app-dashboard-presentation',
   templateUrl: './dashboard-presentation.component.html',
+  viewProviders:[DashboardPresenterService],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class DashboardPresentationComponent implements OnInit {
 

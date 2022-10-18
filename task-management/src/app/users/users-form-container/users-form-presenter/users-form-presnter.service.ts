@@ -6,15 +6,16 @@ import { EMAIL_PATTERN, NAME_PATTERN, PASSWORD_PATTERN } from 'src/app/shared/co
 import { Users } from '../../users.model';
 import { UsersService } from '../../users.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersFormPresnterService {
 
   private userFormData: Subject<Users>;
   public userFormdata$: Observable<Users>;
 
-  constructor(private fb: FormBuilder,private userService:UsersService) {
+  constructor(
+    private fb: FormBuilder,
+    private userService: UsersService
+  ) {
     this.userFormData = new Subject();
     this.userFormdata$ = new Observable();
 
@@ -23,10 +24,10 @@ export class UsersFormPresnterService {
 
   public buildForm() {
     return this.fb.group({
-      firstName: ['',[Validators.required,Validators.pattern(NAME_PATTERN)]],
-      lastName: ['',[Validators.required,Validators.pattern(NAME_PATTERN)]],
-      city: ['',Validators.required],
-      email: ['',[Validators.required,Validators.email,Validators.pattern(EMAIL_PATTERN)]],
+      firstName: ['', [Validators.required, Validators.pattern(NAME_PATTERN)]],
+      lastName: ['', [Validators.required, Validators.pattern(NAME_PATTERN)]],
+      city: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email, Validators.pattern(EMAIL_PATTERN)]],
       password: this.fb.group({
         password: ['', [Validators.required, Validators.pattern(PASSWORD_PATTERN), Validators.minLength(8), Validators.maxLength(12)]],
         confirmPassword: ['', [Validators.required]],

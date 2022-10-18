@@ -23,21 +23,25 @@ export class UsersListPresentationComponent implements OnInit {
 
   @Output() public delete: EventEmitter<number>;
 
-  public searchText: string = '';
+  public searchText: string;
   private _userList: Users[];
 
-  constructor(private route: Router, private userListPresenter: UsersListPresenterService) {
+  constructor(
+    private route: Router,
+    private userListPresenter: UsersListPresenterService
+  ) {
     this.delete = new EventEmitter();
+    this.searchText = ''
   }
 
   ngOnInit(): void {
-    this.userListPresenter.deleteData$.subscribe((result: number) => {
-      this.delete.emit(result);
-    })
+    this.userListPresenter.deleteData$.subscribe((result: number) => 
+      this.delete.emit(result)
+    )
   }
 
   public onEdit(id: number) {
-    this.route.navigateByUrl(`users-form/edit/${id}`)
+    this.route.navigateByUrl(`users/edit/${id}`)
   }
 
   public onDelete(id: number) {

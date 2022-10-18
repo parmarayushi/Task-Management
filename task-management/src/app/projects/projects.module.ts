@@ -31,11 +31,7 @@ import { ProjectsService } from './projects.service';
     ProjectsRoutingModule,
     SharedModule,
   ],
-  exports: [
-    ProjectFormContainerComponent,
-    ProjectListContainerComponent,
-    ProjectViewContainerComponent,
-  ],
+  exports: [],
   providers: [
     ProjectsService
   ]

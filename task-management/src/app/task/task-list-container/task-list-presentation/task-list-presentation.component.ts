@@ -6,8 +6,8 @@ import { TaskListPresenterService } from '../task-list-presenter/task-list-prese
 @Component({
   selector: 'app-task-list-presentation',
   templateUrl: './task-list-presentation.component.html',
-  viewProviders:[TaskListPresenterService],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  viewProviders: [TaskListPresenterService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskListPresentationComponent implements OnInit {
 
@@ -17,27 +17,31 @@ export class TaskListPresentationComponent implements OnInit {
     }
   }
 
-  public get taskData(): Task[]  {
+  public get taskData(): Task[] {
     return this._taskData;
   }
 
   @Output() public delete: EventEmitter<number>;
 
-  public searchText:string='';
+  public searchText: string;
   private _taskData: Task[];
 
-  constructor(private taskPresenterService: TaskListPresenterService, private route: Router) {
+  constructor(
+    private taskPresenterService: TaskListPresenterService,
+    private route: Router
+  ) {
     this.delete = new EventEmitter();
+    this.searchText = ''
   }
 
   ngOnInit(): void {
-    this.taskPresenterService.deleteData$.subscribe((result: number) => {
-      this.delete.emit(result);
-    })
+    this.taskPresenterService.deleteData$.subscribe((result: number) => 
+      this.delete.emit(result)
+    )
   }
 
   public onEdit(id: number) {
-    this.route.navigateByUrl(`task-form/edit/${id}`);
+    this.route.navigateByUrl(`tasks/edit/${id}`);
   }
 
   public onDelete(id: number) {

@@ -26,11 +26,8 @@ import { SearchPipe } from './pipe/search.pipe';
     TaskRoutingModule,
     SharedModule
   ],
-  exports:[
-    TaskFormContainerComponent,
-    TaskListContainerComponent
-  ],
-  providers:[
+  exports: [],
+  providers: [
     TaskService
   ]
 })

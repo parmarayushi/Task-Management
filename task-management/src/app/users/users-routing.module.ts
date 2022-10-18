@@ -2,9 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersFormContainerComponent } from './users-form-container/users-form-container.component';
 import { UsersListContainerComponent } from './users-list-container/users-list-container.component';
-import { UsersComponent } from './users.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '', redirectTo: 'list', pathMatch: 'full'
+  },
+  {
+    path: 'list', component: UsersListContainerComponent
+  },
+  {
+    path: 'add', component: UsersFormContainerComponent
+  },
+  {
+    path: 'edit/:id', component: UsersFormContainerComponent
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

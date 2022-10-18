@@ -28,10 +28,7 @@ import { SearchPipe } from './pipe/search.pipe';
     HttpClientModule,
     SharedModule
   ],
-  exports:[
-    UsersListContainerComponent,
-    UsersFormContainerComponent
-  ],
+  exports:[],
   providers:[
     UsersService
   ]

@@ -13,7 +13,11 @@ export class UsersFormContainerComponent implements OnInit {
   public id: number;
   public userData$: Observable<Users[]> = new Observable();
 
-  constructor(private userService: UsersService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private userService: UsersService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
     this.id = parseInt(this.activatedRoute.snapshot.params['id']);
     if (this.id) {
       this.userData$ = this.userService.getUsersById(this.id);
@@ -22,18 +26,18 @@ export class UsersFormContainerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   public addUsers(form: Users) {
     this.userService.addUsers(form).subscribe(() => {
-      alert("Data Added Successfully");
-      this.router.navigateByUrl('users-list')
+      alert("Employee Added Successfully.");
+      this.router.navigateByUrl('users')
     })
   }
 
   public editUser(form: Users) {
     this.userService.editUser(this.id, form).subscribe(() => {
-      alert('Edit Successfully');
-      this.router.navigateByUrl('users-list');
+      alert('Employee Updtaed Successfully.');
+      this.router.navigateByUrl('users');
     })
   }
 }

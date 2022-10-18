@@ -18,7 +18,12 @@ export class TaskFormContainerComponent implements OnInit {
   public projectData$: Observable<Project[]> = new Observable();
   public taskData$: Observable<Task> = new Observable();
 
-  constructor(private commonService: CommonService, private taskService: TaskService, private route: Router, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private commonService: CommonService,
+    private taskService: TaskService,
+    private route: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
     this.id = parseInt(this.activatedRoute.snapshot.params['id']);
     if (this.id) {
       this.taskData$ = this.taskService.getTaskById(this.id);
@@ -40,15 +45,15 @@ export class TaskFormContainerComponent implements OnInit {
 
   public addTasks(form: Task) {
     this.taskService.addTaskData(form).subscribe(() => {
-      alert('Data Added Successfully');
-      this.route.navigateByUrl('task-list');
+      alert('Task Added Successfully.');
+      this.route.navigateByUrl('tasks');
     })
   }
 
   public editTasks(form: Task) {
     this.taskService.editTask(this.id, form).subscribe(() => {
-      alert('Edit Successfully');
-      this.route.navigateByUrl('task-list');
+      alert('Task Updated Successfully.');
+      this.route.navigateByUrl('tasks');
     })
   }
 }

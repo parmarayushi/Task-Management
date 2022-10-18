@@ -6,7 +6,7 @@
         <div class="d-flex justify-content-between mt-3 mb-3">
             <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
                 [(ngModel)]="searchText">
-            <button class="btn btn-primary text-white" routerLink="/task-form">+ Add Task</button>
+            <button class="btn btn-primary text-white" routerLink="/tasks/add">+ Add Task</button>
         </div>
         <div class="table-wrapper overflow-hidden d-flex flex-column">
             <div class="overflow-auto border">
@@ -19,7 +19,7 @@
                             <th scope="col">Assign To</th>
                             <th scope="col">Due Date</th>
                             <th scope="col">Priority</th>
-                            <th scope="col">Status</th>
+                            <th scope="col" class="text-center">Status</th>
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>

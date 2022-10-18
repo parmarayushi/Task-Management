@@ -4,9 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DeletePopupComponent } from 'src/app/shared/component/delete-popup/delete-popup.component';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProjectListPresenterService {
 
   private deleteData: Subject<number>;

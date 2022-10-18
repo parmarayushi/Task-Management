@@ -5,9 +5,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
 import { DeletePopupComponent } from 'src/app/shared/component/delete-popup/delete-popup.component';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TaskListPresenterService {
 
   private deleteData: Subject<number>;
