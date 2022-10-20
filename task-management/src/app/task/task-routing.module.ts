@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '', redirectTo: 'list', pathMatch: 'full' 
   },
   {
-    path: 'list', component: TaskListContainerComponent
+    path: '', component: TaskListContainerComponent
   },
   {
     path: 'add', component: TaskFormContainerComponent

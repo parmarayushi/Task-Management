@@ -2,13 +2,14 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { ProjectsModule } from './projects/projects.module';
-import { ProjectsService } from './projects/projects.service';
 import { UsersModule } from './users/users.module';
+import { ProjectsModule } from './projects/projects.module';
+
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import { UsersModule } from './users/users.module';
     AppRoutingModule,
     DashboardModule,
     UsersModule,
-    // ProjectsModule,
+    ProjectsModule,
     CoreModule,
     OverlayModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,11 @@
 .table-wrapper {
     max-height: $table-height;
+    display: none;
+
+    @include media-breakpoint-up(sm){
+        display: flex;
+        flex-direction: column;
+    }
 
     .thead {
         .table-header {
@@ -9,4 +15,3 @@
         }
     }
 }
-

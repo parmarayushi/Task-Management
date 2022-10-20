@@ -1,21 +1,21 @@
-<div class="wrapper">
+<div class="wrapper h-100 d-flex flex-column overflow-hidden">
     <!-- Header -->
     <h3 class="border-bottom border-primary pb-2">Project List</h3>
 
-    <section class="rounded bg-white shadow-sm p-3 mt-4">
+    <section class="wrapper-content rounded bg-white shadow-sm p-3 mt-4 overflow-auto">
         <div class="d-flex justify-content-between mt-3 mb-3">
             <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
                 [(ngModel)]="searchText">
             <button class="btn btn-primary text-white" routerLink="/projects/add">+ Add Project</button>
         </div>
-        <div class="table-wrapper overflow-hidden d-flex flex-column">
+        <div class="table-wrapper overflow-hidden">
             <div class="overflow-auto border">
                 <table class="table table-bordered mb-0 w-100 position-relative">
                     <thead class="thead">
                         <tr class="table-header text-nowrap">
                             <th scope="col" class="text-center">#</th>
                             <th scope="col">Project</th>
-                            <th scope="col">Date Started</th>
+                            <th scope="col">Started Date</th>
                             <th scope="col">Due Date</th>
                             <th scope="col" class="text-center">Status</th>
                             <th scope="col" class="text-center">Action</th>
@@ -46,6 +46,47 @@
                             Found</div>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <div *ngIf="(projectList | search:searchText) as result" class="card-wrapper">
+            <div class="row g-3" *ngFor="let items of result, let i=index">
+                <!-- Start:Task Card -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <div class="card-title d-flex">
+                                <label for="id" class="pe-2 fw-bold">#:</label>
+                                <div>{{i+1}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="name" class="pe-2 fw-bold">Project:</label>
+                                <div class="text-truncate" [title]="items.name">{{items.name}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="startDate" class="pe-2 fw-bold text-nowrap">Started Date:</label>
+                                <div>{{items.startDate | date:'MMM d, y'}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="dueDate" class="pe-2 fw-bold text-nowrap">Due Date:</label>
+                                <div>{{items.dueDate | date:'MMM d, y'}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="status" class="pe-2 fw-bold">Status:</label>
+                                <div class="badge text-white" [ngClass]="{'bg-primary':items.status==='Started',
+                                'bg-info':items.status==='In Progress',
+                                'bg-success':items.status==='Done'}">{{items.status}}</div>
+                            </div>
+                            <div class="card-title">
+                                <label for="action" class="pe-2 fw-bold">Action:</label>
+                                <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
+                                <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
+                                <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End: Task Card -->
             </div>
         </div>
         <div *ngIf="!projectList?.length" class="fw-bold mt-3 text-nowrap">No Project Inserted</div>

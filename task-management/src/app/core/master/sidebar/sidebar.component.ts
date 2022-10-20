@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,9 +6,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  @Output() public closeSidebar: EventEmitter<Event>;
+  constructor() {
+    this.closeSidebar = new EventEmitter();
+  }
 
   ngOnInit(): void {
 
+  }
+  public onRouteChange(event: MouseEvent) {
+    this.closeSidebar.emit(event);
   }
 }

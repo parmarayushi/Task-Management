@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'task-management';
+
+  public isSidebarOpen: boolean;
+  
+  constructor() {
+    this.isSidebarOpen = false;
+  }
 }

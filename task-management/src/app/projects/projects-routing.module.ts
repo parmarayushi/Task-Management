@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '', redirectTo: 'list', pathMatch: 'full'
   },
   {
-    path: 'list', component: ProjectListContainerComponent
+    path: '', component: ProjectListContainerComponent
   },
   {
     path: 'add', component: ProjectFormContainerComponent

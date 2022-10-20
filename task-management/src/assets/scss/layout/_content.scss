@@ -11,6 +11,17 @@
     }
 }
 
-.eye-icon{
-    @include position(absolute,2.1rem,0.6rem)
+.eye-icon {
+    @include position(absolute, 2.1rem, 0.6rem)
+}
+
+.wrapper-content{
+    height: auto;
+    @media (min-width:576px){
+       overflow: hidden;
+    }
+}
+
+.dropdown-list {
+    overflow: hidden;
 }

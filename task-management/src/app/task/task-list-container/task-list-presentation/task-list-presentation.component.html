@@ -1,14 +1,14 @@
-<div class="wrapper">
+<div class="wrapper  h-100 d-flex flex-column overflow-hidden">
     <!-- Header -->
     <h3 class="border-bottom border-primary pb-2">Task List</h3>
 
-    <section class="rounded bg-white shadow-sm p-3 mt-4">
+    <section class="wrapper-content rounded bg-white shadow-sm p-3 mt-4 overflow-auto">
         <div class="d-flex justify-content-between mt-3 mb-3">
             <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
                 [(ngModel)]="searchText">
             <button class="btn btn-primary text-white" routerLink="/tasks/add">+ Add Task</button>
         </div>
-        <div class="table-wrapper overflow-hidden d-flex flex-column">
+        <div class="table-wrapper overflow-hidden">
             <div class="overflow-auto border">
                 <table class="table table-bordered mb-0 w-100 position-relative">
                     <thead class="thead">
@@ -49,6 +49,55 @@
                 </table>
             </div>
         </div>
+
+        <div *ngIf="(taskData | search:searchText) as result" class="card-wrapper">
+            <div class="row g-3" *ngFor="let data of result, let i=index">
+                <!-- Start:Task Card -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <div class="card-title d-flex">
+                                <label for="id" class="pe-2 fw-bold">#:</label>
+                                <div>{{i+1}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="name" class="pe-2 fw-bold text-nowrap">Project Name:</label>
+                                <div class="text-truncate" [title]="data.projectName">{{data.projectName}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="startDate" class="pe-2 fw-bold">Task:</label>
+                                <div class="text-truncate" [title]="data.task">{{data.task}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="dueDate" class="pe-2 fw-bold text-nowrap">Assign To:</label>
+                                <div>{{data.assignTo}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="status" class="pe-2 fw-bold">Due Date:</label>
+                                <div>{{data.dueDate | date:'MMM d, y'}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="id" class="pe-2 fw-bold">Priority:</label>
+                                <div>{{data.priority}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="id" class="pe-2 fw-bold">Status:</label>
+                                <div class="badge text-white" [ngClass]="{'bg-primary':data.status==='Pending',
+                            'bg-info':data.status==='In Progress',
+                            'bg-success':data.status==='Done'}">{{data.status}}</div>
+                            </div>
+                            <div class="card-title">
+                                <label for="action" class="pe-2 fw-bold">Action:</label>
+                                <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(data.id)"></span>
+                                <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End: Task Card -->
+            </div>
+        </div>
+
         <div *ngIf="!taskData?.length" class="fw-bold mt-3 text-nowrap">No Task Inserted</div>
     </section>
 </div>

@@ -1,14 +1,14 @@
-<div class="wrapper">
+<div class="wrapper h-100 d-flex flex-column overflow-hidden">
     <!-- Header -->
     <h3 class="border-bottom border-primary pb-2">Employees List</h3>
 
-    <section class="rounded bg-white shadow-sm p-3 mt-4 list-border">
+    <section class="wraapper-content rounded-3 bg-white shadow-sm p-3 mt-4 list-border overflow-auto">
         <div class="d-flex justify-content-between mt-3 mb-3">
             <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
                 [(ngModel)]="searchText">
             <button class="btn btn-primary text-white" routerLink="/users/add">+ Add Employee</button>
         </div>
-        <div class="table-wrapper overflow-hidden d-flex flex-column">
+        <div class="table-wrapper overflow-hidden">
             <div class="overflow-auto border">
                 <table class="table table-bordered mb-0 w-100 position-relative">
                     <thead class="thead">
@@ -36,6 +36,41 @@
                 </table>
             </div>
         </div>
+
+        <div *ngIf="(userList | search:searchText) as result" class="card-wrapper">
+            <div class="row g-3" *ngFor="let items of result, let i=index">
+                <!-- Start:Task Card -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <div class="card-title d-flex">
+                                <label for="id" class="pe-2 fw-bold">#:</label>
+                                <div>{{i+1}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="name" class="pe-2 fw-bold">Name:</label>
+                                <div class="text-truncate">{{items?.firstName +" "+ items?.lastName}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="startDate" class="pe-2 fw-bold text-nowrap">E-mail:</label>
+                                <div class="text-truncate">{{items?.email}}</div>
+                            </div>
+                            <div class="card-title d-flex">
+                                <label for="dueDate" class="pe-2 fw-bold">City:</label>
+                                <div>{{items?.city}}</div>
+                            </div>
+                            <div class="card-title">
+                                <label for="action" class="pe-2 fw-bold">Action:</label>
+                                <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
+                                <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End: Task Card -->
+            </div>
+        </div>
+
         <div *ngIf="!userList?.length" class="fw-bold mt-3 text-nowrap">No Employee Inserted</div>
     </section>
 </div>
