@@ -9,6 +9,10 @@
                 <!-- Start: Project Name Field -->
                 <div class="pb-3">
                     <label for="projectName" class="fw-bold">Project Name</label>
+                    <small *ngIf="getControls['projectName'].errors && getControls['projectName'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <select id="projectName" class="form-select" formControlName="projectName">
                         <option *ngFor="let projects of projectData" value="{{projects.name}}">
                             {{projects.name}}
@@ -18,9 +22,10 @@
                     <!-- Start: Project Name Field Validation -->
                     <div
                         *ngIf="getControls['projectName'].touched && getControls['projectName'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['projectName'].errors && getControls['projectName'].errors['required']">
-                            *projectName is required.
+                        <small
+                            *ngIf="getControls['projectName'].errors && getControls['projectName'].errors['required']"
+                            class="text-danger">
+                            projectName is required.
                         </small>
                     </div>
                     <!-- End: Project Name Field Validation -->
@@ -30,13 +35,17 @@
                 <!-- Start: Task Field -->
                 <div class="pb-3">
                     <label for="task" class="fw-bold">Task</label>
+                    <small *ngIf="getControls['task'].errors && getControls['task'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <input type="text" class="form-control" formControlName="task">
 
                     <!-- Start: Task Field Validation -->
                     <div *ngIf="getControls['task'].touched && getControls['task'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['task'].errors && getControls['task'].errors['required']">
-                            *task is required.
+                        <small *ngIf="getControls['task'].errors && getControls['task'].errors['required']"
+                            class="text-danger">
+                            task is required.
                         </small>
                     </div>
                     <!-- End: Task Field Validation -->
@@ -46,6 +55,10 @@
                 <!-- Start: Assign To Field -->
                 <div class="pb-3">
                     <label for="assignTo" class="fw-bold">Assign To</label>
+                    <small *ngIf="getControls['assignTo'].errors && getControls['assignTo'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <select id="assignTo" class="form-select" formControlName="assignTo">
                         <option *ngFor="let members of memberData" value="{{members.firstName +' '+ members.lastName}}">
                             {{members.firstName +" "+ members.lastName}}
@@ -54,9 +67,9 @@
 
                     <!-- Start: Assign To Field Validation -->
                     <div *ngIf="getControls['assignTo'].touched && getControls['assignTo'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['assignTo'].errors && getControls['assignTo'].errors['required']">
-                            *assignTo is required.
+                        <small *ngIf="getControls['assignTo'].errors && getControls['assignTo'].errors['required']"
+                            class="text-danger">
+                            assignTo is required.
                         </small>
                     </div>
                     <!-- End: Assign To Field Validation -->
@@ -68,13 +81,17 @@
                 <!-- Start: DueDate Field -->
                 <div class="pb-3">
                     <label for="dueDate" class="fw-bold">Due Date</label>
+                    <small *ngIf="getControls['dueDate'].errors && getControls['dueDate'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <input type="date" class="form-control" formControlName="dueDate">
 
                     <!-- Start: DueDate Field Valiadtion -->
                     <div *ngIf="getControls['dueDate'].touched && getControls['dueDate'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['dueDate'].errors && getControls['dueDate'].errors['required']">
-                            *dueDate is required.
+                        <small *ngIf="getControls['dueDate'].errors && getControls['dueDate'].errors['required']"
+                            class="text-danger">
+                            dueDate is required.
                         </small>
                     </div>
                     <!-- End: DueDate Field Valiadtion -->
@@ -84,6 +101,10 @@
                 <!-- Start: Priority Field -->
                 <div class="pb-3">
                     <label for="priority" class="fw-bold">Priority</label>
+                    <small *ngIf="getControls['priority'].errors && getControls['priority'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <select id="priority" class="form-select" formControlName="priority">
                         <option>Low</option>
                         <option>Medium</option>
@@ -92,9 +113,9 @@
 
                     <!-- Start: Priority Field Validation -->
                     <div *ngIf="getControls['priority'].touched && getControls['priority'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['priority'].errors && getControls['priority'].errors['required']">
-                            *priority is required.
+                        <small *ngIf="getControls['priority'].errors && getControls['priority'].errors['required']"
+                            class="text-danger">
+                            priority is required.
                         </small>
                     </div>
                     <!-- End: Priority Field Validation -->
@@ -104,6 +125,10 @@
                 <!-- Start: Status Field -->
                 <div class="pb-3">
                     <label for="status" class="fw-bold">Status</label>
+                    <small *ngIf="getControls['status'].errors && getControls['status'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <select id="status" class="form-select" formControlName="status">
                         <option>Pending</option>
                         <option>In Progress</option>
@@ -112,9 +137,9 @@
 
                     <!-- Start: Status Field Validation -->
                     <div *ngIf="getControls['status'].touched && getControls['status'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['status'].errors && getControls['status'].errors['required']">
-                            *status is required.
+                        <small *ngIf="getControls['status'].errors && getControls['status'].errors['required']"
+                            class="text-danger">
+                            status is required.
                         </small>
                     </div>
                     <!-- End: Status Field Validation -->
@@ -124,14 +149,19 @@
                 <!-- Start: Description Field -->
                 <div>
                     <label for="description" class="fw-bold">Description</label>
+                    <small *ngIf="getControls['description'].errors && getControls['description'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <textarea class="form-control" formControlName="description"></textarea>
 
                     <!-- Start: Descsription Field Valiadtion -->
                     <div
                         *ngIf="getControls['description'].touched && getControls['description'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['description'].errors && getControls['description'].errors['required']">
-                            *description is required.
+                        <small
+                            *ngIf="getControls['description'].errors && getControls['description'].errors['required']"
+                            class="text-danger">
+                            description is required.
                         </small>
                     </div>
                     <!-- End: Descsription Field Valiadtion -->

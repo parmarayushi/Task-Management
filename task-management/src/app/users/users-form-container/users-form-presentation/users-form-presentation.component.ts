@@ -15,7 +15,7 @@ export class UsersFormPresentationComponent implements OnInit {
   @Input() public set userData(value: Users[] | null) {
     if (value) {
       this.formTitle = "Edit Employee"
-      this.usersForm.patchValue(value)
+      this.usersForm.patchValue(value);
       this._userFormData = value
     }
   }

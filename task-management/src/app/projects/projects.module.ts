@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
-import { SearchPipe } from './pipe/search.pipe';
 import { ProjectFormContainerComponent } from './project-form-container/project-form-container.component';
 import { ProjectFormPresentationComponent } from './project-form-container/project-form-presentation/project-form-presentation.component';
 import { ProjectListContainerComponent } from './project-list-container/project-list-container.component';
@@ -24,7 +23,6 @@ import { ProjectsService } from './projects.service';
     ProjectListPresentationComponent,
     ProjectViewContainerComponent,
     ProjectViewPresentationComponent,
-    SearchPipe,
   ],
   imports: [
     CommonModule,

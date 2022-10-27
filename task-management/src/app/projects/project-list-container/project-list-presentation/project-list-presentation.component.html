@@ -47,6 +47,7 @@
                     </tbody>
                 </table>
             </div>
+            <app-pagination [items]="projectList" [itemsPerPage]="2" (changePage)="changePage($event)" class="d-flex justify-content-center align-items-center mt-3"></app-pagination>
         </div>
 
         <div *ngIf="(projectList | search:searchText) as result" class="card-wrapper">

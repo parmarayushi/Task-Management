@@ -9,18 +9,20 @@
                 <!-- Start: First Name Field -->
                 <div class="pb-3">
                     <label for="firstName" class="fw-bold">First Name</label>
+                    <small *ngIf="getControls['firstName'].errors && getControls['firstName'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <input type="text" class="form-control" formControlName="firstName">
 
                     <!-- Start: Firstname Field Validation -->
                     <div *ngIf="getControls['firstName'].touched && getControls['firstName'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['firstName'].errors && getControls['firstName'].errors['required']">
-                            *firstName is required.
-                        </small>
-                        <small
-                            *ngIf="getControls['firstName']?.errors?.['pattern'] "
+                        <small *ngIf="getControls['firstName'].errors && getControls['firstName'].errors['required']"
                             class="text-danger">
-                            *Invalid First Name.
+                            firstName is required.
+                        </small>
+                        <small *ngIf="getControls['firstName']?.errors?.['pattern'] " class="text-danger">
+                            Invalid First Name.
                         </small>
                     </div>
                     <!-- End: Firstname Field Validation -->
@@ -30,18 +32,20 @@
                 <!-- Start: Last Name Field -->
                 <div class="pb-3">
                     <label for="lastName" class="fw-bold">Last Name</label>
+                    <small *ngIf="getControls['lastName'].errors && getControls['lastName'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <input type="text" class="form-control" formControlName="lastName">
 
                     <!-- Start: Lastname Field Validation -->
                     <div *ngIf="getControls['lastName'].touched && getControls['lastName'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['lastName'].errors && getControls['lastName'].errors['required']">
-                            *lastName is required.
-                        </small>
-                        <small
-                            *ngIf="getControls['lastName']?.errors?.['pattern'] "
+                        <small *ngIf="getControls['lastName'].errors && getControls['lastName'].errors['required']"
                             class="text-danger">
-                            *Invalid First Name.
+                            lastName is required.
+                        </small>
+                        <small *ngIf="getControls['lastName']?.errors?.['pattern'] " class="text-danger">
+                            Invalid Last Name.
                         </small>
                     </div>
                     <!-- End: Lastname Field Validation -->
@@ -51,13 +55,17 @@
                 <!-- Start: City Field -->
                 <div class="pb-3">
                     <label for="city" class="fw-bold">City</label>
+                    <small *ngIf="getControls['city'].errors && getControls['city'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <input type="text" class="form-control" formControlName="city">
 
                     <!-- Start: City Field Validation -->
                     <div *ngIf="getControls['city'].touched && getControls['city'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['city'].errors && getControls['city'].errors['required']">
-                            *city is required.
+                        <small *ngIf="getControls['city'].errors && getControls['city'].errors['required']"
+                            class="text-danger">
+                            city is required.
                         </small>
                     </div>
                     <!-- End: City Field Validation -->
@@ -69,16 +77,20 @@
                 <!-- Start: Email Field -->
                 <div class="pb-3">
                     <label for="email" class="fw-bold">Email</label>
+                    <small *ngIf="getControls['email'].errors && getControls['email'].errors['required']"
+                        class="text-danger fw-bold">
+                        *
+                    </small>
                     <input type="email" class="form-control" formControlName="email">
 
                     <!-- Start: Email Field Validation -->
                     <div *ngIf="getControls['email'].touched && getControls['email'].errors || formSubmitted">
-                        <small class="text-danger"
-                            *ngIf="getControls['email'].errors && getControls['email'].errors['required']">
-                            *email is required.
+                        <small *ngIf="getControls['email'].errors && getControls['email'].errors['required']"
+                            class="text-danger">
+                            email is required.
                         </small>
-                        <small class="text-danger" *ngIf="getControls['email'].errors?.['pattern']">
-                            *enter proper email format.
+                        <small *ngIf="getControls['email'].errors?.['pattern']" class="text-danger">
+                            enter proper email format.
                         </small>
                     </div>
                     <!-- End: Email Field Validation -->
@@ -90,6 +102,10 @@
                     <!-- Start: Password Field -->
                     <div class="pb-3 position-relative">
                         <label for="password" class="fw-bold">Password</label>
+                        <small *ngIf="getControls['password'].get('password')?.errors?.['required']"
+                            class="text-danger fw-bold">
+                            *
+                        </small>
                         <input [type]="passwordFieldsVisibility['password'] === 'close' ? 'password' : 'text'"
                             formControlName="password" class="form-control" id="password" placeholder="Password">
                         <span class="icon-eye eye-icon" *ngIf="getControls['password'].get('password')?.value?.length"
@@ -102,12 +118,13 @@
                         <div
                             *ngIf="(getControls['password'].get('password')?.touched || getControls['password'].get('password')?.dirty || formSubmitted)">
                             <small *ngIf="getControls['password'].get('password')?.errors?.['required']"
-                                class="text-danger">*password is required.
+                                class="text-danger">
+                                password is required.
                             </small>
                             <small
                                 *ngIf="getControls['password'].get('password')?.errors?.['pattern'] || (getControls['password'].get('password')?.errors?.['minlength'] || getControls['password'].get('password')?.errors?.['maxlength'])"
                                 class="text-danger">
-                                *password must be 8-12 characters long, 1 numeric character, 1 uppercase letter,
+                                password must be 8-12 characters long, 1 numeric character, 1 uppercase letter,
                                 1 lowercase letter, & 1 special character.
                             </small>
                         </div>
@@ -118,10 +135,15 @@
                     <!-- Start: Confirm Password Field -->
                     <div class="pb-3 position-relative">
                         <label for="confirm-password" class="fw-bold">Confirm Password</label>
+                        <small *ngIf="getControls['password'].get('confirmPassword')?.errors?.['required']"
+                            class="text-danger fw-bold">
+                            *
+                        </small>
                         <input [type]="passwordFieldsVisibility['confirmPassword'] === 'close' ? 'password' : 'text'"
                             formControlName="confirmPassword" class="form-control" id="confirm-Password"
                             placeholder="Confirm Password">
-                        <span class="icon-eye eye-icon" *ngIf="getControls['password'].get('confirmPassword')?.value?.length"
+                        <span class="icon-eye eye-icon"
+                            *ngIf="getControls['password'].get('confirmPassword')?.value?.length"
                             (mousedown)="setPasswordVisibility('confirmPassword', 'open')"
                             (mouseup)="setPasswordVisibility('confirmPassword', 'close')"
                             (touchstart)="setPasswordVisibility('confirmPassword', 'open')"
@@ -133,12 +155,12 @@
                                 *ngIf="(getControls['password'].get('confirmPassword')?.touched || getControls['password'].get('confirmPassword')?.dirty || formSubmitted)">
                                 <small *ngIf="getControls['password'].get('confirmPassword')?.errors?.['required']"
                                     class="text-danger">
-                                    *confirm password is required.
+                                    confirm password is required.
                                 </small>
                                 <small
                                     *ngIf="!getControls['password'].get('confirmPassword')?.errors?.['required'] && getControls['password']?.errors?.['passwordsDoNotMatch']"
                                     class="text-danger">
-                                    *passwords did not match.
+                                    passwords did not match.
                                 </small>
                             </div>
                         </div>

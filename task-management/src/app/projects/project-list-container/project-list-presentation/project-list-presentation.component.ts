@@ -13,7 +13,10 @@ export class ProjectListPresentationComponent implements OnInit {
 
   @Input() public set projectList(value: Project[] | null) {
     if (value) {
-      this._projectList = value
+     if(!this._newprojectList){
+      this._newprojectList=value;
+     }
+     this._projectList=value
     }
   }
 
@@ -36,6 +39,7 @@ export class ProjectListPresentationComponent implements OnInit {
 
   public searchText: string ;
   private _projectList: Project[];
+  private _newprojectList: Project[];
 
   constructor(
     public route: Router,
@@ -62,4 +66,11 @@ export class ProjectListPresentationComponent implements OnInit {
   public onDelete(id: number) {
     this.projectPresenterservice.deletePopUp(id);
   }
+
+  changePage(projectList:Project[]) {
+    this._newprojectList = projectList;
+  //  this.cdr.markForCheck();
+  //  console.log(this.customerList);
+
+}
 }

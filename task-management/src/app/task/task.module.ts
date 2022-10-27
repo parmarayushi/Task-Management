@@ -9,7 +9,6 @@ import { TaskListPresentationComponent } from './task-list-container/task-list-p
 import { TaskRoutingModule } from './task-routing.module';
 import { TaskComponent } from './task.component';
 import { TaskService } from './task.service';
-import { SearchPipe } from './pipe/search.pipe';
 
 
 @NgModule({
@@ -19,7 +18,6 @@ import { SearchPipe } from './pipe/search.pipe';
     TaskListContainerComponent,
     TaskFormPresentationComponent,
     TaskListPresentationComponent,
-    SearchPipe
   ],
   imports: [
     CommonModule,
