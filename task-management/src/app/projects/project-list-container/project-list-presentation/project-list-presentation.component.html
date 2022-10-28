@@ -21,7 +21,7 @@
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody *ngIf="(projectList | search:searchText) as result">
+                    <tbody *ngIf="(newProject | search:searchText) as result">
                         <tr *ngFor="let items of result, let i=index" class="align-middle text-nowrap">
                             <th scope="row" class="text-center">{{i+1}}</th>
                             <td class="d-flex flex-column">
@@ -47,7 +47,7 @@
                     </tbody>
                 </table>
             </div>
-            <app-pagination [items]="projectList" [itemsPerPage]="2" (changePage)="changePage($event)" class="d-flex justify-content-center align-items-center mt-3"></app-pagination>
+            <app-pagination [items]="projectList" [itemsPerPage]="4" (changePage)="changePage($event)" class="d-flex justify-content-center align-items-center mt-4"></app-pagination>
         </div>
 
         <div *ngIf="(projectList | search:searchText) as result" class="card-wrapper">

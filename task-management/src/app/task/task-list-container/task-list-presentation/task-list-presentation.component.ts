@@ -13,6 +13,9 @@ export class TaskListPresentationComponent implements OnInit {
 
   @Input() public set taskData(value: Task[] | null) {
     if (value) {
+      if (!this._newTaskList) {
+        this._newTaskList = value;
+      }
       this._taskData = value;
     }
   }
@@ -24,7 +27,10 @@ export class TaskListPresentationComponent implements OnInit {
   @Output() public delete: EventEmitter<number>;
 
   public searchText: string;
+  public newTask: Task[];
+
   private _taskData: Task[];
+  private _newTaskList: Task[];
 
   constructor(
     private taskPresenterService: TaskListPresenterService,
@@ -35,7 +41,7 @@ export class TaskListPresentationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.taskPresenterService.deleteData$.subscribe((result: number) => 
+    this.taskPresenterService.deleteData$.subscribe((result: number) =>
       this.delete.emit(result)
     )
   }
@@ -46,5 +52,9 @@ export class TaskListPresentationComponent implements OnInit {
 
   public onDelete(id: number) {
     this.taskPresenterService.deletePopUp(id);
+  }
+
+  public changePage(taskList: Task[]) {
+    this.newTask = taskList;
   }
 }

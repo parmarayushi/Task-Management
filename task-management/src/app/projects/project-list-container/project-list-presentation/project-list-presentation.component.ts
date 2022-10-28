@@ -13,10 +13,10 @@ export class ProjectListPresentationComponent implements OnInit {
 
   @Input() public set projectList(value: Project[] | null) {
     if (value) {
-     if(!this._newprojectList){
-      this._newprojectList=value;
-     }
-     this._projectList=value
+      if (!this._newProjectList) {
+        this._newProjectList = value;
+      }
+      this._projectList = value
     }
   }
 
@@ -37,20 +37,22 @@ export class ProjectListPresentationComponent implements OnInit {
   private _projectView: Project;
   @Output() public delete: EventEmitter<number>;
 
-  public searchText: string ;
+  public searchText: string;
+  public newProject: Project[];
+
   private _projectList: Project[];
-  private _newprojectList: Project[];
+  private _newProjectList: Project[];
 
   constructor(
     public route: Router,
     private projectPresenterservice: ProjectListPresenterService
   ) {
     this.delete = new EventEmitter();
-    this.searchText=''
+    this.searchText = ''
   }
 
   ngOnInit(): void {
-    this.projectPresenterservice.deleteData$.subscribe((result: number) => 
+    this.projectPresenterservice.deleteData$.subscribe((result: number) =>
       this.delete.emit(result)
     )
   }
@@ -67,10 +69,7 @@ export class ProjectListPresentationComponent implements OnInit {
     this.projectPresenterservice.deletePopUp(id);
   }
 
-  changePage(projectList:Project[]) {
-    this._newprojectList = projectList;
-  //  this.cdr.markForCheck();
-  //  console.log(this.customerList);
-
-}
+  public changePage(projectList: Project[]) {
+    this.newProject = projectList;
+  }
 }

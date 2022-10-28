@@ -1,7 +1,6 @@
 <div class="wrapper h-100 d-flex flex-column overflow-hidden">
     <!-- Header -->
     <h3 class="border-bottom border-primary pb-2">Employees List</h3>
-
     <section class="wraapper-content rounded-3 bg-white shadow-sm p-3 mt-4 list-border overflow-auto">
         <div class="d-flex justify-content-between mt-3 mb-3">
             <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
@@ -20,7 +19,7 @@
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody *ngIf="(userList | search: searchText) as result">
+                    <tbody *ngIf="(newUser | search: searchText) as result">
                         <tr *ngFor="let items of result ,let i=index">
                             <th scope="row" class="text-center">{{i+1}}</th>
                             <td>{{items?.firstName +" "+ items?.lastName}}</td>
@@ -35,6 +34,7 @@
                     </tbody>
                 </table>
             </div>
+            <app-pagination [items]="userList" [itemsPerPage]="4" (changePage)="changePage($event)" class="d-flex justify-content-center align-items-center mt-4"></app-pagination>
         </div>
 
         <div *ngIf="(userList | search:searchText) as result" class="card-wrapper">

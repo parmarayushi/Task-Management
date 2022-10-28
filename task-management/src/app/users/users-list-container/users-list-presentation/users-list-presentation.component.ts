@@ -13,6 +13,10 @@ export class UsersListPresentationComponent implements OnInit {
 
   @Input() public set userList(value: Users[] | null) {
     if (value) {
+      if (!this._newUserList) {
+        this._newUserList = value;
+        this.changePage(this._newUserList.slice(0, 4))
+      }
       this._userList = value;
     }
   }
@@ -24,7 +28,10 @@ export class UsersListPresentationComponent implements OnInit {
   @Output() public delete: EventEmitter<number>;
 
   public searchText: string;
+  public newUser: Users[];
+
   private _userList: Users[];
+  private _newUserList: Users[];
 
   constructor(
     private route: Router,
@@ -35,7 +42,7 @@ export class UsersListPresentationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userListPresenter.deleteData$.subscribe((result: number) => 
+    this.userListPresenter.deleteData$.subscribe((result: number) =>
       this.delete.emit(result)
     )
   }
@@ -46,5 +53,9 @@ export class UsersListPresentationComponent implements OnInit {
 
   public onDelete(id: number) {
     this.userListPresenter.deletePopUp(id);
+  }
+
+  public changePage(userList: Users[]) {
+    this.newUser = userList;
   }
 }

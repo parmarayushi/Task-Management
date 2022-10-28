@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@
 export class PaginationComponent implements OnInit {
 
   
-  @Input() items: Array<any>;
+  @Input() items: Array<any>
   @Output() changePage = new EventEmitter<any>();
   @Input() initialPage = 1;
   @Input() itemsPerPage = 5;
@@ -17,7 +17,7 @@ export class PaginationComponent implements OnInit {
   pager: any = {};
 
   constructor() {
-
+    
   }
 
   ngOnInit(): void {
@@ -26,11 +26,10 @@ export class PaginationComponent implements OnInit {
     }
   }
   
+  // reset page if items array has changed
   ngOnChanges(changes: SimpleChanges) {
-    // reset page if items array has changed
     if (changes['items'].currentValue !== changes['items'].previousValue) {
       this.setPage(this.initialPage);
-      console.log(this.pager.totalPages);
     }
   }
 
