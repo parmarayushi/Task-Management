@@ -22,8 +22,8 @@
                     <tbody *ngIf="(newUser | search: searchText) as result">
                         <tr *ngFor="let items of result ,let i=index">
                             <th scope="row" class="text-center">{{i+1}}</th>
-                            <td>{{items?.firstName +" "+ items?.lastName}}</td>
-                            <td>{{items?.email}}</td>
+                            <td class="table-text text-truncate">{{items?.firstName +" "+ items?.lastName}}</td>
+                            <td class="table-text text-truncate">{{items?.email}}</td>
                             <td>{{items?.city}}</td>
                             <td class="text-center">
                                 <span class="icon-edit cursor-pointer pe-3" (click)="onEdit(items.id)"></span>

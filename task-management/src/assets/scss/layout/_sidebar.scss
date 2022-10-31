@@ -2,7 +2,7 @@
     flex: 0 0 $sidebar-width;
     width: $sidebar-width;
     background-color: $secondary;
-    transition: 0.4s all ease;
+    transition: all 0.5s ease-in-out;
 
     @include media-breakpoint-down(md) {
         flex: 0 0 50%;
@@ -34,6 +34,24 @@
     @include media-breakpoint-down(md) {
         display: block;
     }
+}
+
+.isBooleanSidebar{
+    @include media-breakpoint-down(md){
+        display: block;
+    }
+    @include media-breakpoint-up(md){
+        display: none;
+    }
+}
+.simpleSidebar{
+    @include media-breakpoint-up(md){
+        display: block;
+    }
+    @include media-breakpoint-down(md){
+        display: none;
+    }
+
 }
 
 .nav {
