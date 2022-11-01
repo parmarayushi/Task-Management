@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilityService } from 'src/app/shared/services/utility.service';
 import { Users } from '../../users.model';
 import { UsersListPresenterService } from '../users-list-presenter/users-list-presenter.service';
 
@@ -35,7 +36,8 @@ export class UsersListPresentationComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private userListPresenter: UsersListPresenterService
+    private userListPresenter: UsersListPresenterService,
+    private utilityService: UtilityService
   ) {
     this.delete = new EventEmitter();
     this.searchText = ''
@@ -45,6 +47,10 @@ export class UsersListPresentationComponent implements OnInit {
     this.userListPresenter.deleteData$.subscribe((result: number) =>
       this.delete.emit(result)
     )
+
+    this.utilityService.searchData$.subscribe((res) => {
+      this._userList = res;
+    })
   }
 
   public onEdit(id: number) {
@@ -54,6 +60,10 @@ export class UsersListPresentationComponent implements OnInit {
   public onDelete(id: number) {
     this.userListPresenter.deletePopUp(id);
   }
+
+  public onSearch() {
+    this.utilityService.onFilter(this._newUserList, this.searchText)
+  } 
 
   public changePage(userList: Users[]) {
     this.newUser = userList;

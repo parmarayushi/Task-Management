@@ -1,11 +1,5 @@
 .table-wrapper {
     max-height: $table-height;
-    display: none;
-
-    @include media-breakpoint-up(sm){
-        display: flex;
-        flex-direction: column;
-    }
 
     .thead {
         .table-header {
@@ -16,7 +10,9 @@
     }
 }
 
-
-.table-text{
-    max-width: 50px;
+.table {
+    table-layout: fixed;
+}
+.table thead tr th:not(.project) {
+    width: 150px;
 }

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilityService } from 'src/app/shared/services/utility.service';
 import { Task } from '../../task.model';
 import { TaskListPresenterService } from '../task-list-presenter/task-list-presenter.service';
 
@@ -34,6 +35,7 @@ export class TaskListPresentationComponent implements OnInit {
 
   constructor(
     private taskPresenterService: TaskListPresenterService,
+    private utilityService: UtilityService,
     private route: Router
   ) {
     this.delete = new EventEmitter();
@@ -44,6 +46,10 @@ export class TaskListPresentationComponent implements OnInit {
     this.taskPresenterService.deleteData$.subscribe((result: number) =>
       this.delete.emit(result)
     )
+
+    this.utilityService.searchData$.subscribe((res) => {
+      this._taskData = res;
+    })
   }
 
   public onEdit(id: number) {
@@ -52,6 +58,10 @@ export class TaskListPresentationComponent implements OnInit {
 
   public onDelete(id: number) {
     this.taskPresenterService.deletePopUp(id);
+  }
+
+  public onSearch() {
+    this.utilityService.onFilter(this._newTaskList, this.searchText);
   }
 
   public changePage(taskList: Task[]) {

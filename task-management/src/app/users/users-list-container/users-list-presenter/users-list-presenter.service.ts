@@ -3,17 +3,27 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DeletePopupComponent } from 'src/app/shared/component/delete-popup/delete-popup.component';
+import { Users } from '../../users.model';
 
 @Injectable()
 export class UsersListPresenterService {
 
   private deleteData: Subject<number>;
   public deleteData$: Observable<number>;
+
+  // private filterData: Subject<Users[]>;
+  // public filterData$: Observable<Users[]>;
+
   constructor(private overlay: Overlay) {
     this.deleteData = new Subject();
     this.deleteData$ = new Observable();
 
     this.deleteData$ = this.deleteData.asObservable();
+
+    // this.filterData = new Subject();
+    // this.filterData$ = new Observable();
+
+    // this.filterData$ = this.filterData.asObservable();
   }
 
   public onDelete(id: number) {
@@ -43,4 +53,19 @@ export class UsersListPresenterService {
       config.detach();
     })
   }
+
+  // public onFilter(currentList: Users[], searchText: string) {
+  //   let dataKey = Object.keys(currentList[0]);
+  //   let newData = [...currentList];
+  //   dataKey.forEach((item: any) => {
+  //     if (item) {
+  //       newData = newData.filter((data: any) => {
+  //         return dataKey.some(key =>{
+  //           return String(data[key]).toLowerCase().includes(searchText.toLowerCase())      
+  //         });
+  //       })
+  //       this.filterData.next(newData);
+  //     }
+  //   })
+  // }
 }

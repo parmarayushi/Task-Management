@@ -5,23 +5,23 @@
     <section class="wrapper-content rounded bg-white shadow-sm p-3 mt-4 overflow-auto">
         <div class="d-flex justify-content-between mt-3 mb-3">
             <input type="text" class="form-control w-25 text-truncate" placeholder="Search Here..."
-                [(ngModel)]="searchText">
+                [(ngModel)]="searchText" (ngModelChange)="onSearch()">
             <button class="btn btn-primary text-white" routerLink="/projects/add">+ Add Project</button>
         </div>
-        <div class="table-wrapper overflow-hidden">
+        <div class="table-wrapper overflow-hidden d-none d-sm-block">
             <div class="overflow-auto border">
                 <table class="table table-bordered mb-0 w-100 position-relative">
                     <thead class="thead">
                         <tr class="table-header text-nowrap">
                             <th scope="col" class="text-center">#</th>
-                            <th scope="col">Project</th>
+                            <th class="project" scope="col">Project</th>
                             <th scope="col">Started Date</th>
                             <th scope="col">Due Date</th>
                             <th scope="col" class="text-center">Status</th>
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody *ngIf="(newProject | search:searchText) as result">
+                    <tbody *ngIf="newProject as result">
                         <tr *ngFor="let items of result, let i=index" class="align-middle text-nowrap">
                             <th scope="row" class="text-center">{{i+1}}</th>
                             <td class="d-flex flex-column table-text">
@@ -42,15 +42,16 @@
                                 <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
                             </td>
                         </tr>
-                        <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record
-                            Found</div>
+                        <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record Found
+                        </div>
                     </tbody>
                 </table>
             </div>
-            <app-pagination [items]="projectList" [itemsPerPage]="4" (changePage)="changePage($event)" class="d-flex justify-content-center align-items-center mt-4"></app-pagination>
+            <app-pagination [items]="projectList" [itemsPerPage]="4" (changePage)="changePage($event)"
+                class="d-flex justify-content-center align-items-center mt-4"></app-pagination>
         </div>
 
-        <div *ngIf="(projectList | search:searchText) as result" class="card-wrapper">
+        <div *ngIf="(projectList | search:searchText) as result" class="card-wrapper d-sm-none">
             <div class="row g-3" *ngFor="let items of result, let i=index">
                 <!-- Start:Task Card -->
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -89,7 +90,8 @@
                 </div>
                 <!-- End: Task Card -->
             </div>
+            <div *ngIf="result.length === 0 && searchText" class="fw-bold mt-3 text-nowrap">No Record Found</div>
         </div>
-        <div *ngIf="!projectList?.length" class="fw-bold mt-3 text-nowrap">No Project Inserted</div>
+        <div *ngIf="!projectList?.length && !searchText" class="fw-bold mt-3 text-nowrap">No Project Inserted</div>
     </section>
 </div>
