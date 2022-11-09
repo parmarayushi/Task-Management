@@ -1,0 +1,17 @@
+<div class="wrapper d-flex overflow-hidden h-100">
+    <input type="checkbox" id="menu" [(ngModel)]="isSidebarOpen">
+    <div class="sidebar isBooleanSidebar h-100">
+        <app-sidebar (closeSidebar)="isSidebarOpen = false"></app-sidebar>
+    </div>
+    <div class="sidebar simpleSidebar h-100">
+        <app-sidebar></app-sidebar>
+    </div>
+
+
+    <div class="content-wrapper d-flex flex-column flex-grow-1 overflow-hidden h-100 bg-light">
+        <app-header></app-header>
+        <div class="p-3 overflow-auto h-100">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

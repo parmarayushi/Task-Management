@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/shared/services/utility.service';
-import { Users } from '../../users.model';
+import { Employees } from '../../users.model';
 import { UsersListPresenterService } from '../users-list-presenter/users-list-presenter.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { UsersListPresenterService } from '../users-list-presenter/users-list-pr
 })
 export class UsersListPresentationComponent implements OnInit {
 
-  @Input() public set userList(value: Users[] | null) {
+  @Input() public set userList(value: Employees[] | null) {
     if (value) {
       if (!this._newUserList) {
         this._newUserList = value;
@@ -22,17 +22,17 @@ export class UsersListPresentationComponent implements OnInit {
     }
   }
 
-  public get userList(): Users[] {
+  public get userList(): Employees[] {
     return this._userList;
   }
 
   @Output() public delete: EventEmitter<number>;
 
   public searchText: string;
-  public newUser: Users[];
+  public newUser: Employees[];
 
-  private _userList: Users[];
-  private _newUserList: Users[];
+  private _userList: Employees[];
+  private _newUserList: Employees[];
 
   constructor(
     private route: Router,
@@ -65,7 +65,7 @@ export class UsersListPresentationComponent implements OnInit {
     this.utilityService.onFilter(this._newUserList, this.searchText)
   } 
 
-  public changePage(userList: Users[]) {
+  public changePage(userList: Employees[]) {
     this.newUser = userList;
   }
 }

@@ -16,6 +16,7 @@ export class TaskListPresentationComponent implements OnInit {
     if (value) {
       if (!this._newTaskList) {
         this._newTaskList = value;
+        this.changePage(this._newTaskList.slice(0, 4))
       }
       this._taskData = value;
     }

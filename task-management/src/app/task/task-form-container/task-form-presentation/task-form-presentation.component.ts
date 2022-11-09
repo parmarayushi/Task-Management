@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/projects/project.model';
-import { Users } from 'src/app/users/users.model';
+import { Employees } from 'src/app/users/users.model';
 import { Task } from '../../task.model';
 import { TaskFormPresenterService } from '../task-form-presenter/task-form-presenter.service';
 
@@ -37,13 +37,13 @@ export class TaskFormPresentationComponent implements OnInit {
     return this._projectData;
   }
 
-  @Input() public set memberData(value: Users[] | null) {
+  @Input() public set memberData(value: Employees[] | null) {
     if (value) {
       this._membersData = value;
     }
   }
 
-  public get memberData(): Users[] | null {
+  public get memberData(): Employees[] | null {
     return this._membersData;
   }
 
@@ -56,7 +56,7 @@ export class TaskFormPresentationComponent implements OnInit {
 
   private _taskData: Task;
   private _projectData: Project[];
-  private _membersData: Users[];
+  private _membersData: Employees[];
 
   constructor(
     private taskFormPresenter: TaskFormPresenterService,

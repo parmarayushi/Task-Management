@@ -15,6 +15,10 @@
     @include position(absolute, 2.1rem, 0.6rem)
 }
 
+.login-form{
+    background-color: $ternary;
+}
+
 .wrapper-content{
     height: auto;
     @media (min-width:576px){

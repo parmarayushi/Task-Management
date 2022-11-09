@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Users } from '../../users.model';
+import { Employees } from '../../users.model';
 import { UsersFormPresnterService } from '../users-form-presenter/users-form-presnter.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { UsersFormPresnterService } from '../users-form-presenter/users-form-pre
 })
 export class UsersFormPresentationComponent implements OnInit {
 
-  @Input() public set userData(value: Users[] | null) {
+  @Input() public set userData(value: Employees[] | null) {
     if (value) {
       this.formTitle = "Edit Employee"
       this.usersForm.patchValue(value);
@@ -20,12 +20,12 @@ export class UsersFormPresentationComponent implements OnInit {
     }
   }
 
-  public get userData(): Users[] | null {
+  public get userData(): Employees[] | null {
     return this._userFormData;
   }
 
-  @Output() public add: EventEmitter<Users>;
-  @Output() public edit: EventEmitter<Users>;
+  @Output() public add: EventEmitter<Employees>;
+  @Output() public edit: EventEmitter<Employees>;
 
   public usersForm: FormGroup;
   public formTitle: string;
@@ -35,10 +35,10 @@ export class UsersFormPresentationComponent implements OnInit {
     confirmPassword: 'close',
   };
 
-  private _userFormData: Users[];
+  private _userFormData: Employees[];
 
   constructor(private userFormPresenter: UsersFormPresnterService, private route: Router) {
-    this.formSubmitted=false;
+    this.formSubmitted = false;
     this.add = new EventEmitter();
     this.edit = new EventEmitter();
     this.usersForm = this.userFormPresenter.buildForm();
@@ -46,7 +46,7 @@ export class UsersFormPresentationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userFormPresenter.userFormdata$.subscribe((result: Users) => 
+    this.userFormPresenter.userFormdata$.subscribe((result: Employees) =>
       this.formTitle === "New Employee" ? this.add.emit(result) : this.edit.emit(result)
     )
   }

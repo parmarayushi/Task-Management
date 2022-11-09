@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonService } from 'src/app/shared/services/common.service';
-import { Users } from 'src/app/users/users.model';
+import { Employees } from 'src/app/users/users.model';
 import { Project } from '../project.model';
 import { ProjectsService } from '../projects.service';
 
@@ -13,7 +13,7 @@ import { ProjectsService } from '../projects.service';
 export class ProjectFormContainerComponent implements OnInit {
 
   public id: number;
-  public membersList$: Observable<Users[]> = new Observable();
+  public membersList$: Observable<Employees[]> = new Observable();
   public projectData$: Observable<Project> = new Observable();
 
   constructor(
@@ -33,7 +33,7 @@ export class ProjectFormContainerComponent implements OnInit {
   }
 
   public getMembers() {
-    this.membersList$ = this.commonService.getUsers();
+    this.membersList$ = this.commonService.getEmployees();
   }
 
   public addProjects(form: Project) {

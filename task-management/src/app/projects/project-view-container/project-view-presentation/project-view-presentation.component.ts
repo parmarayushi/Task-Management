@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Users } from 'src/app/users/users.model';
 import { Project } from '../../project.model';
 import { ProjectViewPresenterService } from '../project-view-presenter/project-view-presenter.service';
 

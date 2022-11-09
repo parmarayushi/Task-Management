@@ -1,28 +1,32 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MasterComponent } from './master/master.component';
-import { SidebarComponent } from './master/sidebar/sidebar.component';
-import { HeaderComponent } from './master/header/header.component';
-import { FooterComponent } from './master/footer/footer.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
+import { LoginContainerComponent } from './components/login-container/login-container.component';
+import { LoginPresentationComponent } from './components/login-container/login-presentation/login-presentation.component';
+import { HeaderComponent } from './components/master/header/header.component';
+import { MasterComponent } from './components/master/master.component';
+import { SidebarComponent } from './components/master/sidebar/sidebar.component';
 
 
 
 @NgModule({
   declarations: [
-    MasterComponent,
     SidebarComponent,
     HeaderComponent,
-    FooterComponent
+    MasterComponent,
+    LoginContainerComponent,
+    LoginPresentationComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports:[
     SidebarComponent,
     HeaderComponent,
-    FooterComponent
+    MasterComponent
   ]
 })
 export class CoreModule { }

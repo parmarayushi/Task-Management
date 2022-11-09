@@ -4,7 +4,7 @@ import { Project } from 'src/app/projects/project.model';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { Task } from 'src/app/task/task.model';
 import { TaskService } from 'src/app/task/task.service';
-import { Users } from 'src/app/users/users.model';
+import { Employees } from 'src/app/users/users.model';
 
 @Component({
   selector: 'app-dashboard-container',
@@ -12,7 +12,7 @@ import { Users } from 'src/app/users/users.model';
 })
 export class DashboardContainerComponent implements OnInit {
 
-  public employeeData$:Observable<Users[]>=new Observable();
+  public employeeData$:Observable<Employees[]>=new Observable();
   public projectData$:Observable<Project[]>=new Observable();
   public taskData$:Observable<Task[]>=new Observable();
 
@@ -23,7 +23,7 @@ export class DashboardContainerComponent implements OnInit {
   }
 
   public props(){
-    this.employeeData$=this.commonServics.getUsers();
+    this.employeeData$=this.commonServics.getEmployees();
     this.projectData$=this.commonServics.getProjectdata();
     this.taskData$=this.taskService.getTaskData();
   }

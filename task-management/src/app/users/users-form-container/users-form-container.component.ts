@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { Users } from '../users.model';
+import { Employees } from '../users.model';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { UsersService } from '../users.service';
 export class UsersFormContainerComponent implements OnInit {
 
   public id: number;
-  public userData$: Observable<Users[]> = new Observable();
+  public userData$: Observable<Employees[]> = new Observable();
 
   constructor(
     private userService: UsersService,
@@ -20,22 +20,22 @@ export class UsersFormContainerComponent implements OnInit {
   ) {
     this.id = parseInt(this.activatedRoute.snapshot.params['id']);
     if (this.id) {
-      this.userData$ = this.userService.getUsersById(this.id);
+      this.userData$ = this.userService.getEmployeeById(this.id);
     }
   }
 
   ngOnInit(): void {
   }
 
-  public addUsers(form: Users) {
-    this.userService.addUsers(form).subscribe(() => {
+  public addEmployee(form: Employees) {
+    this.userService.addEmployee(form).subscribe(() => {
       alert("Employee Added Successfully.");
       this.router.navigateByUrl('users')
     })
   }
 
-  public editUser(form: Users) {
-    this.userService.editUser(this.id, form).subscribe(() => {
+  public editEmployee(form: Employees) {
+    this.userService.editEmployee(this.id, form).subscribe(() => {
       alert('Employee Updtaed Successfully.');
       this.router.navigateByUrl('users');
     })

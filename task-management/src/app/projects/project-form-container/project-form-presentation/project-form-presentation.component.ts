@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Users } from 'src/app/users/users.model';
+import { Employees } from 'src/app/users/users.model';
 import { Project } from '../../project.model';
 import { ProjectFormPresenterService } from '../project-form-presenter/project-form-presenter.service';
 
@@ -25,13 +25,13 @@ export class ProjectFormPresentationComponent implements OnInit {
     return this._projectData;
   }
 
-  @Input() public set teamMembers(value: Users[] | null) {
+  @Input() public set teamMembers(value: Employees[] | null) {
     if (value) {
       this._teamMembers = value;
     }
   }
 
-  public get teamMembers(): Users[] {
+  public get teamMembers(): Employees[] {
     return this._teamMembers;
   }
 
@@ -44,7 +44,7 @@ export class ProjectFormPresentationComponent implements OnInit {
   public settings: {};
 
   private _projectData: Project;
-  private _teamMembers: Users[];
+  private _teamMembers: Employees[];
 
   constructor(
     private projectFormPresenter: ProjectFormPresenterService,

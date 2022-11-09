@@ -1,5 +1,5 @@
 {
-  "users": [
+  "employee": [
     {
       "firstName": "Jigar",
       "lastName": "Bhanushali",
@@ -367,6 +367,16 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 5
+    }
+  ],
+  "user":[
+    {
+      "email":"admin123@gmail.com",
+      "password":"admin@123"
+    },
+    {
+      "email":"ayushi123@gmail.com",
+      "password":"ayushi@123"
     }
   ]
 }

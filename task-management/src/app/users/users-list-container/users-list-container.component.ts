@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { CommonService } from 'src/app/shared/services/common.service';
-import { Users } from '../users.model';
+import { Employees } from '../users.model';
 import { UsersService } from '../users.service';
 
 @Component({
@@ -10,24 +10,24 @@ import { UsersService } from '../users.service';
 })
 export class UsersListContainerComponent implements OnInit {
 
-  public userList$: Observable<Users[]> = new Observable()
+  public userList$: Observable<Employees[]> = new Observable()
   constructor(
     private userService: UsersService,
     private commonService: CommonService
   ) { }
 
   ngOnInit(): void {
-    this.getusers();
+    this.getEmployee();
   }
 
-  public getusers() {
-    this.userList$ = this.commonService.getUsers();
+  public getEmployee() {
+    this.userList$ = this.commonService.getEmployees();
   }
 
-  public deleteUsers(id: number) {
-    this.userService.deleteUsers(id).subscribe(() => {
+  public deleteEmployee(id: number) {
+    this.userService.deleteEmployee(id).subscribe(() => {
       alert('User Deleted.')
-      this.getusers();
+      this.getEmployee();
     })
   }
 }

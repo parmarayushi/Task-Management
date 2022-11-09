@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Users } from './users.model';
+import { Employees } from './users.model';
 
 @Injectable()
 export class UsersService {
@@ -13,20 +13,20 @@ export class UsersService {
     this.apiLink = environment.baseURL;
   }
 
-  public addUsers(form: Users): Observable<Users> {
-    return this.http.post<Users>(`${this.apiLink}/users`, form);
+  public addEmployee(form: Employees): Observable<Employees> {
+    return this.http.post<Employees>(`${this.apiLink}/employee`, form);
   }
 
-  public getUsersById(id: number): Observable<Users[]> {
-    return this.http.get<Users[]>(`${this.apiLink}/users/${id}`)
+  public getEmployeeById(id: number): Observable<Employees[]> {
+    return this.http.get<Employees[]>(`${this.apiLink}/employee/${id}`)
   }
 
-  public editUser(id: number, form: Users): Observable<Users> {
-    return this.http.put<Users>(`${this.apiLink}/users/${id}`, form)
+  public editEmployee(id: number, form: Employees): Observable<Employees> {
+    return this.http.put<Employees>(`${this.apiLink}/employee/${id}`, form)
   }
 
-  public deleteUsers(id: number): Observable<number> {
-    return this.http.delete<number>(`${this.apiLink}/users/${id}`);
+  public deleteEmployee(id: number): Observable<number> {
+    return this.http.delete<number>(`${this.apiLink}/employee/${id}`);
   }
 
   public confirmPassword(password: AbstractControl): { passwordsDoNotMatch: boolean } | null {

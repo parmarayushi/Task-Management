@@ -1,4 +1,4 @@
-import { Users } from "../users/users.model";
+import { Employees } from "../users/users.model";
 
 export class Project {
     public id: number;
@@ -7,7 +7,7 @@ export class Project {
     public startDate: string;
     public dueDate: string;
     public projectManager: string;
-    public teamMembers: Users[];
+    public teamMembers: Employees[];
     public description: string;
 
     constructor(
@@ -17,7 +17,7 @@ export class Project {
         startDate: string,
         dueDate: string,
         projectManager: string,
-        teamMembers: Users[],
+        teamMembers: Employees[],
         description: string,
     ) {
         this.id = id;

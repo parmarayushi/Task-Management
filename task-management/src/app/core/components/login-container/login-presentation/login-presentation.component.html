@@ -1,0 +1,16 @@
+<section class="d-flex flex-column align-items-center login-form justify-content-center  h-100">
+    <h2>Login</h2>
+    <form class="border border-1 rounded p-5 bg-white" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <div class="mb-3">
+            <label class="form-label fs-4 fw-light">Email address</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="mb-3">
+            <label class="form-label fs-4 fw-light">Password</label>
+            <input type="password" class="form-control" formControlName="password">
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-login bg-primary text-light">Log in</button>
+        </div>
+    </form>
+</section>

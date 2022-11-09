@@ -16,6 +16,7 @@ export class ProjectListPresentationComponent implements OnInit {
     if (value) {
       if (!this._newProjectList) {
         this._newProjectList = value;
+        this.changePage(this._newProjectList.slice(0, 4))
       }
       this._projectList = value
     }

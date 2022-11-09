@@ -1,9 +1,8 @@
-import { Overlay, OverlayConfig } from '@angular/cdk/overlay';
+import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DeletePopupComponent } from 'src/app/shared/component/delete-popup/delete-popup.component';
-import { Users } from '../../users.model';
 
 @Injectable()
 export class UsersListPresenterService {

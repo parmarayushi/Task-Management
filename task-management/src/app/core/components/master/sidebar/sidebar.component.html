@@ -1,0 +1,58 @@
+<aside class="h-100 d-flex flex-column">
+  <label for="menu"><span class="icon-cross close text-white cursor-pointer position-absolute"></span></label>
+  <nav class="nav text-nowrap flex-nowrap flex-column overflow-y-auto h-100">
+    <div class="d-flex profile ps-3 p-2 text-white">
+      <span class="icon-profile d-flex align-items-center pe-4"></span>
+      <div class="d-flex flex-column">
+        <span>Admin Admin</span>
+        <span class="user-email">admin123@gmail.com</span>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column h-100">
+      <ul class="ps-0 flex-grow-1">
+        <li class="pb-3 nav-item">
+          <a routerLink="dashboard" routerLinkActive="active"
+            class="nav-link d-flex cursor-pointer text-decoration-none text-white ps-3" (click)="onRouteChange($event)">
+            <span class="icon-home pe-4 d-flex align-items-center"></span>
+            <span>Dashboard</span>
+          </a>
+        </li>
+
+        <li class="pb-3 nav-item">
+          <a routerLink="projects" routerLinkActive="active"
+            class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3" (click)="onRouteChange($event)">
+            <span class="icon-project pe-4 d-flex align-items-center"></span>
+            <span>Projects</span>
+          </a>
+        </li>
+
+        <li class="pb-3 nav-item">
+          <a routerLink="tasks" routerLinkActive="active"
+            class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3" (click)="onRouteChange($event)">
+            <span class="icon-tasks pe-4 d-flex align-items-center"></span>
+            <span>Tasks</span>
+          </a>
+        </li>
+
+        <li class="pb-3 nav-item">
+          <a routerLink="users" routerLinkActive="active"
+            class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3" (click)="onRouteChange($event)">
+            <span class="icon-users pe-4 d-flex align-items-center"></span>
+            <span>Employees</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="ps-0">
+        <li class="nav-item" (click)="logOut()">
+          <a routerLinkActive="active" class="nav-link cursor-pointer d-flex text-decoration-none text-white ps-3"
+            (click)="onRouteChange($event)">
+            <span class="icon-logout pe-4 d-flex align-items-center"></span>
+            <span>Log Out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</aside>

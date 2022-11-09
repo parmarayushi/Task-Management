@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Project } from 'src/app/projects/project.model';
 import { Task } from 'src/app/task/task.model';
-import { Users } from 'src/app/users/users.model';
+import { Employees } from 'src/app/users/users.model';
 import { DashboardPresenterService } from '../dashboard-presenter/dashboard-presenter.service';
 
 @Component({
@@ -12,13 +12,13 @@ import { DashboardPresenterService } from '../dashboard-presenter/dashboard-pres
 })
 export class DashboardPresentationComponent implements OnInit {
 
-  @Input() public set employeeData(value: Users[] | null) {
+  @Input() public set employeeData(value: Employees[] | null) {
     if (value) {
       this._employeeData = value;
     }
   }
 
-  public get employeeData(): Users[] {
+  public get employeeData(): Employees[] {
     return this._employeeData;
   }
 
@@ -47,7 +47,7 @@ export class DashboardPresentationComponent implements OnInit {
   public inProgress: Task[];
   public done: Task[];
 
-  private _employeeData: Users[];
+  private _employeeData: Employees[];
   private _projectData: Project[];
   private _taskData: Task[];
 

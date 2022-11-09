@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { Project } from 'src/app/projects/project.model';
 import { CommonService } from 'src/app/shared/services/common.service';
-import { Users } from 'src/app/users/users.model';
+import { Employees } from 'src/app/users/users.model';
 import { Task } from '../task.model';
 import { TaskService } from '../task.service';
 
@@ -14,7 +14,7 @@ import { TaskService } from '../task.service';
 export class TaskFormContainerComponent implements OnInit {
 
   public id: number;
-  public membersData$: Observable<Users[]> = new Observable();
+  public membersData$: Observable<Employees[]> = new Observable();
   public projectData$: Observable<Project[]> = new Observable();
   public taskData$: Observable<Task> = new Observable();
 
@@ -36,7 +36,7 @@ export class TaskFormContainerComponent implements OnInit {
   }
 
   public getMembers() {
-    this.membersData$ = this.commonService.getUsers();
+    this.membersData$ = this.commonService.getEmployees();
   }
 
   public getProjects() {

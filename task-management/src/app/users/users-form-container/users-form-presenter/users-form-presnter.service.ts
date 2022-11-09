@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs/internal/Subject';
 import { EMAIL_PATTERN, NAME_PATTERN, PASSWORD_PATTERN } from 'src/app/shared/constants';
-import { Users } from '../../users.model';
+import { Employees } from '../../users.model';
 import { UsersService } from '../../users.service';
 
 @Injectable()
 export class UsersFormPresnterService {
 
-  private userFormData: Subject<Users>;
-  public userFormdata$: Observable<Users>;
+  private userFormData: Subject<Employees>;
+  public userFormdata$: Observable<Employees>;
 
   constructor(
     private fb: FormBuilder,

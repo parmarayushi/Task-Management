@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Project } from 'src/app/projects/project.model';
-import { Users } from 'src/app/users/users.model';
+import { Employees } from 'src/app/users/users.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,8 +15,8 @@ export class CommonService {
     this.apiLink = environment.baseURL;
   }
 
-  public getUsers(): Observable<Users[]> {
-    return this.http.get<Users[]>(`${this.apiLink}/users`);
+  public getEmployees(): Observable<Employees[]> {
+    return this.http.get<Employees[]>(`${this.apiLink}/employee`);
   }
 
   public getProjectdata(): Observable<Project[]> {
