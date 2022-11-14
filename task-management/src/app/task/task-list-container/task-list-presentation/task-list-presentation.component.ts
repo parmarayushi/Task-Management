@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/shared/services/utility.service';
 import { Task } from '../../task.model';
@@ -16,7 +16,6 @@ export class TaskListPresentationComponent implements OnInit {
     if (value) {
       if (!this._newTaskList) {
         this._newTaskList = value;
-        this.changePage(this._newTaskList.slice(0, 4))
       }
       this._taskData = value;
     }
@@ -28,8 +27,17 @@ export class TaskListPresentationComponent implements OnInit {
 
   @Output() public delete: EventEmitter<number>;
 
+  @HostListener('window:resize', ['$event'])
+  public onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+    this.innerWidth >= 576 ? (this.isTableView = true, this.isCardView = false) : (this.isTableView = false, this.isCardView = true);
+  }
+
   public searchText: string;
   public newTask: Task[];
+  public isTableView: boolean;
+  public isCardView: boolean;
+  public innerWidth: number;
 
   private _taskData: Task[];
   private _newTaskList: Task[];
@@ -37,13 +45,18 @@ export class TaskListPresentationComponent implements OnInit {
   constructor(
     private taskPresenterService: TaskListPresenterService,
     private utilityService: UtilityService,
-    private route: Router
+    private route: Router,
+    private cdr:ChangeDetectorRef
   ) {
     this.delete = new EventEmitter();
-    this.searchText = ''
+    this.searchText = '';
+    this.isTableView = false;
+    this.isCardView = false;
   }
 
   ngOnInit(): void {
+    this.onResize(event);
+    
     this.taskPresenterService.deleteData$.subscribe((result: number) =>
       this.delete.emit(result)
     )
@@ -62,10 +75,11 @@ export class TaskListPresentationComponent implements OnInit {
   }
 
   public onSearch() {
-    this.utilityService.onFilter(this._newTaskList, this.searchText);
+    this.utilityService.search(this._newTaskList, this.searchText);
   }
 
   public changePage(taskList: Task[]) {
     this.newTask = taskList;
+    this.cdr.detectChanges()
   }
 }

@@ -30,7 +30,7 @@ export class UsersService {
   }
 
   public confirmPassword(password: AbstractControl): { passwordsDoNotMatch: boolean } | null {
-    return password.get('password')?.value !== password.get('confirm_password')?.value
+    return password.get('password')?.value !== password.get('confirmPassword')?.value
       ? { passwordsDoNotMatch: true }
       : null;
   }

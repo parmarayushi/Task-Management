@@ -12,7 +12,7 @@ export class PaginationComponent implements OnInit {
   @Output() changePage = new EventEmitter<any>();
   @Input() initialPage = 1;
   @Input() itemsPerPage = 5;
-  @Input() maxPages = 10;
+  @Input() maxPages = 6;
 
   pager: any = {};
 

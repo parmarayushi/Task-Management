@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/shared/services/utility.service';
 import { Project } from '../../project.model';
@@ -16,7 +16,6 @@ export class ProjectListPresentationComponent implements OnInit {
     if (value) {
       if (!this._newProjectList) {
         this._newProjectList = value;
-        this.changePage(this._newProjectList.slice(0, 4))
       }
       this._projectList = value
     }
@@ -36,25 +35,38 @@ export class ProjectListPresentationComponent implements OnInit {
     return this._projectView;
   }
 
-  private _projectView: Project;
   @Output() public delete: EventEmitter<number>;
+  @HostListener('window:resize', ['$event'])
+  public onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+    this.innerWidth >= 576 ? (this.isTableView = true, this.isCardView = false) : (this.isTableView = false, this.isCardView = true);
+  }
 
   public searchText: string;
   public newProject: Project[];
+  public isTableView: boolean;
+  public isCardView: boolean;
+  public innerWidth: number;
 
   private _projectList: Project[];
   private _newProjectList: Project[];
+  private _projectView: Project;
 
   constructor(
     public route: Router,
     private projectPresenterservice: ProjectListPresenterService,
-    private utilityService: UtilityService
+    private utilityService: UtilityService,
+    private cdr:ChangeDetectorRef
   ) {
     this.delete = new EventEmitter();
-    this.searchText = ''
+    this.searchText = '';
+    this.isTableView = false;
+    this.isCardView = false;
   }
 
   ngOnInit(): void {
+    this.onResize(event);
+
     this.projectPresenterservice.deleteData$.subscribe((result: number) =>
       this.delete.emit(result)
     )
@@ -75,11 +87,12 @@ export class ProjectListPresentationComponent implements OnInit {
     this.projectPresenterservice.deletePopUp(id);
   }
 
-  public onSearch(){
-    this.utilityService.onFilter(this._newProjectList,this.searchText)
+  public onSearch() {
+    this.utilityService.search(this._newProjectList, this.searchText)
   }
 
   public changePage(projectList: Project[]) {
     this.newProject = projectList;
+    this.cdr.detectChanges();
   }
 }

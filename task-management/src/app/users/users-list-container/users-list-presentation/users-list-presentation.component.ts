@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/shared/services/utility.service';
 import { Employees } from '../../users.model';
@@ -16,7 +16,6 @@ export class UsersListPresentationComponent implements OnInit {
     if (value) {
       if (!this._newUserList) {
         this._newUserList = value;
-        this.changePage(this._newUserList.slice(0, 4))
       }
       this._userList = value;
     }
@@ -28,8 +27,16 @@ export class UsersListPresentationComponent implements OnInit {
 
   @Output() public delete: EventEmitter<number>;
 
+  @HostListener('window:resize', ['$event'])
+  public onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+    this.innerWidth >= 576 ? (this.isTableView = true, this.isCardView = false) : (this.isTableView = false, this.isCardView = true);
+  }
   public searchText: string;
   public newUser: Employees[];
+  public isTableView: boolean;
+  public isCardView: boolean;
+  public innerWidth: number;
 
   private _userList: Employees[];
   private _newUserList: Employees[];
@@ -37,13 +44,18 @@ export class UsersListPresentationComponent implements OnInit {
   constructor(
     private route: Router,
     private userListPresenter: UsersListPresenterService,
-    private utilityService: UtilityService
+    private utilityService: UtilityService,
+    private cdr:ChangeDetectorRef
   ) {
     this.delete = new EventEmitter();
-    this.searchText = ''
+    this.searchText = '';
+    this.isTableView = false;
+    this.isCardView = false;
   }
 
   ngOnInit(): void {
+    this.onResize(event);
+
     this.userListPresenter.deleteData$.subscribe((result: number) =>
       this.delete.emit(result)
     )
@@ -62,10 +74,11 @@ export class UsersListPresentationComponent implements OnInit {
   }
 
   public onSearch() {
-    this.utilityService.onFilter(this._newUserList, this.searchText)
-  } 
+    this.utilityService.search(this._newUserList, this.searchText)
+  }
 
   public changePage(userList: Employees[]) {
     this.newUser = userList;
+    this.cdr.detectChanges();
   }
 }

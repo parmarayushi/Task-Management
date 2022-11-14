@@ -16,7 +16,7 @@ export class UtilityService {
     this.searchData$ = this.searchData.asObservable();
   }
 
-  public onFilter(currentList: any, searchText: string) {
+  public search(currentList: any, searchText: string) {
     let dataKey = Object.keys(currentList[0]);
     let newData = [...currentList];
     dataKey.forEach((item: any) => {

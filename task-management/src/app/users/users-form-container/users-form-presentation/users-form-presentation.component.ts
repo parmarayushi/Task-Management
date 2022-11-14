@@ -16,6 +16,8 @@ export class UsersFormPresentationComponent implements OnInit {
     if (value) {
       this.formTitle = "Edit Employee"
       this.usersForm.patchValue(value);
+      this.usersForm.controls['password'].disable()
+
       this._userFormData = value
     }
   }
@@ -43,11 +45,13 @@ export class UsersFormPresentationComponent implements OnInit {
     this.edit = new EventEmitter();
     this.usersForm = this.userFormPresenter.buildForm();
     this.formTitle = "New Employee";
-  }
 
+    
+  }
+  
   ngOnInit(): void {
     this.userFormPresenter.userFormdata$.subscribe((result: Employees) =>
-      this.formTitle === "New Employee" ? this.add.emit(result) : this.edit.emit(result)
+    this.formTitle === "New Employee" ? this.add.emit(result) : this.edit.emit(result)
     )
   }
 
@@ -69,5 +73,9 @@ export class UsersFormPresentationComponent implements OnInit {
   public setPasswordVisibility(passwordField: string, value: string) {
     let key = passwordField as keyof typeof this.passwordFieldsVisibility;
     this.passwordFieldsVisibility[key] = value;
+  }
+
+  onChange() {
+
   }
 }
