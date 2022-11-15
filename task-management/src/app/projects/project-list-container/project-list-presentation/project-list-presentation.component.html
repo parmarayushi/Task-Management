@@ -37,8 +37,8 @@
                             'bg-success':items.status==='Done'}">{{items.status}}</div>
                             </td>
                             <td class="text-center">
-                                <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
-                                <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
+                                <span class="icon-eye pe-4 cursor-pointer" [routerLink]="['view',items.id]"></span>
+                                <span class="icon-edit pe-4 cursor-pointer" [routerLink]="['edit',items.id]"></span>
                                 <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
                             </td>
                         </tr>
@@ -82,8 +82,8 @@
                                 </div>
                                 <div class="card-title">
                                     <label for="action" class="pe-2 fw-bold">Action:</label>
-                                    <span class="icon-eye pe-4 cursor-pointer" (click)="onView(items.id)"></span>
-                                    <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
+                                    <span class="icon-eye pe-4 cursor-pointer" [routerLink]="['view',items.id]"></span>
+                                    <span class="icon-edit pe-4 cursor-pointer" [routerLink]="['edit',items.id]"></span>
                                     <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
                                 </div>
                             </div>

@@ -40,7 +40,7 @@
                             'bg-success':data.status==='Done'}">{{data.status}}</div>
                             </td>
                             <td class="text-center">
-                                <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(data.id)"></span>
+                                <span class="icon-edit pe-4 cursor-pointer" [routerLink]="['edit',data.id]"></span>
                                 <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
                             </td>
                         </tr>
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="card-title">
                                     <label for="action" class="pe-2 fw-bold">Action:</label>
-                                    <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(data.id)"></span>
+                                    <span class="icon-edit pe-4 cursor-pointer" [routerLink]="['edit',data.id]"></span>
                                     <span class="icon-delete cursor-pointer" (click)="onDelete(data.id)"></span>
                                 </div>
                             </div>

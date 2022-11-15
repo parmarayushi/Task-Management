@@ -17,10 +17,19 @@ export class ProjectListPresenterService {
     this.deleteData$ = this.deleteData.asObservable();
   }
 
+  /**
+   * @name onDelete
+   * @param id 
+   * @description next the id to the presentation.
+   */
   public onDelete(id: number) {
     this.deleteData.next(id);
   }
 
+  /**
+   * @name deletePopUp
+   * @description displays the delete overlay.
+   */
   public deletePopUp(id: number) {
     const config = this.overlay.create({
       hasBackdrop: true,

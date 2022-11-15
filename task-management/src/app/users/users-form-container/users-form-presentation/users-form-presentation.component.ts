@@ -12,6 +12,10 @@ import { UsersFormPresnterService } from '../users-form-presenter/users-form-pre
 })
 export class UsersFormPresentationComponent implements OnInit {
 
+  /**
+   * @name userData
+   * @description set the list of employees.
+   */
   @Input() public set userData(value: Employees[] | null) {
     if (value) {
       this.formTitle = "Edit Employee"
@@ -22,6 +26,10 @@ export class UsersFormPresentationComponent implements OnInit {
     }
   }
 
+  /**
+   * @name userData
+   * @description gets the list of employees.
+   */
   public get userData(): Employees[] | null {
     return this._userFormData;
   }
@@ -32,6 +40,8 @@ export class UsersFormPresentationComponent implements OnInit {
   public usersForm: FormGroup;
   public formTitle: string;
   public formSubmitted: boolean;
+  public successMsg: boolean;
+  public updateMsg: boolean;
   public passwordFieldsVisibility = {
     password: 'close',
     confirmPassword: 'close',
@@ -45,8 +55,8 @@ export class UsersFormPresentationComponent implements OnInit {
     this.edit = new EventEmitter();
     this.usersForm = this.userFormPresenter.buildForm();
     this.formTitle = "New Employee";
-
-    
+    this.successMsg = false
+    this.updateMsg = false
   }
   
   ngOnInit(): void {
@@ -55,27 +65,38 @@ export class UsersFormPresentationComponent implements OnInit {
     )
   }
 
+  /**
+   * @name getControls
+   * @description gets the controls of the form.
+   */
   public get getControls() {
     return this.usersForm.controls;
   }
 
+  /**
+   * @name onSubmit()
+   * @description submits the employeeform on click.
+   */
   public onSubmit() {
     this.formSubmitted = !this.usersForm.valid;
     if (!this.formSubmitted) {
-      this.userFormPresenter.onSubmit(this.usersForm);
+      this.userFormPresenter.submit(this.usersForm);
+      if (this.formTitle == "New Employee") {
+        this.successMsg = true
+      } else {
+        this.updateMsg = true
+      }
     }
   }
 
-  public onCancel() {
-    this.route.navigateByUrl('users')
-  }
-
+  /**
+   * @name setPasswordVisibility
+   * @param passwordField 
+   * @param value 
+   * @description shows the password on the mouseevents and touchevents.
+   */
   public setPasswordVisibility(passwordField: string, value: string) {
     let key = passwordField as keyof typeof this.passwordFieldsVisibility;
     this.passwordFieldsVisibility[key] = value;
-  }
-
-  onChange() {
-
   }
 }

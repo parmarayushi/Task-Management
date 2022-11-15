@@ -20,10 +20,19 @@ export class UsersListContainerComponent implements OnInit {
     this.getEmployee();
   }
 
+  /**
+   * @name getEmployee
+   * @description calls the methods from commonservice.
+   */
   public getEmployee() {
     this.userList$ = this.commonService.getEmployees();
   }
 
+  /**
+   * @name deleteEmployee
+   * @param id 
+   * @description calls the method from the userservice and subscribes it.
+   */
   public deleteEmployee(id: number) {
     this.userService.deleteEmployee(id).subscribe(() => {
       alert('User Deleted.')

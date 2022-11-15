@@ -14,6 +14,10 @@ import { TaskFormPresenterService } from '../task-form-presenter/task-form-prese
 })
 export class TaskFormPresentationComponent implements OnInit {
 
+  /**
+   * @name taskData
+   * @description sets the list of tasks.
+   */
   @Input() public set taskData(value: Task | null) {
     if (value) {
       this.formTitle = "Edit Task"
@@ -22,10 +26,18 @@ export class TaskFormPresentationComponent implements OnInit {
     }
   }
 
+  /**
+   * @name taskData
+   * @description gets the list of tasks.
+   */
   public get taskData(): Task | null {
     return this._taskData;
   }
 
+  /**
+   * @name projectData
+   * @description sets the list of projects.
+   */
   @Input() public set projectData(value: Project[] | null) {
     if (value) {
       this._projectData = value;
@@ -33,16 +45,28 @@ export class TaskFormPresentationComponent implements OnInit {
     }
   }
 
+  /**
+   * @name projectData
+   * @description gets the list of projects.
+   */
   public get projectData(): Project[] | null {
     return this._projectData;
   }
 
+  /**
+   * @name memberData
+   * @description sets the list of employees.
+   */
   @Input() public set memberData(value: Employees[] | null) {
     if (value) {
       this._membersData = value;
     }
   }
 
+  /**
+   * @name memberData
+   * @description gets the list of employees.
+   */
   public get memberData(): Employees[] | null {
     return this._membersData;
   }
@@ -53,6 +77,8 @@ export class TaskFormPresentationComponent implements OnInit {
   public taskForm: FormGroup;
   public formTitle: string;
   public formSubmitted: boolean;
+  public successMsg: boolean;
+  public updateMsg: boolean;
 
   private _taskData: Task;
   private _projectData: Project[];
@@ -67,6 +93,8 @@ export class TaskFormPresentationComponent implements OnInit {
     this.edit = new EventEmitter();
     this.formTitle = "New Task";
     this.formSubmitted = false;
+    this.successMsg = false
+    this.updateMsg = false
   }
 
   ngOnInit(): void {
@@ -75,18 +103,27 @@ export class TaskFormPresentationComponent implements OnInit {
     )
   }
 
+  /**
+   * @name getControls
+   * @description gets the controls of the taskform.
+   */
   public get getControls() {
     return this.taskForm.controls;
   }
 
+  /**
+   * @name onSubmit
+   * @description submits the taskform on click.
+   */
   public onSubmit() {
     this.formSubmitted = !this.taskForm.valid;
     if (!this.formSubmitted) {
-      this.taskFormPresenter.onSubmit(this.taskForm);
+      this.taskFormPresenter.submit(this.taskForm);
+      if (this.formTitle == "New Task") {
+        this.successMsg = true
+      } else {
+        this.updateMsg = true
+      }
     }
-  }
-
-  public onCancel() {
-    this.route.navigateByUrl('tasks')
   }
 }

@@ -28,7 +28,12 @@ export class ProjectFormPresenterService {
     })
   }
 
-  onSubmit(projectForm: FormGroup) {
+  /**
+   * @name submit
+   * @param projectForm 
+   * @description next the value of projectform.
+   */
+  public submit(projectForm: FormGroup) {
     this.projectFormData.next(projectForm.value);
   }
 }

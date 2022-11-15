@@ -23,13 +23,21 @@ export class ProjectListContainerComponent implements OnInit {
     this.getProjectList()
   }
 
+  /**
+   * @name getProjectList
+   * @description calls the method from commonservice.
+   */
   public getProjectList() {
     this.projectList$ = this.commonService.getProjectdata()
   }
 
+  /**
+   * @name deleteProject
+   * @param id 
+   * @description calls the method from projectservice and subscribes it.
+   */
   public deleteProject(id: number) {
     this.projectService.deleteProject(id).subscribe(() => {
-      alert('Project Deleted.')
       this.getProjectList();
     })
   }

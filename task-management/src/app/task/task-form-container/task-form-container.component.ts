@@ -35,25 +35,45 @@ export class TaskFormContainerComponent implements OnInit {
     this.getProjects();
   }
 
+  /**
+   * @name getMembers
+   * @description calls the method from commonservice.
+   */
   public getMembers() {
     this.membersData$ = this.commonService.getEmployees();
   }
 
+  /**
+   * @name getProjects
+   * @description calls the method from comonservice. 
+   */
   public getProjects() {
     this.projectData$ = this.commonService.getProjectdata();
   }
 
+  /**
+   * @name addTasks
+   * @param form 
+   * @description calls the method from taskservice and subscribes it.
+   */
   public addTasks(form: Task) {
     this.taskService.addTaskData(form).subscribe(() => {
-      alert('Task Added Successfully.');
-      this.route.navigateByUrl('tasks');
+      setTimeout(() => {
+        this.route.navigateByUrl('tasks');
+      }, 2000);
     })
   }
 
+  /**
+   * @name editTasks
+   * @param form 
+   * @description calls the method from task service and subscribes it.
+   */
   public editTasks(form: Task) {
     this.taskService.editTask(this.id, form).subscribe(() => {
-      alert('Task Updated Successfully.');
-      this.route.navigateByUrl('tasks');
+      setTimeout(() => {
+        this.route.navigateByUrl('tasks');
+      }, 2000);
     })
   }
 }

@@ -26,7 +26,7 @@
                             <td class="table-text text-truncate">{{items?.email}}</td>
                             <td>{{items?.city}}</td>
                             <td class="text-center">
-                                <span class="icon-edit cursor-pointer pe-3" (click)="onEdit(items.id)"></span>
+                                <span class="icon-edit cursor-pointer pe-3" [routerLink]="['edit',items.id]"></span>
                                 <span class="icon-delete cursor-pointer pe-3" (click)="onDelete(items.id)"></span>
                             </td>
                         </tr>
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="card-title">
                                     <label for="action" class="pe-2 fw-bold">Action:</label>
-                                    <span class="icon-edit pe-4 cursor-pointer" (click)="onEdit(items.id)"></span>
+                                    <span class="icon-edit pe-4 cursor-pointer" [routerLink]="['edit',items.id]"></span>
                                     <span class="icon-delete cursor-pointer" (click)="onDelete(items.id)"></span>
                                 </div>
                             </div>

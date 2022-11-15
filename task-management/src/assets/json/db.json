@@ -5,8 +5,6 @@
       "lastName": "Bhanushali",
       "city": "Valsad",
       "email": "jigar.bhanushali@gmail.com",
-      "password": "jigar@123",
-      "confirmPassword": "jigar@123",
       "id": 1
     },
     {
@@ -226,7 +224,8 @@
       ],
       "description": "This  project is created by interns which are college students. ",
       "id": 4
-    }, {
+    },
+    {
       "name": "1 Talent",
       "status": "Done",
       "startDate": "2022-02-04",
@@ -314,8 +313,146 @@
       ],
       "description": "This  project is created by interns which are college students. ",
       "id": 7
+    },
+    {
+      "name": "dsc",
+      "status": "Started",
+      "startDate": "2022-11-05",
+      "dueDate": "2022-11-14",
+      "projectManager": "Kevang Patel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 2,
+          "firstName": "Pooja"
+        },
+        {
+          "id": 3,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 4,
+          "firstName": "Viral"
+        }
+      ],
+      "description": "dfsdfdf",
+      "id": 8
+    },
+    {
+      "name": "dd",
+      "status": "Done",
+      "startDate": "2022-11-13",
+      "dueDate": "2022-11-12",
+      "projectManager": "Akshita Kapadia",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 2,
+          "firstName": "Pooja"
+        },
+        {
+          "id": 3,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 4,
+          "firstName": "Viral"
+        },
+        {
+          "id": 5,
+          "firstName": "Mehul"
+        },
+        {
+          "id": 6,
+          "firstName": "Aman"
+        },
+        {
+          "id": 7,
+          "firstName": "Tanmay"
+        },
+        {
+          "id": 8,
+          "firstName": "Aayushi"
+        },
+        {
+          "id": 9,
+          "firstName": "Tanmay"
+        },
+        {
+          "id": 10,
+          "firstName": "Viral"
+        },
+        {
+          "id": 11,
+          "firstName": "Pooja"
+        },
+        {
+          "id": 12,
+          "firstName": "Mrunal"
+        },
+        {
+          "id": 13,
+          "firstName": "Aayushi"
+        }
+      ],
+      "description": "dsfsdf",
+      "id": 9
+    },
+    {
+      "name": "sdsdf",
+      "status": "Done",
+      "startDate": "2022-11-11",
+      "dueDate": "2022-11-05",
+      "projectManager": "Kevang Patel",
+      "teamMembers": [
+        {
+          "id": 1,
+          "firstName": "Jigar"
+        },
+        {
+          "id": 2,
+          "firstName": "Pooja"
+        }
+      ],
+      "description": "dsfsdf",
+      "id": 10
+    },
+    {
+      "name": "dfs",
+      "status": "In Progress",
+      "startDate": "2022-11-17",
+      "dueDate": "2022-11-08",
+      "projectManager": "Viral Patel",
+      "teamMembers": [
+        {
+          "id": 2,
+          "firstName": "Pooja"
+        }
+      ],
+      "description": "dfdsf",
+      "id": 11
+    },
+    {
+      "name": "sd",
+      "status": "In Progress",
+      "startDate": "2022-11-11",
+      "dueDate": "2022-11-02",
+      "projectManager": "Kevang Patel",
+      "teamMembers": [
+        {
+          "id": 2,
+          "firstName": "Pooja"
+        }
+      ],
+      "description": "sdsdfd",
+      "id": 12
     }
-
   ],
   "task": [
     {
@@ -357,8 +494,7 @@
       "dueDate": "2022-03-03",
       "status": "Pending",
       "id": 4
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -368,8 +504,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 5
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -379,8 +514,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 6
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -390,8 +524,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 7
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -401,8 +534,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 8
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -412,8 +544,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 9
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -423,8 +554,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 10
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -434,8 +564,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 11
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -445,8 +574,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 12
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -456,8 +584,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 13
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -467,8 +594,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 14
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -478,8 +604,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 15
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -489,8 +614,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 16
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -500,8 +624,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 17
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -511,8 +634,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 18
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -522,8 +644,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 19
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -533,8 +654,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 20
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -544,8 +664,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 21
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -555,8 +674,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 22
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -566,8 +684,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 23
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -577,8 +694,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 24
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -588,8 +704,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 25
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -599,8 +714,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 26
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -610,8 +724,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 27
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -621,8 +734,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 28
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -632,8 +744,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 29
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -643,8 +754,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 30
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -652,10 +762,9 @@
       "assignTo": "Jigar Bhanushali",
       "priority": "High",
       "dueDate": "2022-03-03",
-      "status":"Done",
+      "status": "Done",
       "id": 31
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -665,8 +774,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 32
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -676,8 +784,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 33
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -687,8 +794,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 34
-    }
-    ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -698,7 +804,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 35
-    } ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -708,7 +814,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 36
-    } ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -718,7 +824,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 37
-    } ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -728,7 +834,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 38
-    } ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -738,7 +844,7 @@
       "dueDate": "2022-03-03",
       "status": "Done",
       "id": 39
-    } ,
+    },
     {
       "projectName": "1 Talent",
       "task": "Implement Crud Operation on user registartion",
@@ -750,14 +856,14 @@
       "id": 40
     }
   ],
-  "user":[
+  "user": [
     {
-      "email":"admin123@gmail.com",
-      "password":"admin@123"
+      "email": "admin123@gmail.com",
+      "password": "admin@123"
     },
     {
-      "email":"ayushi123@gmail.com",
-      "password":"ayushi@123"
+      "email": "ayushi123@gmail.com",
+      "password": "ayushi@123"
     }
   ]
 }

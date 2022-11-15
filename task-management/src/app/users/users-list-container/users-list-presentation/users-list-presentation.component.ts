@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/shared/services/utility.service';
 import { Employees } from '../../users.model';
 import { UsersListPresenterService } from '../users-list-presenter/users-list-presenter.service';
@@ -12,6 +11,10 @@ import { UsersListPresenterService } from '../users-list-presenter/users-list-pr
 })
 export class UsersListPresentationComponent implements OnInit {
 
+  /**
+   * @name userList
+   * @description sets the list.
+   */
   @Input() public set userList(value: Employees[] | null) {
     if (value) {
       if (!this._newUserList) {
@@ -21,6 +24,10 @@ export class UsersListPresentationComponent implements OnInit {
     }
   }
 
+  /**
+   * @name userList
+   * @description gets the list of employees.
+   */
   public get userList(): Employees[] {
     return this._userList;
   }
@@ -32,6 +39,7 @@ export class UsersListPresentationComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     this.innerWidth >= 576 ? (this.isTableView = true, this.isCardView = false) : (this.isTableView = false, this.isCardView = true);
   }
+  
   public searchText: string;
   public newUser: Employees[];
   public isTableView: boolean;
@@ -42,7 +50,6 @@ export class UsersListPresentationComponent implements OnInit {
   private _newUserList: Employees[];
 
   constructor(
-    private route: Router,
     private userListPresenter: UsersListPresenterService,
     private utilityService: UtilityService,
     private cdr:ChangeDetectorRef
@@ -65,18 +72,28 @@ export class UsersListPresentationComponent implements OnInit {
     })
   }
 
-  public onEdit(id: number) {
-    this.route.navigateByUrl(`users/edit/${id}`)
-  }
-
+  /**
+   * @name onDelete
+   * @param id 
+   * @description deletes the record on click of button.
+   */
   public onDelete(id: number) {
     this.userListPresenter.deletePopUp(id);
   }
 
+  /**
+   * @name onSearch
+   * @description searches data from the list.
+   */
   public onSearch() {
     this.utilityService.search(this._newUserList, this.searchText)
   }
 
+  /**
+   * @name changePage
+   * @param userList 
+   * @description changes list on click of numbers in pagination.
+   */
   public changePage(userList: Employees[]) {
     this.newUser = userList;
     this.cdr.detectChanges();

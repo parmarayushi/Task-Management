@@ -27,7 +27,12 @@ export class TaskFormPresenterService {
     })
   }
 
-  onSubmit(taskForm: FormGroup) {
+  /**
+   * @name submit
+   * @param taskForm 
+   * @description next the value of taskform.
+   */
+  public submit(taskForm: FormGroup) {
     this.taskFormData.next(taskForm.value);
   }
 }

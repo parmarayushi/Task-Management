@@ -35,7 +35,12 @@ export class UsersFormPresnterService {
     })
   }
 
-  public onSubmit(userForm: FormGroup) {
+  /**
+   * @name submit
+   * @param userForm 
+   * @description next the value of userform.
+   */
+  public submit(userForm: FormGroup) {
     this.userFormData.next(userForm.value)
   }
 }

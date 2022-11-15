@@ -27,17 +27,29 @@ export class UsersFormContainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * @name addEmployee
+   * @param form 
+   * @description calls the method from the userservice and subscribes it.
+   */
   public addEmployee(form: Employees) {
     this.userService.addEmployee(form).subscribe(() => {
-      alert("Employee Added Successfully.");
-      this.router.navigateByUrl('users')
+      setTimeout(() => {
+        this.router.navigateByUrl('users')
+      }, 2000);
     })
   }
 
+  /**
+   * @name editEmployee
+   * @param form 
+   * @description calls the methods from userservice and subscribes it.
+   */
   public editEmployee(form: Employees) {
     this.userService.editEmployee(this.id, form).subscribe(() => {
-      alert('Employee Updtaed Successfully.');
-      this.router.navigateByUrl('users');
+      setTimeout(() => {
+        this.router.navigateByUrl('users')
+      }, 2000);
     })
   }
 }

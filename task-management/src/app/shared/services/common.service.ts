@@ -15,10 +15,18 @@ export class CommonService {
     this.apiLink = environment.baseURL;
   }
 
+  /**
+   * @name getEmployees
+   * @returns Obseervable of type Employees
+   */
   public getEmployees(): Observable<Employees[]> {
     return this.http.get<Employees[]>(`${this.apiLink}/employee`);
   }
 
+  /**
+   * @name getProjectdata
+   * @returns Observable of type Project
+   */
   public getProjectdata(): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.apiLink}/project`);
   }

@@ -16,10 +16,20 @@ export class TaskListContainerComponent implements OnInit {
   ngOnInit(): void {
     this.getTasks();
   }
+
+  /**
+   * @name getTasks
+   * @description calls the method from the taskservice.
+   */
   public getTasks() {
     this.taskData$ = this.taskService.getTaskData();
   }
 
+  /**
+   * @name deleteTask
+   * @param id 
+   * @description calls the method from taskservice and subscribes it.
+   */
   public deleteTask(id: number) {
     this.taskService.deleteTask(id).subscribe(() => {
       alert('Task Deleted.')

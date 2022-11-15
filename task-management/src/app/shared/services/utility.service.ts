@@ -16,6 +16,12 @@ export class UtilityService {
     this.searchData$ = this.searchData.asObservable();
   }
 
+  /**
+   * @name search
+   * @param currentList 
+   * @param searchText 
+   * @description searches data from the list.
+   */
   public search(currentList: any, searchText: string) {
     let dataKey = Object.keys(currentList[0]);
     let newData = [...currentList];

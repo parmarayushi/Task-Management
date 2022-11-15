@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/shared/services/utility.service';
 import { Task } from '../../task.model';
 import { TaskListPresenterService } from '../task-list-presenter/task-list-presenter.service';
@@ -12,6 +11,10 @@ import { TaskListPresenterService } from '../task-list-presenter/task-list-prese
 })
 export class TaskListPresentationComponent implements OnInit {
 
+  /**
+   * @name taskData
+   * @description sets the list.
+   */
   @Input() public set taskData(value: Task[] | null) {
     if (value) {
       if (!this._newTaskList) {
@@ -21,6 +24,10 @@ export class TaskListPresentationComponent implements OnInit {
     }
   }
 
+  /**
+   * @name taskData
+   * @description gets the list of task.
+   */
   public get taskData(): Task[] {
     return this._taskData;
   }
@@ -45,7 +52,6 @@ export class TaskListPresentationComponent implements OnInit {
   constructor(
     private taskPresenterService: TaskListPresenterService,
     private utilityService: UtilityService,
-    private route: Router,
     private cdr:ChangeDetectorRef
   ) {
     this.delete = new EventEmitter();
@@ -66,18 +72,28 @@ export class TaskListPresentationComponent implements OnInit {
     })
   }
 
-  public onEdit(id: number) {
-    this.route.navigateByUrl(`tasks/edit/${id}`);
-  }
-
+  /**
+   * @name onDelete
+   * @param id 
+   * @description deletes the data on click of button.
+   */
   public onDelete(id: number) {
     this.taskPresenterService.deletePopUp(id);
   }
 
+  /**
+   * @name onSearch
+   * @description search the data from the list.
+   */
   public onSearch() {
     this.utilityService.search(this._newTaskList, this.searchText);
   }
 
+  /**
+   * @name changePage
+   * @param taskList 
+   * @description change the list on click of numbers in pagination.
+   */
   public changePage(taskList: Task[]) {
     this.newTask = taskList;
     this.cdr.detectChanges()

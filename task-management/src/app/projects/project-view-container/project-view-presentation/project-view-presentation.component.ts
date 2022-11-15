@@ -10,12 +10,20 @@ import { ProjectViewPresenterService } from '../project-view-presenter/project-v
 })
 export class ProjectViewPresentationComponent implements OnInit {
 
+  /**
+   * @name projectView
+   * @description sets the list.
+   */
   @Input() public set projectView(value: Project | null) {
     if (value) {
       this._projectView = value       
     }
   }
 
+  /**
+   * @name projectView
+   * @description gets the list of project.
+   */
   public get projectView(): Project {
     return this._projectView;
   }

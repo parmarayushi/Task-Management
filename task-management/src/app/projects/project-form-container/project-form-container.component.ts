@@ -32,21 +32,37 @@ export class ProjectFormContainerComponent implements OnInit {
     this.getMembers();
   }
 
+  /**
+   * @name getMembers
+   * @description calls the method from commonservice.
+   */
   public getMembers() {
     this.membersList$ = this.commonService.getEmployees();
   }
 
+  /**
+   * @name addProjects
+   * @param form 
+   * @description calls the method from projectservice and subscribes it.
+   */
   public addProjects(form: Project) {
     this.projectService.addProjectdata(form).subscribe(() => {
-      alert('Project Added Successfully.');
-      this.route.navigateByUrl('projects');
+      setTimeout(() => {
+        this.route.navigateByUrl('projects');
+      }, 2000);
     })
   }
 
+  /**
+   * @name editProject
+   * @param form 
+   * @description calls teh method from projectservice and subscribes it.
+   */
   public editProject(form: Project) {
     this.projectService.editProject(this.id, form).subscribe(() => {
-      alert('Project Updated Successfully.');
-      this.route.navigateByUrl('projects')
+      setTimeout(() => {
+        this.route.navigateByUrl('projects')
+      }, 2000);
     })
   }
 }

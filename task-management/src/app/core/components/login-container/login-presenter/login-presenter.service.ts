@@ -23,17 +23,12 @@ export class LoginPresenterService {
 
   public onLogin(formData: FormGroup, user: User[]) {
     this.currentUser = user.find((res: User) => res.email === formData.value.email && res.password === formData.value.password)
-    console.log(this.currentUser);
-
     if (!this.currentUser) {
       alert("Unvalid Email or Password");
     }
     if (formData.valid && this.currentUser) {
-      console.log("correct");
       localStorage.setItem('isLogin', "1")
       this._route.navigateByUrl('dashboard');
-
     }
   }
-
 }
