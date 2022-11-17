@@ -5,6 +5,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { DeletePopupComponent } from './component/delete-popup/delete-popup.component';
 import { PaginationComponent } from './component/pagination/pagination.component';
 import { SearchTextPipe } from './pipes/search-text.pipe';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonService } from './services/common.service';
 
 
@@ -29,7 +30,8 @@ import { CommonService } from './services/common.service';
     NgMultiSelectDropDownModule,
     DeletePopupComponent,
     SearchTextPipe,
-    PaginationComponent
+    PaginationComponent,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

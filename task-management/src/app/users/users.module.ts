@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { UsersFormContainerComponent } from './users-form-container/users-form-container.component';
 import { UsersFormPresentationComponent } from './users-form-container/users-form-presentation/users-form-presentation.component';
@@ -23,7 +22,6 @@ import { UsersService } from './users.service';
   imports: [
     CommonModule,
     UsersRoutingModule,
-    HttpClientModule,
     SharedModule
   ],
   exports:[],

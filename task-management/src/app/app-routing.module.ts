@@ -6,6 +6,9 @@ import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
+    path:"login",component:LoginContainerComponent
+  },
+  {
     path: "", component: MasterComponent,
     canActivate: [AuthGuard],
     children: [
@@ -16,9 +19,6 @@ const routes: Routes = [
       { path: 'tasks', loadChildren: () => import('./task/task.module').then(m => m.TaskModule) },
     ]
   },
-  {
-    path:"login",component:LoginContainerComponent
-  }
 ];
 
 @NgModule({

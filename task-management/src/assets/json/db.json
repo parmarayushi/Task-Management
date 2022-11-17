@@ -193,6 +193,10 @@
         {
           "id": 9,
           "firstName": "Abhishek"
+        },
+        {
+          "id": 2,
+          "firstName": "Pooja"
         }
       ],
       "description": "Create a website using HTML, Bootstrap and Angular.",
@@ -340,118 +344,6 @@
       ],
       "description": "dfsdfdf",
       "id": 8
-    },
-    {
-      "name": "dd",
-      "status": "Done",
-      "startDate": "2022-11-13",
-      "dueDate": "2022-11-12",
-      "projectManager": "Akshita Kapadia",
-      "teamMembers": [
-        {
-          "id": 1,
-          "firstName": "Jigar"
-        },
-        {
-          "id": 2,
-          "firstName": "Pooja"
-        },
-        {
-          "id": 3,
-          "firstName": "Mrunal"
-        },
-        {
-          "id": 4,
-          "firstName": "Viral"
-        },
-        {
-          "id": 5,
-          "firstName": "Mehul"
-        },
-        {
-          "id": 6,
-          "firstName": "Aman"
-        },
-        {
-          "id": 7,
-          "firstName": "Tanmay"
-        },
-        {
-          "id": 8,
-          "firstName": "Aayushi"
-        },
-        {
-          "id": 9,
-          "firstName": "Tanmay"
-        },
-        {
-          "id": 10,
-          "firstName": "Viral"
-        },
-        {
-          "id": 11,
-          "firstName": "Pooja"
-        },
-        {
-          "id": 12,
-          "firstName": "Mrunal"
-        },
-        {
-          "id": 13,
-          "firstName": "Aayushi"
-        }
-      ],
-      "description": "dsfsdf",
-      "id": 9
-    },
-    {
-      "name": "sdsdf",
-      "status": "Done",
-      "startDate": "2022-11-11",
-      "dueDate": "2022-11-05",
-      "projectManager": "Kevang Patel",
-      "teamMembers": [
-        {
-          "id": 1,
-          "firstName": "Jigar"
-        },
-        {
-          "id": 2,
-          "firstName": "Pooja"
-        }
-      ],
-      "description": "dsfsdf",
-      "id": 10
-    },
-    {
-      "name": "dfs",
-      "status": "In Progress",
-      "startDate": "2022-11-17",
-      "dueDate": "2022-11-08",
-      "projectManager": "Viral Patel",
-      "teamMembers": [
-        {
-          "id": 2,
-          "firstName": "Pooja"
-        }
-      ],
-      "description": "dfdsf",
-      "id": 11
-    },
-    {
-      "name": "sd",
-      "status": "In Progress",
-      "startDate": "2022-11-11",
-      "dueDate": "2022-11-02",
-      "projectManager": "Kevang Patel",
-      "teamMembers": [
-        {
-          "id": 2,
-          "firstName": "Pooja"
-        }
-      ],
-      "description": "sdsdfd",
-      "id": 12
     }
   ],
   "task": [
@@ -472,7 +364,7 @@
       "assignTo": "Mrunal Patel",
       "priority": "Medium",
       "dueDate": "2022-05-06",
-      "status": "In Progress",
+      "status": "Pending",
       "id": 2
     },
     {
